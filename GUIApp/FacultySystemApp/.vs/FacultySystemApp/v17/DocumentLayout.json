@@ -1,0 +1,66 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\jojo1\\source\\repos\\FacultySystemApp\\FacultySystemApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BB222441-43E1-437A-B92D-B5A277D03CC4}|FacultySystemApp.csproj|C:\\Users\\jojo1\\source\\repos\\FacultySystemApp\\FacultySystemApp\\welcomform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BB222441-43E1-437A-B92D-B5A277D03CC4}|FacultySystemApp.csproj|solutionrelative:welcomform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB222441-43E1-437A-B92D-B5A277D03CC4}|FacultySystemApp.csproj|c:\\users\\jojo1\\source\\repos\\facultysystemapp\\facultysystemapp\\signupform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BB222441-43E1-437A-B92D-B5A277D03CC4}|FacultySystemApp.csproj|solutionrelative:signupform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "WelcomForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\jojo1\\source\\repos\\FacultySystemApp\\FacultySystemApp\\WelcomForm.cs",
+              "RelativeDocumentMoniker": "WelcomForm.cs",
+              "ToolTip": "C:\\Users\\jojo1\\source\\repos\\FacultySystemApp\\FacultySystemApp\\WelcomForm.cs [Design]",
+              "RelativeToolTip": "WelcomForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T15:59:22.745Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SignupForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\jojo1\\source\\repos\\FacultySystemApp\\FacultySystemApp\\SignupForm.cs",
+              "RelativeDocumentMoniker": "SignupForm.cs",
+              "ToolTip": "C:\\Users\\jojo1\\source\\repos\\FacultySystemApp\\FacultySystemApp\\SignupForm.cs [Design]",
+              "RelativeToolTip": "SignupForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T18:04:58.508Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
