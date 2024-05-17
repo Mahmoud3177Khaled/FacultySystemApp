@@ -35,3 +35,4 @@ C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Deb
 C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.pdb
 C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.genruntimeconfig.cache
 C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\ref\FacultySystemApp.dll
+C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.VerifyAdmin.resources

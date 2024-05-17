@@ -36,6 +36,7 @@
             contextMenuStrip1 = new ContextMenuStrip(components);
             textBox1 = new TextBox();
             LoginUserButton = new Button();
+            BackToWelcom = new Button();
             SuspendLayout();
             // 
             // loginlabel
@@ -102,6 +103,19 @@
             LoginUserButton.TabIndex = 6;
             LoginUserButton.Text = "Login";
             LoginUserButton.UseVisualStyleBackColor = true;
+            LoginUserButton.Click += LoginUserButton_Click;
+            // 
+            // BackToWelcom
+            // 
+            BackToWelcom.Font = new Font("Segoe UI", 15F);
+            BackToWelcom.ForeColor = Color.Black;
+            BackToWelcom.Location = new Point(40, 30);
+            BackToWelcom.Name = "BackToWelcom";
+            BackToWelcom.Size = new Size(90, 40);
+            BackToWelcom.TabIndex = 7;
+            BackToWelcom.Text = "⇐ back";
+            BackToWelcom.UseVisualStyleBackColor = true;
+            BackToWelcom.Click += BackToWelcome_Click;
             // 
             // LoginForm
             // 
@@ -109,6 +123,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             ClientSize = new Size(1334, 761);
+            Controls.Add(BackToWelcom);
             Controls.Add(LoginUserButton);
             Controls.Add(textBox1);
             Controls.Add(loginEmailInput);
@@ -118,6 +133,7 @@
             ForeColor = Color.White;
             Name = "LoginForm";
             Text = "Login";
+            FormClosed += LoginFormClosed;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -131,5 +147,6 @@
         private ContextMenuStrip contextMenuStrip1;
         private TextBox textBox1;
         private Button LoginUserButton;
+        private Button BackToWelcom;
     }
 }

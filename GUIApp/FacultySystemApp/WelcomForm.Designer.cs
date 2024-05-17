@@ -115,6 +115,7 @@
             Controls.Add(welcome);
             Name = "WelcomeForm";
             Text = "welcome";
+            FormClosed += WelcomeFormClosed;
             ResumeLayout(false);
             PerformLayout();
         }

@@ -3,36 +3,52 @@
   "WorkspaceRootPath": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|c:\\users\\jojo1\\documents\\github\\facultysystemapp\\guiapp\\facultysystemapp\\signupform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\facultysystemapp\\welcomform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|solutionrelative:facultysystemapp\\welcomform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|c:\\users\\jojo1\\documents\\github\\facultysystemapp\\guiapp\\facultysystemapp\\verifyadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|solutionrelative:facultysystemapp\\verifyadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|c:\\users\\jojo1\\documents\\github\\facultysystemapp\\guiapp\\facultysystemapp\\verifyadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|solutionrelative:facultysystemapp\\verifyadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\facultysystemapp\\signupform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|solutionrelative:facultysystemapp\\signupform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\facultysystemapp\\signupform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|solutionrelative:facultysystemapp\\signupform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|c:\\users\\jojo1\\documents\\github\\facultysystemapp\\guiapp\\facultysystemapp\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|solutionrelative:facultysystemapp\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\facultysystemapp\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|solutionrelative:facultysystemapp\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\facultysystemapp\\loginform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|solutionrelative:facultysystemapp\\loginform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\facultysystemapp\\welcomform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|solutionrelative:facultysystemapp\\welcomform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\facultysystemapp\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|solutionrelative:facultysystemapp\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|c:\\users\\jojo1\\documents\\github\\facultysystemapp\\guiapp\\facultysystemapp\\verifyadmin.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|solutionrelative:facultysystemapp\\verifyadmin.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\facultysystemapp\\welcomform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|solutionrelative:facultysystemapp\\welcomform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\facultysystemapp\\facultysystemapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|solutionrelative:facultysystemapp\\facultysystemapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\facultysystemapp\\welcomform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|solutionrelative:facultysystemapp\\welcomform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\facultysystemapp\\facultysystemapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|solutionrelative:facultysystemapp\\facultysystemapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\facultysystemapp\\loginform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|solutionrelative:facultysystemapp\\loginform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +58,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,7 +66,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "SignupForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\SignupForm.cs",
               "RelativeDocumentMoniker": "FacultySystemApp\\SignupForm.cs",
@@ -62,77 +78,134 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "LoginForm.cs",
               "DocumentMoniker": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\LoginForm.cs",
               "RelativeDocumentMoniker": "FacultySystemApp\\LoginForm.cs",
               "ToolTip": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\LoginForm.cs",
               "RelativeToolTip": "FacultySystemApp\\LoginForm.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAMAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAABAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-11T15:21:09.382Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "LoginForm.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\LoginForm.Designer.cs",
-              "RelativeDocumentMoniker": "FacultySystemApp\\LoginForm.Designer.cs",
-              "ToolTip": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\LoginForm.Designer.cs",
-              "RelativeToolTip": "FacultySystemApp\\LoginForm.Designer.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-08T14:16:32.308Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "WelcomForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\WelcomForm.cs",
-              "RelativeDocumentMoniker": "FacultySystemApp\\WelcomForm.cs",
-              "ToolTip": "C:\\Users\\jojo1\\source\\repos\\FacultySystemApp\\FacultySystemApp\\WelcomForm.cs [Design]",
-              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\FacultySystemApp\\FacultySystemApp\\WelcomForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-06T18:42:41.679Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "LoginForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\LoginForm.cs",
-              "RelativeDocumentMoniker": "FacultySystemApp\\LoginForm.cs",
-              "ToolTip": "C:\\Users\\jojo1\\source\\repos\\FacultySystemApp\\FacultySystemApp\\LoginForm.cs [Design]",
-              "RelativeToolTip": "..\\..\\..\\..\\source\\repos\\FacultySystemApp\\FacultySystemApp\\LoginForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-06T18:38:21.68Z"
+              "WhenOpened": "2024-05-11T15:21:09.382Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "LoginForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\LoginForm.cs",
+              "RelativeDocumentMoniker": "FacultySystemApp\\LoginForm.cs",
+              "ToolTip": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\LoginForm.cs [Design]",
+              "RelativeToolTip": "FacultySystemApp\\LoginForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-06T18:38:21.68Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "WelcomForm.Designer.cs",
               "DocumentMoniker": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\WelcomForm.Designer.cs",
               "RelativeDocumentMoniker": "FacultySystemApp\\WelcomForm.Designer.cs",
               "ToolTip": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\WelcomForm.Designer.cs",
               "RelativeToolTip": "FacultySystemApp\\WelcomForm.Designer.cs",
-              "ViewState": "AQIAAF0AAAAAAAAAAAAIwHYAAAAIAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-06T16:49:33.918Z"
+              "WhenOpened": "2024-05-06T16:49:33.918Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "WelcomForm.cs",
               "DocumentMoniker": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\WelcomForm.cs",
               "RelativeDocumentMoniker": "FacultySystemApp\\WelcomForm.cs",
               "ToolTip": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\WelcomForm.cs",
               "RelativeToolTip": "FacultySystemApp\\WelcomForm.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAwAAAAMAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAA7AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-06T15:31:06.925Z"
+              "WhenOpened": "2024-05-06T15:31:06.925Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "VerifyAdmin.cs",
+              "DocumentMoniker": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\VerifyAdmin.cs",
+              "RelativeDocumentMoniker": "FacultySystemApp\\VerifyAdmin.cs",
+              "ToolTip": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\VerifyAdmin.cs",
+              "RelativeToolTip": "FacultySystemApp\\VerifyAdmin.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAIA0wBgAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-17T11:39:13.696Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SignupForm.cs",
+              "DocumentMoniker": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\SignupForm.cs",
+              "RelativeDocumentMoniker": "FacultySystemApp\\SignupForm.cs",
+              "ToolTip": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\SignupForm.cs",
+              "RelativeToolTip": "FacultySystemApp\\SignupForm.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAIA0wBEAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T16:36:25.801Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "VerifyAdmin.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\VerifyAdmin.cs",
+              "RelativeDocumentMoniker": "FacultySystemApp\\VerifyAdmin.cs",
+              "ToolTip": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\VerifyAdmin.cs [Design]",
+              "RelativeToolTip": "FacultySystemApp\\VerifyAdmin.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-17T11:36:22.828Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
+              "Title": "WelcomForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\WelcomForm.cs",
+              "RelativeDocumentMoniker": "FacultySystemApp\\WelcomForm.cs",
+              "ToolTip": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\WelcomForm.cs [Design]",
+              "RelativeToolTip": "FacultySystemApp\\WelcomForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-06T18:42:41.679Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "VerifyAdmin.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\VerifyAdmin.Designer.cs",
+              "RelativeDocumentMoniker": "FacultySystemApp\\VerifyAdmin.Designer.cs",
+              "ToolTip": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\VerifyAdmin.Designer.cs",
+              "RelativeToolTip": "FacultySystemApp\\VerifyAdmin.Designer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-17T11:42:34.462Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "LoginForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\LoginForm.Designer.cs",
+              "RelativeDocumentMoniker": "FacultySystemApp\\LoginForm.Designer.cs",
+              "ToolTip": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\LoginForm.Designer.cs",
+              "RelativeToolTip": "FacultySystemApp\\LoginForm.Designer.cs",
+              "ViewState": "AQIAAF4AAAAAAAAAAAAqwHYAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-08T14:16:32.308Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "FacultySystemApp.csproj",
               "DocumentMoniker": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\FacultySystemApp.csproj",
               "RelativeDocumentMoniker": "FacultySystemApp\\FacultySystemApp.csproj",
@@ -140,7 +213,8 @@
               "RelativeToolTip": "FacultySystemApp\\FacultySystemApp.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-05-08T14:12:50.06Z"
+              "WhenOpened": "2024-05-08T14:12:50.06Z",
+              "EditorCaption": ""
             }
           ]
         },

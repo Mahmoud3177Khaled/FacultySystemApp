@@ -43,6 +43,7 @@
             radioButton1 = new RadioButton();
             radioButton2 = new RadioButton();
             label5 = new Label();
+            BackToWelcom = new Button();
             SuspendLayout();
             // 
             // SignupUserLabel
@@ -195,12 +196,25 @@
             label5.TabIndex = 19;
             label5.Text = "Name";
             // 
+            // BackToWelcom
+            // 
+            BackToWelcom.Font = new Font("Segoe UI", 15F);
+            BackToWelcom.ForeColor = Color.Black;
+            BackToWelcom.Location = new Point(37, 37);
+            BackToWelcom.Name = "BackToWelcom";
+            BackToWelcom.Size = new Size(90, 40);
+            BackToWelcom.TabIndex = 20;
+            BackToWelcom.Text = "⇐ back";
+            BackToWelcom.UseVisualStyleBackColor = true;
+            BackToWelcom.Click += BackToWelcom_Click;
+            // 
             // SignupForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             ClientSize = new Size(1334, 761);
+            Controls.Add(BackToWelcom);
             Controls.Add(label5);
             Controls.Add(radioButton2);
             Controls.Add(radioButton1);
@@ -219,6 +233,7 @@
             ForeColor = Color.White;
             Name = "SignupForm";
             Text = "Signup";
+            FormClosed += SignupFormClosed;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -240,5 +255,6 @@
         private RadioButton radioButton1;
         private RadioButton radioButton2;
         private Label label5;
+        private Button BackToWelcom;
     }
 }
