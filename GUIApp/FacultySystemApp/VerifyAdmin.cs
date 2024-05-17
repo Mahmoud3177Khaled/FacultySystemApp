@@ -26,7 +26,7 @@ namespace FacultySystemApp
             string password = Password.Text;
 
             
-            if (email == "user@example.com" && password == "password123")
+            if (email == "admin" && password == "admin")
             {
                 verified?.Invoke(this, EventArgs.Empty);
                 this.Hide();
