@@ -231,6 +231,7 @@
             Controls.Add(textBox1);
             Controls.Add(SignupUserLabel);
             ForeColor = Color.White;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "SignupForm";
             Text = "Signup";
             FormClosed += SignupFormClosed;

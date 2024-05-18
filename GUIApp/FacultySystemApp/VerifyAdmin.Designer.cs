@@ -86,6 +86,7 @@
             // 
             Login.Font = new Font("Segoe UI", 15F);
             Login.ForeColor = Color.Black;
+            Login.ImageAlign = ContentAlignment.MiddleLeft;
             Login.Location = new Point(363, 347);
             Login.Name = "Login";
             Login.Size = new Size(99, 38);
@@ -107,6 +108,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             ForeColor = Color.White;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "VerifyAdmin";
             Text = "VerifyAdmin";
             ResumeLayout(false);
