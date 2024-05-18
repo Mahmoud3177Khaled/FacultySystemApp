@@ -575,7 +575,7 @@ namespace sqltest
             }
             else if (ch == "3")
             {
-                editCourse();
+                //editCourse();
             }
             else if (ch == "4")
             {
@@ -2218,6 +2218,9 @@ namespace sqltest
         static void Main(String[] args)
         {
             OpenConnTo("localhost", "faculty_management_system");
+            //AddAdmin();
+            //DeleteAdmin();
+
 
             Console.WriteLine("---------------------------------------------------");
             Console.WriteLine("|                                                 |");
