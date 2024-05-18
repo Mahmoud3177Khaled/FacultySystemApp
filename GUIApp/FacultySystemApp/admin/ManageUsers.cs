@@ -1,4 +1,5 @@
 ﻿using FacultySystemApp.admin.admins;
+using FacultySystemApp.admin.staff;
 using FacultySystemApp.admin.students;
 using System;
 using System.Collections.Generic;
@@ -42,17 +43,23 @@ namespace FacultySystemApp.admin
 
         private void AddStuff_Click(object sender, EventArgs e)
         {
-
+            AddStuff addStuff = new AddStuff();
+            addStuff.Show();
+            this.Hide();
         }
 
         private void ShowStaff_Click(object sender, EventArgs e)
         {
-
+            ShowStaff showStaff = new ShowStaff();
+            showStaff.Show();
+            this.Hide();
         }
 
         private void ShowAllStaff_Click(object sender, EventArgs e)
         {
-
+            ShowAllStaff showAllStaff = new ShowAllStaff();
+            showAllStaff.Show();
+            this.Hide();
         }
 
         private void SignupAdmin_Click(object sender, EventArgs e)
