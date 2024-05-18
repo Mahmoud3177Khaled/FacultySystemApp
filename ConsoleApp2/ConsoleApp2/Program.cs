@@ -2374,6 +2374,177 @@ namespace sqltest
 
         public static void manage_users() //mahmoud
         {
+
+            string choice = "";
+            string op_choice = "";
+
+            while (choice != "e")
+            {
+
+                Console.WriteLine("\n\nPease select from below: ");
+                Console.WriteLine("1- Students ");
+                Console.WriteLine("2- Staff members");
+                Console.WriteLine("3- Admins ");
+                Console.WriteLine("0- back ");
+                Console.WriteLine("e- Exit app ");
+
+                choice = Console.ReadLine();
+
+                if(choice == "1")
+                {
+                    op_choice = "";
+
+                    while (op_choice != "e")
+                    {
+
+
+                        Console.WriteLine("\nPlease select from below: ");
+                        Console.WriteLine("1- add ");
+                        Console.WriteLine("2- edit ");
+                        Console.WriteLine("3- remove ");
+                        Console.WriteLine("4- Show by id ");
+                        Console.WriteLine("5- show all ");
+                        Console.WriteLine("6- show filtered ");
+                        Console.WriteLine("0- back ");
+                        Console.WriteLine("e- Exit app ");
+
+                        op_choice = Console.ReadLine();
+
+                        if(op_choice == "1")
+                        {
+                            AddStudent();
+                        }
+                        else if(op_choice == "2")
+                        {
+                            EditStudent();
+                        }
+                        else if (op_choice == "3")
+                        {
+                            DeleteStudent();
+                        }
+                        else if (op_choice == "4")
+                        {
+                            ShowStudentById();
+                        }
+                        else if (op_choice == "5")
+                        {
+                            ShowAllStudents();
+                        }
+                        else if (op_choice == "6")
+                        {
+                            ShowAllSatisfying();
+                        }
+                        else if (op_choice == "0")
+                        {
+                            break;
+                        }
+                        else if (op_choice == "e")
+                        {
+                            CloseConnAndExit();
+                        }
+                    }
+                }
+                else if (choice == "2")
+                {
+                    op_choice = "";
+
+                    while (op_choice != "e")
+                    {
+
+
+                        Console.WriteLine("\nPease select from below: ");
+                        Console.WriteLine("1- add ");
+                        Console.WriteLine("2- edit ");
+                        Console.WriteLine("3- remove ");
+                        Console.WriteLine("4- Show by id ");
+                        Console.WriteLine("5- show all ");
+                        Console.WriteLine("0- back ");
+                        Console.WriteLine("e- Exit app ");
+
+                        op_choice = Console.ReadLine();
+
+                        if (op_choice == "1")
+                        {
+                            AddStaff();
+                        }
+                        else if (op_choice == "2")
+                        {
+                            EditStaff();
+                        }
+                        else if (op_choice == "3")
+                        {
+                            DeleteStaff();
+                        }
+                        else if (op_choice == "4")
+                        {
+                            ShowStaffById();
+                        }
+                        else if (op_choice == "5")
+                        {
+                            ShowAllStaff();
+                        }
+                        else if (op_choice == "0")
+                        {
+                            break;
+                        }
+                        else if (op_choice == "e")
+                        {
+                            CloseConnAndExit();
+                        }
+                    }
+                }
+                else if (choice == "3")
+                {
+                    op_choice = "";
+
+                    while (op_choice != "e")
+                    {
+
+
+                        Console.WriteLine("\nPease select from below: ");
+                        Console.WriteLine("1- add ");
+                        Console.WriteLine("2- edit ");
+                        Console.WriteLine("3- remove ");
+                        Console.WriteLine("4- Show by id ");
+                        Console.WriteLine("5- show all ");
+                        Console.WriteLine("0- back ");
+                        Console.WriteLine("e- Exit app ");
+
+                        op_choice = Console.ReadLine();
+
+                        if (op_choice == "1")
+                        {
+                            AddAdmin();
+                        }
+                        else if (op_choice == "2")
+                        {
+                            EditAdmin();
+                        }
+                        else if (op_choice == "3")
+                        {
+                            DeleteAdmin();
+                        }
+                        else if (op_choice == "4")
+                        {
+                            ShowAdminById();
+                        }
+                        else if (op_choice == "5")
+                        {
+                            ShowAllAdmins();
+                        }
+                        else if (op_choice == "0")
+                        {
+                            break;
+                        }
+                        else if (op_choice == "e")
+                        {
+                            CloseConnAndExit();
+                        }
+                    }
+                }
+
+            }
+
             //student  
             // add                    DONE    addapt to identity change  DONE
             // edit                   DONE    set where condition right  DONE
