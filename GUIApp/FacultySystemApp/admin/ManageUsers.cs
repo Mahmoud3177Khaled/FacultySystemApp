@@ -1,4 +1,5 @@
-﻿using FacultySystemApp.admin.students;
+﻿using FacultySystemApp.admin.admins;
+using FacultySystemApp.admin.students;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +18,6 @@ namespace FacultySystemApp.admin
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
-
         }
 
         private void SignupStudent_Click(object sender, EventArgs e)
@@ -57,17 +57,23 @@ namespace FacultySystemApp.admin
 
         private void SignupAdmin_Click(object sender, EventArgs e)
         {
-
+            SignupAdmin signupAdmin = new SignupAdmin();
+            signupAdmin.Show();
+            this.Hide();
         }
 
         private void ShowAdmin_Click(object sender, EventArgs e)
         {
-
+            ShowAdmin showAdmin = new ShowAdmin();
+            showAdmin.Show();
+            this.Hide();
         }
 
         private void ShowAllAdmins_Click(object sender, EventArgs e)
         {
-
+            ShowAllAdmins showAllAdmins = new ShowAllAdmins();
+            showAllAdmins.Show();
+            this.Hide();
         }
 
         private void BackButton_Click(object sender, EventArgs e)

@@ -51,6 +51,7 @@
             textBox1 = new TextBox();
             signupButton = new Button();
             label11 = new Label();
+            BackButton = new Button();
             SuspendLayout();
             // 
             // label1
@@ -296,6 +297,21 @@
             label11.TabIndex = 45;
             label11.Text = " ";
             // 
+            // BackButton
+            // 
+            BackButton.BackColor = Color.Black;
+            BackButton.FlatAppearance.BorderSize = 0;
+            BackButton.FlatStyle = FlatStyle.Flat;
+            BackButton.Font = new Font("Segoe UI", 20F);
+            BackButton.ForeColor = Color.White;
+            BackButton.Location = new Point(42, 31);
+            BackButton.Name = "BackButton";
+            BackButton.Size = new Size(115, 47);
+            BackButton.TabIndex = 46;
+            BackButton.Text = "⇐ back";
+            BackButton.UseVisualStyleBackColor = false;
+            BackButton.Click += BackButton_Click;
+            // 
             // SignupStudent
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -303,6 +319,7 @@
             AutoScroll = true;
             BackColor = Color.Black;
             ClientSize = new Size(1113, 723);
+            Controls.Add(BackButton);
             Controls.Add(signupButton);
             Controls.Add(textBox1);
             Controls.Add(label10);
@@ -358,5 +375,6 @@
         private TextBox textBox1;
         private Button signupButton;
         private Label label11;
+        private Button BackButton;
     }
 }

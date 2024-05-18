@@ -29,5 +29,11 @@ namespace FacultySystemApp.admin.students
             Application.Exit();
         }
 
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            ShowStudent showStudent = new ShowStudent();
+            showStudent.Show();
+            this.Hide();
+        }
     }
 }

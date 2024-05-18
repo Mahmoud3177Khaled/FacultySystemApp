@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            signupButton = new Button();
+            SaveButton = new Button();
             textBox1 = new TextBox();
             label10 = new Label();
             label9 = new Label();
@@ -51,19 +51,20 @@
             phone1 = new TextBox();
             label1 = new Label();
             label11 = new Label();
+            BackButton = new Button();
             SuspendLayout();
             // 
-            // signupButton
+            // SaveButton
             // 
-            signupButton.Font = new Font("Segoe UI", 20F);
-            signupButton.ForeColor = Color.Black;
-            signupButton.Location = new Point(464, 834);
-            signupButton.Name = "signupButton";
-            signupButton.Size = new Size(142, 46);
-            signupButton.TabIndex = 67;
-            signupButton.Text = "Save";
-            signupButton.UseVisualStyleBackColor = true;
-            signupButton.Click += SaveButton_Click;
+            SaveButton.Font = new Font("Segoe UI", 20F);
+            SaveButton.ForeColor = Color.Black;
+            SaveButton.Location = new Point(464, 834);
+            SaveButton.Name = "SaveButton";
+            SaveButton.Size = new Size(142, 46);
+            SaveButton.TabIndex = 67;
+            SaveButton.Text = "Save";
+            SaveButton.UseVisualStyleBackColor = true;
+            SaveButton.Click += SaveButton_Click;
             // 
             // textBox1
             // 
@@ -280,7 +281,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 30F);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(331, 24);
+            label1.Location = new Point(332, 24);
             label1.Name = "label1";
             label1.Size = new Size(306, 54);
             label1.TabIndex = 46;
@@ -298,6 +299,21 @@
             label11.TabIndex = 68;
             label11.Text = " ";
             // 
+            // BackButton
+            // 
+            BackButton.BackColor = Color.Black;
+            BackButton.FlatAppearance.BorderSize = 0;
+            BackButton.FlatStyle = FlatStyle.Flat;
+            BackButton.Font = new Font("Segoe UI", 20F);
+            BackButton.ForeColor = Color.White;
+            BackButton.Location = new Point(38, 24);
+            BackButton.Name = "BackButton";
+            BackButton.Size = new Size(115, 47);
+            BackButton.TabIndex = 69;
+            BackButton.Text = "⇐ back";
+            BackButton.UseVisualStyleBackColor = false;
+            BackButton.Click += BackButton_Click;
+            // 
             // EditStudent
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -305,6 +321,7 @@
             AutoScroll = true;
             BackColor = Color.Black;
             ClientSize = new Size(1126, 682);
+            Controls.Add(BackButton);
             Controls.Add(textBox1);
             Controls.Add(label10);
             Controls.Add(label9);
@@ -326,7 +343,7 @@
             Controls.Add(label6);
             Controls.Add(phone1);
             Controls.Add(label1);
-            Controls.Add(signupButton);
+            Controls.Add(SaveButton);
             Controls.Add(label11);
             ForeColor = Color.White;
             Name = "EditStudent";
@@ -338,7 +355,7 @@
 
         #endregion
 
-        private Button signupButton;
+        private Button SaveButton;
         private TextBox textBox1;
         private Label label10;
         private Label label9;
@@ -361,5 +378,6 @@
         private TextBox phone1;
         private Label label1;
         private Label label11;
+        private Button BackButton;
     }
 }

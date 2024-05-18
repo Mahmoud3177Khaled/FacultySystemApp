@@ -40,6 +40,7 @@
             ShowButton = new Button();
             GPA = new NumericUpDown();
             Students = new DataGridView();
+            BackButton = new Button();
             ((System.ComponentModel.ISupportInitialize)GPA).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Students).BeginInit();
             SuspendLayout();
@@ -51,7 +52,7 @@
             GraduationYear.Font = new Font("Segoe UI", 15F);
             GraduationYear.ForeColor = Color.White;
             GraduationYear.FormattingEnabled = true;
-            GraduationYear.Location = new Point(78, 92);
+            GraduationYear.Location = new Point(135, 92);
             GraduationYear.Name = "GraduationYear";
             GraduationYear.Size = new Size(164, 36);
             GraduationYear.TabIndex = 0;
@@ -60,7 +61,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15F);
-            label1.Location = new Point(84, 39);
+            label1.Location = new Point(141, 39);
             label1.Name = "label1";
             label1.Size = new Size(152, 28);
             label1.TabIndex = 1;
@@ -70,7 +71,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 15F);
-            label2.Location = new Point(363, 39);
+            label2.Location = new Point(417, 39);
             label2.Name = "label2";
             label2.Size = new Size(64, 28);
             label2.TabIndex = 3;
@@ -83,7 +84,7 @@
             Major.Font = new Font("Segoe UI", 15F);
             Major.ForeColor = Color.White;
             Major.FormattingEnabled = true;
-            Major.Location = new Point(313, 92);
+            Major.Location = new Point(367, 92);
             Major.Name = "Major";
             Major.Size = new Size(164, 36);
             Major.TabIndex = 2;
@@ -92,7 +93,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 15F);
-            label3.Location = new Point(594, 39);
+            label3.Location = new Point(645, 39);
             label3.Name = "label3";
             label3.Size = new Size(72, 28);
             label3.TabIndex = 5;
@@ -105,7 +106,7 @@
             Course.Font = new Font("Segoe UI", 15F);
             Course.ForeColor = Color.White;
             Course.FormattingEnabled = true;
-            Course.Location = new Point(548, 92);
+            Course.Location = new Point(599, 92);
             Course.Name = "Course";
             Course.Size = new Size(164, 36);
             Course.TabIndex = 4;
@@ -114,7 +115,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 15F);
-            label4.Location = new Point(840, 39);
+            label4.Location = new Point(889, 39);
             label4.Name = "label4";
             label4.Size = new Size(49, 28);
             label4.TabIndex = 7;
@@ -137,7 +138,7 @@
             GPA.DecimalPlaces = 3;
             GPA.Font = new Font("Segoe UI", 15F);
             GPA.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
-            GPA.Location = new Point(791, 92);
+            GPA.Location = new Point(831, 92);
             GPA.Name = "GPA";
             GPA.Size = new Size(164, 34);
             GPA.TabIndex = 9;
@@ -166,12 +167,28 @@
             Students.Size = new Size(1014, 387);
             Students.TabIndex = 10;
             // 
+            // BackButton
+            // 
+            BackButton.BackColor = Color.Black;
+            BackButton.FlatAppearance.BorderSize = 0;
+            BackButton.FlatStyle = FlatStyle.Flat;
+            BackButton.Font = new Font("Segoe UI", 20F);
+            BackButton.ForeColor = Color.White;
+            BackButton.Location = new Point(12, 20);
+            BackButton.Name = "BackButton";
+            BackButton.Size = new Size(115, 47);
+            BackButton.TabIndex = 17;
+            BackButton.Text = "⇐ back";
+            BackButton.UseVisualStyleBackColor = false;
+            BackButton.Click += BackButton_Click;
+            // 
             // ShowAllStudents
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             ClientSize = new Size(1038, 614);
+            Controls.Add(BackButton);
             Controls.Add(Students);
             Controls.Add(GPA);
             Controls.Add(ShowButton);
@@ -205,5 +222,6 @@
         private Button ShowButton;
         private NumericUpDown GPA;
         private DataGridView Students;
+        private Button BackButton;
     }
 }

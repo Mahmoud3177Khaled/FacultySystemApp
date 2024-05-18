@@ -8,31 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FacultySystemApp.admin.students
+namespace FacultySystemApp.admin.admins
 {
-    public partial class ShowAllStudents : Form
+    public partial class ShowAllAdmins : Form
     {
-        public ShowAllStudents()
+        public ShowAllAdmins()
         {
             InitializeComponent();
             CenterToScreen();
-        }
-
-        private void ShowAllStudents_Load(object sender, EventArgs e)
-        {
-            GraduationYear.Items.Add(2020);
-            GraduationYear.Items.Add(2021);
-            GraduationYear.Items.Add(2022);
-            GraduationYear.Items.Add(2023);
-
-            Major.Items.Add("CS");
-            Course.Items.Add("OOP");
-
 
         }
 
-
-        private void ShowButton_Click(object sender, EventArgs e)
+        private void ShowAllAdmins_Load(object sender, EventArgs e)
         {
             List<string> strings = new List<string>
                 {
@@ -59,10 +46,10 @@ namespace FacultySystemApp.admin.students
                 dataTable.Rows.Add(name);
             }
 
-            Students.DataSource = dataTable;
+            Admins.DataSource = dataTable;
         }
 
-        private void ShowAllStudents_close(object sender, FormClosedEventArgs e)
+        private void ShowAllAdmins_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
