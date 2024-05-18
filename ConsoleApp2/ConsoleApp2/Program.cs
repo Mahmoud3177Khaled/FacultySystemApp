@@ -355,96 +355,88 @@ namespace sqltest
 
         public static void signup()
         {
-            Console.WriteLine("1- Student \n2- admin");
-            user = Console.ReadLine();
-
-            if (user == "1")
+            string parametarizedQuery;
+            int account_id;
+            try
             {
-                try
+                Console.WriteLine("adding admin");
+                Console.WriteLine("Enter admin secret key:");
+                Console.WriteLine("(the key is 12345, this line will be removed in the real app)");
+                string key = Console.ReadLine();
+                if (key != "12345")
                 {
+                    Console.WriteLine("wrong key");
+                    return;
+                }
+                Console.WriteLine("user name:");
+                string user_name = Console.ReadLine();
+                Console.WriteLine("email:");
+                string email = Console.ReadLine();
+                Console.WriteLine("password:");
+                string password = Console.ReadLine();
 
-                    Console.WriteLine("adding student");
-
-                    Console.WriteLine("email: ");
-                    email = Console.ReadLine();
-
-                    Console.WriteLine("password: ");
-                    password = Console.ReadLine();
-
-                    Console.WriteLine("username: ");
-                    username = Console.ReadLine();
-
-                    Console.WriteLine("student_id: ");
-                    student_id = Console.ReadLine();
-
-
-                    string prequery = "INSERT INTO student VALUES(" + student_id + ", 1, 1, 1, 1, 1);";  //will be edited later
-                    SqlCommand precommand = new SqlCommand(prequery, sqlconn);
-                    Console.WriteLine("\n    " + precommand.ExecuteNonQuery() + " student added.\n\n");
-
-                    string parametarizedQuery = "INSERT INTO " + "student_account";
-
-                    parametarizedQuery += " VALUES(@email, @password, @username, @student_id);";
-
-                    SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
-
-                    //sqlCommand.Parameters.AddWithValue("@table", table);
-                    sqlCommand.Parameters.AddWithValue("@email", email);
+                parametarizedQuery = "INSERT INTO accounts";
+                parametarizedQuery += " VALUES(@user_name, @password, @email, @role); SELECT SCOPE_IDENTITY();";
+            
+                using (SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn))
+                {
+                    sqlCommand.Parameters.AddWithValue("@user_name", user_name);
                     sqlCommand.Parameters.AddWithValue("@password", password);
-                    sqlCommand.Parameters.AddWithValue("@username", username);
-                    sqlCommand.Parameters.AddWithValue("@student_id", student_id);
-
-                    Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " Student_account added.\n\n");
+                    sqlCommand.Parameters.AddWithValue("@email", email);
+                    sqlCommand.Parameters.AddWithValue("@role", "admin");
+                    account_id = Convert.ToInt32(sqlCommand.ExecuteScalar());
                 }
-                catch (Exception e)
-                {
-                    Console.WriteLine("error: " + e.Message);
-                }
-
             }
-            else if (user == "2")
+            catch (Exception e)
             {
-                try
+                Console.WriteLine("error: " + e.Message);
+                return;
+            }
+
+            try {
+                Console.WriteLine("admin_id:");
+                admin_id = Console.ReadLine();
+
+                Console.WriteLine("first_name: ");
+                first_name = Console.ReadLine();
+
+                Console.WriteLine("middle_name: ");
+                middle_name = Console.ReadLine();
+
+                Console.WriteLine("last_name: ");
+                last_name = Console.ReadLine();
+
+                Console.WriteLine("admin_address: ");
+                admin_address = Console.ReadLine();
+
+                parametarizedQuery = "INSERT INTO Admin";
+
+                parametarizedQuery += " VALUES(@admin_id, @account_id, @first_name, @middle_name, @last_name, @admin_address);";
+            
+            
+                using (SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn))
                 {
-                    Console.WriteLine("adding admin");
-
-
-                    Console.WriteLine("admin_id: ");
-                    admin_id = Console.ReadLine();
-
-                    Console.WriteLine("first_name: ");
-                    first_name = Console.ReadLine();
-
-                    Console.WriteLine("middle_name: ");
-                    middle_name = Console.ReadLine();
-
-                    Console.WriteLine("last_name: ");
-                    last_name = Console.ReadLine();
-
-                    Console.WriteLine("admin_address: ");
-                    admin_address = Console.ReadLine();
-
-
-                    string parametarizedQuery = "INSERT INTO " + "Admin_data";
-
-                    parametarizedQuery += " VALUES(@admin_id, @first_name, @middle_name, @last_name, @admin_address);";
-
-                    SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
-
-                    //sqlCommand.Parameters.AddWithValue("@table", table);
                     sqlCommand.Parameters.AddWithValue("@admin_id", admin_id);
+                    sqlCommand.Parameters.AddWithValue("@account_id", account_id);
                     sqlCommand.Parameters.AddWithValue("@first_name", first_name);
                     sqlCommand.Parameters.AddWithValue("@middle_name", middle_name);
                     sqlCommand.Parameters.AddWithValue("@last_name", last_name);
                     sqlCommand.Parameters.AddWithValue("@admin_address", admin_address);
-
                     Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " admin added.\n\n");
                 }
-                catch (Exception e)
+                singedin_type = "admin";
+                signedin_user_id = admin_id;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("error: " + e.Message);
+                parametarizedQuery = "DELETE FROM accounts WHERE account_id = @account_id";
+                using (SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn))
                 {
-                    Console.WriteLine("error: " + e.Message);
+                    sqlCommand.Parameters.AddWithValue("@account_id", account_id);
+                    sqlCommand.ExecuteNonQuery();
                 }
-
+                return;
             }
         }
 
