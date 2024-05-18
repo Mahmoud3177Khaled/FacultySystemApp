@@ -19,8 +19,9 @@ namespace sqltest
 
         public static string user;
         public static string signedin_user_id;
-        public static string singedin_type = "";
 
+        public static string singedin_type = "";
+        public static int singedin_account_id;
 
         public static string email;
         public static string password;
@@ -455,7 +456,7 @@ namespace sqltest
             Console.Write("password: ");
             password = Console.ReadLine();
 
-            string check_query = $"SELECT account_id, role FROM accounts WHERE email = '{email}' AND password='{password}'";
+            string check_query = $"SELECT role,account_id FROM accounts WHERE email = '{email}' AND password='{password}'";
             try
             {
                 SqlCommand sc = new SqlCommand(check_query, sqlconn);
@@ -464,8 +465,10 @@ namespace sqltest
                 {
                     if (reader.Read())
                     {
-                        signedin_user_id = "" + reader[0];
-                        singedin_type = "" + reader[1];
+                        singedin_type = "" + reader[0];
+                        singedin_account_id = int.Parse("" + reader[1]);
+                        Console.WriteLine(singedin_type);
+                        Console.WriteLine(singedin_account_id);
                     }
                     else
                     {
@@ -562,12 +565,12 @@ namespace sqltest
             Console.WriteLine("            |      courses      |");
             Console.WriteLine("            |                   |");
             Console.WriteLine("             ------------------" + "\n");
-            Console.WriteLine("1-show courses\n2-create course\n3-edit course\n4-delete course\n5-enrollig student in courses\n ");
-            Console.WriteLine("your choice: ");
+            Console.WriteLine("1-show courses\n2-create course\n3-edit course\n4-delete course\n5-enrollig student in a course\n ");
+            Console.Write("your choice: ");
             string ch = Console.ReadLine();
             if (ch == "1")
             {
-
+                showCourses();
             }
             else if (ch == "2")
             {
@@ -575,15 +578,15 @@ namespace sqltest
             }
             else if (ch == "3")
             {
-                //editCourse();
+                editCourse();
             }
             else if (ch == "4")
             {
-
+                deleteCourse();
             }
             else if (ch == "5")
             {
-
+                enrollingStudentInACourse();
             }
             else if (ch == "")
             {
@@ -592,21 +595,94 @@ namespace sqltest
 
 
         }
-        public static void createCourse()
+        public static void showCourses()// error at option 3
         {
+            Console.WriteLine("         ------------------");
+            Console.WriteLine("        |                  |");
+            Console.WriteLine("        |   show courses   |");
+            Console.WriteLine("        |                  |");
+            Console.WriteLine("         ------------------" + "\n\n");
+            Console.WriteLine("1-show course details\n2-show all courses \n3-show all courses in specific department\n\n ");
+            Console.Write("your choice: ");
+            string ch = Console.ReadLine();
+            if (ch == "1")
+            {
+                Console.Write("Enter the course id: ");
+                string courseId = Console.ReadLine();
+                string sqlQuery = $"SELECT * FROM course WHERE course_id = {courseId}";
+                SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
+                using (SqlDataReader reader = sComm.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        Console.WriteLine("course id: " + reader[0]);
+                        Console.WriteLine("department id: " + reader[1]);
+                        Console.WriteLine("course name: " + reader[2]);
+                        Console.WriteLine("credit hours: " + reader[3]);
+                    }
+                    else
+                    {
+                        Console.WriteLine("no course with that id");
+                    }
+                }
 
-            Console.WriteLine("         ----------------------");
-            Console.WriteLine("        |                       |");
-            Console.WriteLine("        |    create new course  |");
-            Console.WriteLine("        |                       |");
-            Console.WriteLine("         -----------------------" + "\n\n");
-            Console.WriteLine("course id");
+            }
+            else if (ch == "2")
+            {
+                string sqlQuery = "SELECT * FROM course ";
+                SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
+                using (SqlDataReader reader = sComm.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+
+                        Console.WriteLine("------------------------------");
+                        Console.WriteLine("course id: " + reader[0]);
+                        Console.WriteLine("department id: " + reader[1]);
+                        Console.WriteLine("course name: " + reader[2]);
+                        Console.WriteLine("credit hours: " + reader[3]);
+                        Console.WriteLine("------------------------------");
+                    }
+                }
+            }
+             else if (ch == "3")
+            {
+                Console.Write("Enter the department id: ");
+                string departmentId = Console.ReadLine();
+                string sqlQuery = $"SELECT * FROM Course WHERE department_id = {departmentId}";
+
+                SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
+                using (SqlDataReader reader = sComm.ExecuteReader())
+                {
+                Console.Write("111111111111111111111111111 ");
+                    while (reader.Read())
+                    {
+
+                        Console.WriteLine("------------------------------");
+                        Console.WriteLine("course id: " + reader[0]);
+                        Console.WriteLine("department id: " + reader[1]);
+                        Console.WriteLine("course name: " + reader[2]);
+                        Console.WriteLine("credit hours: " + reader[3]);
+                        Console.WriteLine("------------------------------");
+                    }
+                }
+            }
+        }
+        public static void createCourse()
+        {//philo
+
+            Console.WriteLine("     -----------------------");
+            Console.WriteLine("    |                       |");
+            Console.WriteLine("    |   create new course   |");
+            Console.WriteLine("    |                       |");
+            Console.WriteLine("     -----------------------" + "\n\n");
+            Console.Write("course id: ");
             string courseId = Console.ReadLine();
-            Console.WriteLine("department id");
+            Console.Write("department id: ");
             string departmentId = Console.ReadLine();
-            Console.WriteLine("course name");
+            Console.Write("course name: ");
             string courseName = Console.ReadLine();
-            Console.WriteLine("credit hours");
+            Console.Write("credit hours: ");
             int creditHours = int.Parse(Console.ReadLine());
 
             string addQuery = "INSERT INTO course VALUES(@courseId,@departmentId,@courseName,@creditHours)";
@@ -624,16 +700,26 @@ namespace sqltest
             {
                 Console.WriteLine("error: " + e.Message);
             }
+            Console.WriteLine("\n0-back\ne-exit\n");
+            Console.Write("your choice: ");
+            string ch= Console.ReadLine();
+            if(ch == "e"){
+                CloseConnAndExit();
+            }
+            
 
         }
-        public static void editCourse(string courseId)
-        {
+        public static void editCourse()
+        { //philo
+
 
             Console.WriteLine("          -------------------");
             Console.WriteLine("         |                   |");
             Console.WriteLine("         |    edit course    |");
             Console.WriteLine("         |                   |");
             Console.WriteLine("          -------------------" + "\n\n");
+            Console.Write("Enter id of course that you want to edit it :");
+            string courseId = Console.ReadLine();
             Console.WriteLine("1-change course id\n2-change department of course\n3-change course name\n4-change credit hours of course\n\n ");
             string ch = Console.ReadLine();
             if (ch == "1")
@@ -690,6 +776,103 @@ namespace sqltest
             }
 
         }
+        public static void deleteCourse()
+        {
+            Console.WriteLine("          -------------------");
+            Console.WriteLine("         |                   |");
+            Console.WriteLine("         |   delete course   |");
+            Console.WriteLine("         |                   |");
+            Console.WriteLine("          -------------------" + "\n\n");
+            Console.WriteLine("1-delete course by id\n2-delete course by name\n ");
+            string ch = Console.ReadLine();
+            if (ch == "1")
+            {
+                Console.Write("Enter course id: ");
+                string courseId = Console.ReadLine();
+                string sqlQuery = "DELETE FROM  Course where course_id = @courseId";
+                SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
+
+                sComm.Parameters.AddWithValue("courseId", courseId);
+                Console.WriteLine("\n    " + sComm.ExecuteNonQuery() + " course deleted.\n\n");
+
+            }
+            else if (ch == "2")
+            {
+                Console.Write("Enter course name: ");
+                string courseName = Console.ReadLine();
+                string sqlQuery = "DELETE FROM  Course where course_name = @courseName";
+                SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
+
+                sComm.Parameters.AddWithValue("courseName", courseName);
+                Console.WriteLine("\n    " + sComm.ExecuteNonQuery() + "course deleted.\n\n");
+
+            }
+            else if (ch == "")
+            {
+
+            }
+
+        }
+        public static void enrollingStudentInACourse()// un checked
+        { 
+            Console.WriteLine("          ------------------------------------------");
+            Console.WriteLine("         |                                           |");
+            Console.WriteLine("         |   enrolling students in a course course   |");
+            Console.WriteLine("         |                                           |");
+            Console.WriteLine("          -------------------------------------------" + "\n\n");
+            Console.Write("Enter the course id: ");
+            string courseId = Console.ReadLine();
+            string sqlQuery = $"SELECT student_id,student_first_name,student_middle_name,student_last_name,entry_year FROM enrolls OUTER LEFT JOIN Student on enrolls.student_id=Student.student_id where course_id={courseId} ";
+            SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
+            using (SqlDataReader reader = sComm.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+
+                    Console.WriteLine("------------------------------");
+                    Console.WriteLine("id: " + reader[0]);
+                    Console.WriteLine("first name: " + reader[1]);
+                    Console.WriteLine("middle name: " + reader[2]);
+                    Console.WriteLine("last name: " + reader[3]);
+                    Console.WriteLine("entry year: " + reader[4]);
+                    Console.WriteLine("------------------------------");
+                }
+            }
+        }
+        public static void showEnrollingCourses()// un checked
+        {
+            Console.WriteLine("          -----------------------");
+            Console.WriteLine("         |                       |");
+            Console.WriteLine("         |   enrolling courses   |");
+            Console.WriteLine("         |                       |");
+            Console.WriteLine("          -----------------------" + "\n\n");
+            string sqlQuery1 = $"SELECT student_id FROM Student where account_id={singedin_account_id} ";
+            int studentId = 0;
+            SqlCommand sComm1 = new SqlCommand(sqlQuery1, sqlconn);
+            using (SqlDataReader reader = sComm1.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    studentId = int.Parse("" + reader[0]);
+                }
+            }
+
+            string sqlQuery2 = $"SELECT course_id,department_id,course_name,credit_hours FROM enrolls OUTER LEFT JOIN Course on enrolls.Course=Course.Course where student_id={studentId} ";
+            SqlCommand sComm2 = new SqlCommand(sqlQuery2, sqlconn);
+            using (SqlDataReader reader = sComm2.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+
+                    Console.WriteLine("------------------------------");
+                    Console.WriteLine("course id: " + reader[0]);
+                    Console.WriteLine("department id: " + reader[1]);
+                    Console.WriteLine("course name: " + reader[2]);
+                    Console.WriteLine("credit hours: " + reader[3]);
+                    Console.WriteLine("------------------------------");
+                }
+            }
+        }
         public static void show_student_data()
         {
             string query = "select * from student where student_id = " + int.Parse(signedin_user_id);
@@ -716,7 +899,6 @@ namespace sqltest
             }
 
         }
-
         public static void show_admin_data()
         {
             string query = "select * from Admin_data where admin_id = " + int.Parse(signedin_user_id);
@@ -2192,6 +2374,177 @@ namespace sqltest
 
         public static void manage_users() //mahmoud
         {
+
+            string choice = "";
+            string op_choice = "";
+
+            while (choice != "e")
+            {
+
+                Console.WriteLine("\n\nPease select from below: ");
+                Console.WriteLine("1- Students ");
+                Console.WriteLine("2- Staff members");
+                Console.WriteLine("3- Admins ");
+                Console.WriteLine("0- back ");
+                Console.WriteLine("e- Exit app ");
+
+                choice = Console.ReadLine();
+
+                if(choice == "1")
+                {
+                    op_choice = "";
+
+                    while (op_choice != "e")
+                    {
+
+
+                        Console.WriteLine("\nPlease select from below: ");
+                        Console.WriteLine("1- add ");
+                        Console.WriteLine("2- edit ");
+                        Console.WriteLine("3- remove ");
+                        Console.WriteLine("4- Show by id ");
+                        Console.WriteLine("5- show all ");
+                        Console.WriteLine("6- show filtered ");
+                        Console.WriteLine("0- back ");
+                        Console.WriteLine("e- Exit app ");
+
+                        op_choice = Console.ReadLine();
+
+                        if(op_choice == "1")
+                        {
+                            AddStudent();
+                        }
+                        else if(op_choice == "2")
+                        {
+                            EditStudent();
+                        }
+                        else if (op_choice == "3")
+                        {
+                            DeleteStudent();
+                        }
+                        else if (op_choice == "4")
+                        {
+                            ShowStudentById();
+                        }
+                        else if (op_choice == "5")
+                        {
+                            ShowAllStudents();
+                        }
+                        else if (op_choice == "6")
+                        {
+                            ShowAllSatisfying();
+                        }
+                        else if (op_choice == "0")
+                        {
+                            break;
+                        }
+                        else if (op_choice == "e")
+                        {
+                            CloseConnAndExit();
+                        }
+                    }
+                }
+                else if (choice == "2")
+                {
+                    op_choice = "";
+
+                    while (op_choice != "e")
+                    {
+
+
+                        Console.WriteLine("\nPease select from below: ");
+                        Console.WriteLine("1- add ");
+                        Console.WriteLine("2- edit ");
+                        Console.WriteLine("3- remove ");
+                        Console.WriteLine("4- Show by id ");
+                        Console.WriteLine("5- show all ");
+                        Console.WriteLine("0- back ");
+                        Console.WriteLine("e- Exit app ");
+
+                        op_choice = Console.ReadLine();
+
+                        if (op_choice == "1")
+                        {
+                            AddStaff();
+                        }
+                        else if (op_choice == "2")
+                        {
+                            EditStaff();
+                        }
+                        else if (op_choice == "3")
+                        {
+                            DeleteStaff();
+                        }
+                        else if (op_choice == "4")
+                        {
+                            ShowStaffById();
+                        }
+                        else if (op_choice == "5")
+                        {
+                            ShowAllStaff();
+                        }
+                        else if (op_choice == "0")
+                        {
+                            break;
+                        }
+                        else if (op_choice == "e")
+                        {
+                            CloseConnAndExit();
+                        }
+                    }
+                }
+                else if (choice == "3")
+                {
+                    op_choice = "";
+
+                    while (op_choice != "e")
+                    {
+
+
+                        Console.WriteLine("\nPease select from below: ");
+                        Console.WriteLine("1- add ");
+                        Console.WriteLine("2- edit ");
+                        Console.WriteLine("3- remove ");
+                        Console.WriteLine("4- Show by id ");
+                        Console.WriteLine("5- show all ");
+                        Console.WriteLine("0- back ");
+                        Console.WriteLine("e- Exit app ");
+
+                        op_choice = Console.ReadLine();
+
+                        if (op_choice == "1")
+                        {
+                            AddAdmin();
+                        }
+                        else if (op_choice == "2")
+                        {
+                            EditAdmin();
+                        }
+                        else if (op_choice == "3")
+                        {
+                            DeleteAdmin();
+                        }
+                        else if (op_choice == "4")
+                        {
+                            ShowAdminById();
+                        }
+                        else if (op_choice == "5")
+                        {
+                            ShowAllAdmins();
+                        }
+                        else if (op_choice == "0")
+                        {
+                            break;
+                        }
+                        else if (op_choice == "e")
+                        {
+                            CloseConnAndExit();
+                        }
+                    }
+                }
+
+            }
+
             //student  
             // add                    DONE    addapt to identity change  DONE
             // edit                   DONE    set where condition right  DONE
@@ -2217,7 +2570,7 @@ namespace sqltest
 
         static void Main(String[] args)
         {
-            OpenConnTo("localhost", "faculty_management_system");
+            OpenConnTo("localhost", "faculty_management_system1");
             //AddAdmin();
             //DeleteAdmin();
 
@@ -2248,24 +2601,25 @@ namespace sqltest
                     {
                         while (singedin_type == "")
                         {
-                            signin(); //philo
+                            signin();
                             if (singedin_type == "")
                             {
-                                Console.WriteLine("\n0-exit\n1-try again\n");
+                                Console.WriteLine("0-exit\n1-try again\n");
                                 Console.Write("yor choice: ");
                                 int ch = int.Parse(Console.ReadLine());
                                 if (ch == 0)
                                 {
-                                    break;
+                                    CloseConnAndExit();
                                 }
                             }
 
                         }
                         break;
+
                     }
                     else if (option == "2")
                     {
-                        signup(); //required sign in as admin //george
+                        signup(); //required sign in as admin 
                         break;
                     }
                     else if (option == "e")
@@ -2286,6 +2640,7 @@ namespace sqltest
                         Console.WriteLine("1- manage users.");
                         Console.WriteLine("2- manage departments.");
                         Console.WriteLine("3- manage courses .");
+                        Console.WriteLine("0- back .");
                         Console.WriteLine("e- Exit.");
                         Console.Write("Enter your choise: ");
                         option = Console.ReadLine();
@@ -2302,6 +2657,10 @@ namespace sqltest
                         {
                             //manage courses // philo
                             manageCourses();
+
+                        }
+                        else if (option == "0")
+                        {
                             break;
                         }
                         else if (option == "e")
@@ -2333,11 +2692,10 @@ namespace sqltest
                         }
                         else if (option == "2")
                         {
-                            //show -->philo
+                            showEnrollingCourses();
                         }
                         else if (option == "0")
                         {
-                            //-----> go to welcome page
                             break;
                         }
                         else if (option == "e")
