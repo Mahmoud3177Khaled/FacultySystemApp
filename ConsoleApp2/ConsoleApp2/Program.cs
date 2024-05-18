@@ -570,10 +570,10 @@ namespace sqltest
                 createCourse();
             }
             else if(ch == "3"){
-                editCourse();                
+                editCourse();            
             }
             else if(ch == "4"){
-
+                deleteCourse();
             }
             else if(ch == "5"){
 
@@ -584,7 +584,7 @@ namespace sqltest
 
             
         }
-        public static void createCourse(){
+        public static void createCourse(){//philo
 
             Console.WriteLine("         ----------------------");
             Console.WriteLine("        |                       |");
@@ -616,13 +616,15 @@ namespace sqltest
             }
 
         }
-        public static void editCourse(string courseId){
+        public static void editCourse(){ //philo
 
             Console.WriteLine("          -------------------");
             Console.WriteLine("         |                   |");
             Console.WriteLine("         |    edit course    |");
             Console.WriteLine("         |                   |");
             Console.WriteLine("          -------------------" + "\n\n");
+            Console.WriteLine("Enter id of course that you want to edit it :");
+            string courseId = Console.ReadLine();
             Console.WriteLine("1-change course id\n2-change department of course\n3-change course name\n4-change credit hours of course\n\n ");
             string ch = Console.ReadLine();
             if(ch == "1"){
@@ -668,6 +670,39 @@ namespace sqltest
                 sComm.Parameters.AddWithValue("courseId",courseId);
                 Console.WriteLine("\n    " + sComm.ExecuteNonQuery() + " credit hours of course edited.\n\n");
 
+            }
+            else if(ch == ""){
+
+            }
+
+        }
+        public static void deleteCourse(){
+            Console.WriteLine("          -------------------");
+            Console.WriteLine("         |                   |");
+            Console.WriteLine("         |   delete course   |");
+            Console.WriteLine("         |                   |");
+            Console.WriteLine("          -------------------" + "\n\n");
+            Console.WriteLine("1-delete course by id\n2-delete course by name\n\n ");
+            string ch = Console.ReadLine();
+            if(ch == "1"){
+                Console.Write("Enter course id: ");
+                string courseId = Console.ReadLine();
+                string sqlQuery ="DELETE FROM  Course where course_id = @courseId";
+                SqlCommand sComm = new SqlCommand(sqlQuery,sqlconn);
+
+                sComm.Parameters.AddWithValue("courseId",courseId);
+                Console.WriteLine("\n    " + sComm.ExecuteNonQuery() + " course deleted.\n\n");
+
+            }
+            else if(ch == "2"){
+                Console.Write("Enter course name: ");
+                string courseName = Console.ReadLine();
+                string sqlQuery ="DELETE FROM  Course where course_name = @courseName";
+                SqlCommand sComm = new SqlCommand(sqlQuery,sqlconn);
+
+                sComm.Parameters.AddWithValue("courseName",courseName);
+                Console.WriteLine("\n    " + sComm.ExecuteNonQuery() + "course deleted.\n\n");
+ 
             }
             else if(ch == ""){
 
@@ -1071,7 +1106,7 @@ namespace sqltest
 
         static void Main(String[] args)
         {
-            OpenConnTo("localhost", "faculty_management_system");
+            OpenConnTo("localhost", "faculty_management_system1");
 
             Console.WriteLine("---------------------------------------------------");
             Console.WriteLine("|                                                 |");
