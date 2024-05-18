@@ -645,7 +645,7 @@ namespace sqltest
                     }
                 }
             }
-             else if (ch == "3")
+            else if (ch == "3")
             {
                 Console.Write("Enter the department id: ");
                 string departmentId = Console.ReadLine();
@@ -654,7 +654,7 @@ namespace sqltest
                 SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
                 using (SqlDataReader reader = sComm.ExecuteReader())
                 {
-                Console.Write("111111111111111111111111111 ");
+                    Console.Write("111111111111111111111111111 ");
                     while (reader.Read())
                     {
 
@@ -702,11 +702,12 @@ namespace sqltest
             }
             Console.WriteLine("\n0-back\ne-exit\n");
             Console.Write("your choice: ");
-            string ch= Console.ReadLine();
-            if(ch == "e"){
+            string ch = Console.ReadLine();
+            if (ch == "e")
+            {
                 CloseConnAndExit();
             }
-            
+
 
         }
         public static void editCourse()
@@ -814,7 +815,7 @@ namespace sqltest
 
         }
         public static void enrollingStudentInACourse()// un checked
-        { 
+        {
             Console.WriteLine("          ------------------------------------------");
             Console.WriteLine("         |                                           |");
             Console.WriteLine("         |   enrolling students in a course course   |");
@@ -2390,11 +2391,11 @@ namespace sqltest
 
                 choice = Console.ReadLine();
 
-                if(choice == "1")
+                if (choice == "1")
                 {
                     op_choice = "";
 
-                    while (op_choice != "e")
+                    while (op_choice != "0")
                     {
 
 
@@ -2410,11 +2411,11 @@ namespace sqltest
 
                         op_choice = Console.ReadLine();
 
-                        if(op_choice == "1")
+                        if (op_choice == "1")
                         {
                             AddStudent();
                         }
-                        else if(op_choice == "2")
+                        else if (op_choice == "2")
                         {
                             EditStudent();
                         }
@@ -2448,7 +2449,7 @@ namespace sqltest
                 {
                     op_choice = "";
 
-                    while (op_choice != "e")
+                    while (op_choice != "0")
                     {
 
 
@@ -2497,7 +2498,7 @@ namespace sqltest
                 {
                     op_choice = "";
 
-                    while (op_choice != "e")
+                    while (op_choice != "0")
                     {
 
 
@@ -2542,35 +2543,42 @@ namespace sqltest
                         }
                     }
                 }
+                else if (choice == "0")
+                {
+                    break;
+                }
+                else if (choice == "e")
+                {
+                    CloseConnAndExit();
+                }
 
+                //student  
+                // add                    DONE    addapt to identity change  DONE
+                // edit                   DONE    set where condition right  DONE
+                // remove                 DONE    set where condition right  DONE     also from table "account"   DONE 
+                // show by id             DONE   
+                // show all               DONE   
+                // show all satisfying    DONE   
+                //staff                          
+                // add                    DONE   
+                // edit                   DONE   
+                // remove                 DONE   
+                // show by id             DONE   
+                // show all               DONE   
+                //admin                          
+                // add                    DONE    addapt to identity change  DONE
+                // edit                   DONE    set where condition right  DONE
+                // remove                 DONE    set where condition right  DONE     also from table "account"    DONE
+                // show by id             DONE   
+                // show all               DONE   
             }
-
-            //student  
-            // add                    DONE    addapt to identity change  DONE
-            // edit                   DONE    set where condition right  DONE
-            // remove                 DONE    set where condition right  DONE     also from table "account"   DONE 
-            // show by id             DONE   
-            // show all               DONE   
-            // show all satisfying    DONE   
-            //staff                          
-            // add                    DONE   
-            // edit                   DONE   
-            // remove                 DONE   
-            // show by id             DONE   
-            // show all               DONE   
-            //admin                          
-            // add                    DONE    addapt to identity change  DONE
-            // edit                   DONE    set where condition right  DONE
-            // remove                 DONE    set where condition right  DONE     also from table "account"    DONE
-            // show by id             DONE   
-            // show all               DONE   
         }
 
 
 
         static void Main(String[] args)
         {
-            OpenConnTo("localhost", "faculty_management_system1");
+            OpenConnTo("localhost", "faculty_management_system");
             //AddAdmin();
             //DeleteAdmin();
 
