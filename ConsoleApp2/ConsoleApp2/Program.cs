@@ -19,8 +19,9 @@ namespace sqltest
 
         public static string user;
         public static string signedin_user_id;
-        public static string singedin_type = "";
 
+        public static string singedin_type = "";
+        public static int singedin_account_id ;
 
         public static string email;
         public static string password;
@@ -455,7 +456,7 @@ namespace sqltest
             Console.Write("password: ");
             password = Console.ReadLine();
 
-            string check_query = $"SELECT role FROM accounts WHERE email = '{email}' AND password='{password}'";
+            string check_query = $"SELECT role,account_id FROM accounts WHERE email = '{email}' AND password='{password}'";
             try
             {
                 SqlCommand sc = new SqlCommand(check_query, sqlconn);
@@ -465,7 +466,9 @@ namespace sqltest
                     if (reader.Read())
                     {
                         singedin_type = "" + reader[0];
-                        //Console.WriteLine(singedin_type);
+                        singedin_account_id = int.Parse(""+reader[1]);
+                        Console.WriteLine(singedin_type);
+                        Console.WriteLine(singedin_account_id);
                     }
                     else
                     {
@@ -820,6 +823,37 @@ namespace sqltest
                     Console.WriteLine("middle name: " + reader[2]);
                     Console.WriteLine("last name: " + reader[3]);
                     Console.WriteLine("entry year: " + reader[4]);
+                    Console.WriteLine("------------------------------");
+                }
+            }
+        }
+        public static void showEnrollingCourses(){ // un checked
+            Console.WriteLine("          -----------------------");
+            Console.WriteLine("         |                       |");
+            Console.WriteLine("         |   enrolling courses   |");
+            Console.WriteLine("         |                       |");
+            Console.WriteLine("          -----------------------" + "\n\n");
+            string sqlQuery1 = $"SELECT student_id FROM Student where account_id={singedin_account_id} ";
+            int studentId = 0 ;
+            SqlCommand sComm1 = new SqlCommand(sqlQuery1, sqlconn);
+            using (SqlDataReader reader = sComm1.ExecuteReader()){
+                if(reader.Read()){
+                    studentId = int.Parse(""+reader[0]);
+                }
+            }
+
+            string sqlQuery2 = $"SELECT course_id,department_id,course_name,credit_hours FROM enrolls OUTER LEFT JOIN Course on enrolls.Course=Course.Course where student_id={studentId} ";
+            SqlCommand sComm2 = new SqlCommand(sqlQuery2, sqlconn);
+            using (SqlDataReader reader = sComm2.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+
+                    Console.WriteLine("------------------------------");
+                    Console.WriteLine("course id: " + reader[0]);
+                    Console.WriteLine("department id: " + reader[1]);
+                    Console.WriteLine("course name: " + reader[2]);
+                    Console.WriteLine("credit hours: " + reader[3]);
                     Console.WriteLine("------------------------------");
                 }
             }
@@ -2274,6 +2308,7 @@ namespace sqltest
                         else if (option == "2")
                         {
                             //show -->philo
+                            showEnrollingCourses();
                         }
                         else if (option == "0")
                         {
