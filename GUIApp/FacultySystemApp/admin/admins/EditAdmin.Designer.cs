@@ -1,6 +1,6 @@
 ﻿namespace FacultySystemApp.admin.admins
 {
-    partial class ShowAdmin
+    partial class EditAdmin
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            RemoveButton = new Button();
-            EditButton = new Button();
             label9 = new Label();
             id = new TextBox();
             label5 = new Label();
@@ -49,32 +47,10 @@
             label6 = new Label();
             phone1 = new TextBox();
             label1 = new Label();
+            SaveButton = new Button();
             label11 = new Label();
             BackButton = new Button();
             SuspendLayout();
-            // 
-            // RemoveButton
-            // 
-            RemoveButton.Font = new Font("Segoe UI", 20F);
-            RemoveButton.ForeColor = Color.Black;
-            RemoveButton.Location = new Point(575, 757);
-            RemoveButton.Name = "RemoveButton";
-            RemoveButton.Size = new Size(142, 46);
-            RemoveButton.TabIndex = 116;
-            RemoveButton.Text = "Remove";
-            RemoveButton.UseVisualStyleBackColor = true;
-            // 
-            // EditButton
-            // 
-            EditButton.Font = new Font("Segoe UI", 20F);
-            EditButton.ForeColor = Color.Black;
-            EditButton.Location = new Point(310, 757);
-            EditButton.Name = "EditButton";
-            EditButton.Size = new Size(142, 46);
-            EditButton.TabIndex = 114;
-            EditButton.Text = "Edit";
-            EditButton.UseVisualStyleBackColor = true;
-            EditButton.Click += EditButton_Click;
             // 
             // label9
             // 
@@ -82,20 +58,19 @@
             label9.BackColor = Color.Black;
             label9.Font = new Font("Segoe UI", 30F);
             label9.ForeColor = Color.White;
-            label9.Location = new Point(92, 269);
+            label9.Location = new Point(111, 284);
             label9.Name = "label9";
             label9.Size = new Size(190, 54);
-            label9.TabIndex = 111;
+            label9.TabIndex = 87;
             label9.Text = "Admin ID";
             // 
             // id
             // 
-            id.Enabled = false;
             id.Font = new Font("Segoe UI", 20F);
-            id.Location = new Point(421, 269);
+            id.Location = new Point(440, 284);
             id.Name = "id";
             id.Size = new Size(601, 43);
-            id.TabIndex = 110;
+            id.TabIndex = 86;
             id.TextAlign = HorizontalAlignment.Center;
             // 
             // label5
@@ -104,43 +79,40 @@
             label5.BackColor = Color.Black;
             label5.Font = new Font("Segoe UI", 30F);
             label5.ForeColor = Color.White;
-            label5.Location = new Point(152, 112);
+            label5.Location = new Point(171, 127);
             label5.Name = "label5";
             label5.Size = new Size(128, 54);
-            label5.TabIndex = 109;
+            label5.TabIndex = 85;
             label5.Text = "Name";
             // 
             // lastName
             // 
-            lastName.Enabled = false;
             lastName.Font = new Font("Segoe UI", 20F);
-            lastName.Location = new Point(832, 112);
+            lastName.Location = new Point(851, 127);
             lastName.Name = "lastName";
             lastName.PlaceholderText = "LastName";
             lastName.Size = new Size(190, 43);
-            lastName.TabIndex = 108;
+            lastName.TabIndex = 84;
             lastName.TextAlign = HorizontalAlignment.Center;
             // 
             // middleName
             // 
-            middleName.Enabled = false;
             middleName.Font = new Font("Segoe UI", 20F);
-            middleName.Location = new Point(627, 112);
+            middleName.Location = new Point(646, 127);
             middleName.Name = "middleName";
             middleName.PlaceholderText = "MiddleName";
             middleName.Size = new Size(190, 43);
-            middleName.TabIndex = 107;
+            middleName.TabIndex = 83;
             middleName.TextAlign = HorizontalAlignment.Center;
             // 
             // firstName
             // 
-            firstName.Enabled = false;
             firstName.Font = new Font("Segoe UI", 20F);
-            firstName.Location = new Point(421, 112);
+            firstName.Location = new Point(440, 127);
             firstName.Name = "firstName";
             firstName.PlaceholderText = "FirstName";
             firstName.Size = new Size(190, 43);
-            firstName.TabIndex = 106;
+            firstName.TabIndex = 82;
             firstName.TextAlign = HorizontalAlignment.Center;
             // 
             // label8
@@ -149,20 +121,19 @@
             label8.BackColor = Color.Black;
             label8.Font = new Font("Segoe UI", 30F);
             label8.ForeColor = Color.White;
-            label8.Location = new Point(100, 193);
+            label8.Location = new Point(119, 208);
             label8.Name = "label8";
             label8.Size = new Size(196, 54);
-            label8.TabIndex = 105;
+            label8.TabIndex = 81;
             label8.Text = "username";
             // 
             // username
             // 
-            username.Enabled = false;
             username.Font = new Font("Segoe UI", 20F);
-            username.Location = new Point(421, 193);
+            username.Location = new Point(440, 208);
             username.Name = "username";
             username.Size = new Size(601, 43);
-            username.TabIndex = 104;
+            username.TabIndex = 80;
             username.TextAlign = HorizontalAlignment.Center;
             // 
             // label7
@@ -171,20 +142,19 @@
             label7.BackColor = Color.Black;
             label7.Font = new Font("Segoe UI", 30F);
             label7.ForeColor = Color.White;
-            label7.Location = new Point(58, 501);
+            label7.Location = new Point(77, 516);
             label7.Name = "label7";
             label7.Size = new Size(244, 54);
-            label7.TabIndex = 103;
+            label7.TabIndex = 79;
             label7.Text = "PhoneNum2";
             // 
             // phone2
             // 
-            phone2.Enabled = false;
             phone2.Font = new Font("Segoe UI", 20F);
-            phone2.Location = new Point(421, 501);
+            phone2.Location = new Point(440, 516);
             phone2.Name = "phone2";
             phone2.Size = new Size(601, 43);
-            phone2.TabIndex = 102;
+            phone2.TabIndex = 78;
             phone2.TextAlign = HorizontalAlignment.Center;
             // 
             // label4
@@ -193,20 +163,19 @@
             label4.BackColor = Color.Black;
             label4.Font = new Font("Segoe UI", 30F);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(108, 648);
+            label4.Location = new Point(127, 663);
             label4.Name = "label4";
             label4.Size = new Size(188, 54);
-            label4.TabIndex = 101;
+            label4.TabIndex = 77;
             label4.Text = "Password";
             // 
             // Password
             // 
-            Password.Enabled = false;
             Password.Font = new Font("Segoe UI", 20F);
-            Password.Location = new Point(421, 648);
+            Password.Location = new Point(440, 663);
             Password.Name = "Password";
             Password.Size = new Size(601, 43);
-            Password.TabIndex = 100;
+            Password.TabIndex = 76;
             Password.TextAlign = HorizontalAlignment.Center;
             // 
             // label3
@@ -215,20 +184,19 @@
             label3.BackColor = Color.Black;
             label3.Font = new Font("Segoe UI", 30F);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(130, 344);
+            label3.Location = new Point(149, 359);
             label3.Name = "label3";
             label3.Size = new Size(166, 54);
-            label3.TabIndex = 99;
+            label3.TabIndex = 75;
             label3.Text = "Address";
             // 
             // Address
             // 
-            Address.Enabled = false;
             Address.Font = new Font("Segoe UI", 20F);
-            Address.Location = new Point(421, 344);
+            Address.Location = new Point(440, 359);
             Address.Name = "Address";
             Address.Size = new Size(601, 43);
-            Address.TabIndex = 98;
+            Address.TabIndex = 74;
             Address.TextAlign = HorizontalAlignment.Center;
             // 
             // label2
@@ -237,20 +205,19 @@
             label2.BackColor = Color.Black;
             label2.Font = new Font("Segoe UI", 30F);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(179, 575);
+            label2.Location = new Point(198, 590);
             label2.Name = "label2";
             label2.Size = new Size(117, 54);
-            label2.TabIndex = 97;
+            label2.TabIndex = 73;
             label2.Text = "Email";
             // 
             // Email
             // 
-            Email.Enabled = false;
             Email.Font = new Font("Segoe UI", 20F);
-            Email.Location = new Point(421, 575);
+            Email.Location = new Point(440, 590);
             Email.Name = "Email";
             Email.Size = new Size(601, 43);
-            Email.TabIndex = 96;
+            Email.TabIndex = 72;
             Email.TextAlign = HorizontalAlignment.Center;
             // 
             // label6
@@ -259,20 +226,19 @@
             label6.BackColor = Color.Black;
             label6.Font = new Font("Segoe UI", 30F);
             label6.ForeColor = Color.White;
-            label6.Location = new Point(58, 423);
+            label6.Location = new Point(77, 438);
             label6.Name = "label6";
             label6.Size = new Size(244, 54);
-            label6.TabIndex = 95;
+            label6.TabIndex = 71;
             label6.Text = "PhoneNum1";
             // 
             // phone1
             // 
-            phone1.Enabled = false;
             phone1.Font = new Font("Segoe UI", 20F);
-            phone1.Location = new Point(421, 423);
+            phone1.Location = new Point(440, 438);
             phone1.Name = "phone1";
             phone1.Size = new Size(601, 43);
-            phone1.TabIndex = 94;
+            phone1.TabIndex = 70;
             phone1.TextAlign = HorizontalAlignment.Center;
             // 
             // label1
@@ -280,11 +246,23 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 30F);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(406, 9);
+            label1.Location = new Point(324, 19);
             label1.Name = "label1";
-            label1.Size = new Size(205, 54);
-            label1.TabIndex = 93;
-            label1.Text = "Admin : id";
+            label1.Size = new Size(284, 54);
+            label1.TabIndex = 69;
+            label1.Text = "Edit Admin : id";
+            // 
+            // SaveButton
+            // 
+            SaveButton.Font = new Font("Segoe UI", 20F);
+            SaveButton.ForeColor = Color.Black;
+            SaveButton.Location = new Point(457, 755);
+            SaveButton.Name = "SaveButton";
+            SaveButton.Size = new Size(142, 46);
+            SaveButton.TabIndex = 90;
+            SaveButton.Text = "Save";
+            SaveButton.UseVisualStyleBackColor = true;
+            SaveButton.Click += SaveButton_Click;
             // 
             // label11
             // 
@@ -292,10 +270,10 @@
             label11.BackColor = Color.Black;
             label11.Font = new Font("Segoe UI", 30F);
             label11.ForeColor = Color.White;
-            label11.Location = new Point(546, 778);
+            label11.Location = new Point(565, 780);
             label11.Name = "label11";
             label11.Size = new Size(34, 54);
-            label11.TabIndex = 115;
+            label11.TabIndex = 91;
             label11.Text = " ";
             // 
             // BackButton
@@ -305,24 +283,22 @@
             BackButton.FlatStyle = FlatStyle.Flat;
             BackButton.Font = new Font("Segoe UI", 20F);
             BackButton.ForeColor = Color.White;
-            BackButton.Location = new Point(34, 17);
+            BackButton.Location = new Point(24, 19);
             BackButton.Name = "BackButton";
             BackButton.Size = new Size(115, 47);
-            BackButton.TabIndex = 117;
+            BackButton.TabIndex = 92;
             BackButton.Text = "⇐ back";
             BackButton.UseVisualStyleBackColor = false;
             BackButton.Click += BackButton_Click;
             // 
-            // ShowAdmin
+            // EditAdmin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.Black;
-            ClientSize = new Size(1067, 677);
+            ClientSize = new Size(1092, 611);
             Controls.Add(BackButton);
-            Controls.Add(RemoveButton);
-            Controls.Add(EditButton);
             Controls.Add(label9);
             Controls.Add(id);
             Controls.Add(label5);
@@ -342,19 +318,17 @@
             Controls.Add(label6);
             Controls.Add(phone1);
             Controls.Add(label1);
+            Controls.Add(SaveButton);
             Controls.Add(label11);
             ForeColor = Color.White;
-            Name = "ShowAdmin";
-            Text = "ShowAdmin";
-            FormClosed += ShowAdmin_close;
+            Name = "EditAdmin";
+            Text = "EditAdmin";
+            FormClosed += EditAdmin_close;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Button RemoveButton;
-        private Button EditButton;
         private Label label9;
         private TextBox id;
         private Label label5;
@@ -374,6 +348,7 @@
         private Label label6;
         private TextBox phone1;
         private Label label1;
+        private Button SaveButton;
         private Label label11;
         private Button BackButton;
     }

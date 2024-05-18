@@ -10,31 +10,28 @@ using System.Windows.Forms;
 
 namespace FacultySystemApp.admin.admins
 {
-    public partial class ShowAdmin : Form
+    public partial class EditAdmin : Form
     {
-        public ShowAdmin()
+        public EditAdmin()
         {
             InitializeComponent();
             CenterToScreen();
-
         }
 
-        private void EditButton_Click(object sender, EventArgs e)
-        {
-            EditAdmin editAdmin = new EditAdmin();
-            editAdmin.Show();
-            this.Hide();
-        }
-
-        private void ShowAdmin_close(object sender, FormClosedEventArgs e)
+        private void EditAdmin_close(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
 
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void BackButton_Click(object sender, EventArgs e)
         {
-            ManageUsers manageUsers = new ManageUsers();
-            manageUsers.Show();
+            ShowAdmin showAdmin = new ShowAdmin();
+            showAdmin.Show();
             this.Hide();
         }
     }

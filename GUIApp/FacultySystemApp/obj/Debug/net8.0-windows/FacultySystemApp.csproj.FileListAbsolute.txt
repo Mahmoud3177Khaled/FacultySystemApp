@@ -44,3 +44,6 @@ C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Deb
 C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.admin.students.ShowAllStudents.resources
 C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.admin.admins.ShowAdmin.resources
 C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.admin.students.SignupStudent.resources
+C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.admin.admins.EditAdmin.resources
+C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.admin.admins.ShowAllAdmins.resources
+C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.admin.admins.SignupAdmin.resources

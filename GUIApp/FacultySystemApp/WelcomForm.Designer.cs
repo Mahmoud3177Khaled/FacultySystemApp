@@ -34,6 +34,7 @@
             SignupButton = new Button();
             hScrollBar1 = new HScrollBar();
             smile = new Label();
+            ExitButton = new Button();
             SuspendLayout();
             // 
             // welcome
@@ -101,12 +102,28 @@
             smile.TabIndex = 5;
             smile.Text = "︶";
             // 
+            // ExitButton
+            // 
+            ExitButton.BackColor = Color.Black;
+            ExitButton.FlatAppearance.BorderSize = 0;
+            ExitButton.FlatStyle = FlatStyle.Flat;
+            ExitButton.Font = new Font("Segoe UI", 20F);
+            ExitButton.ForeColor = Color.Red;
+            ExitButton.Location = new Point(30, 27);
+            ExitButton.Name = "ExitButton";
+            ExitButton.Size = new Size(74, 54);
+            ExitButton.TabIndex = 94;
+            ExitButton.Text = "Exit";
+            ExitButton.UseVisualStyleBackColor = false;
+            ExitButton.Click += ExitButton_Click;
+            // 
             // WelcomeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             ClientSize = new Size(1010, 664);
+            Controls.Add(ExitButton);
             Controls.Add(hScrollBar1);
             Controls.Add(smile);
             Controls.Add(SignupButton);
@@ -129,5 +146,6 @@
         private Button SignupButton;
         private HScrollBar hScrollBar1;
         private Label smile;
+        private Button ExitButton;
     }
 }

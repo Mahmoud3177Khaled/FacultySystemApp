@@ -10,23 +10,21 @@ using System.Windows.Forms;
 
 namespace FacultySystemApp.admin.admins
 {
-    public partial class ShowAdmin : Form
+    public partial class SignupAdmin : Form
     {
-        public ShowAdmin()
+        public SignupAdmin()
         {
             InitializeComponent();
             CenterToScreen();
 
         }
 
-        private void EditButton_Click(object sender, EventArgs e)
+        private void signupButton_Click(object sender, EventArgs e)
         {
-            EditAdmin editAdmin = new EditAdmin();
-            editAdmin.Show();
-            this.Hide();
+
         }
 
-        private void ShowAdmin_close(object sender, FormClosedEventArgs e)
+        private void SignupAdmin_close(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }

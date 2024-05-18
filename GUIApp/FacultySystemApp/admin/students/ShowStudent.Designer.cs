@@ -52,6 +52,7 @@
             label1 = new Label();
             label11 = new Label();
             RemoveButton = new Button();
+            BackButton = new Button();
             SuspendLayout();
             // 
             // EditButton
@@ -68,6 +69,7 @@
             // 
             // textBox1
             // 
+            textBox1.Enabled = false;
             textBox1.Font = new Font("Segoe UI", 20F);
             textBox1.Location = new Point(452, 741);
             textBox1.Name = "textBox1";
@@ -101,6 +103,7 @@
             // 
             // id
             // 
+            id.Enabled = false;
             id.Font = new Font("Segoe UI", 20F);
             id.Location = new Point(452, 284);
             id.Name = "id";
@@ -122,6 +125,7 @@
             // 
             // lastName
             // 
+            lastName.Enabled = false;
             lastName.Font = new Font("Segoe UI", 20F);
             lastName.Location = new Point(863, 127);
             lastName.Name = "lastName";
@@ -132,6 +136,7 @@
             // 
             // middleName
             // 
+            middleName.Enabled = false;
             middleName.Font = new Font("Segoe UI", 20F);
             middleName.Location = new Point(658, 127);
             middleName.Name = "middleName";
@@ -142,6 +147,7 @@
             // 
             // firstName
             // 
+            firstName.Enabled = false;
             firstName.Font = new Font("Segoe UI", 20F);
             firstName.Location = new Point(452, 127);
             firstName.Name = "firstName";
@@ -164,6 +170,7 @@
             // 
             // username
             // 
+            username.Enabled = false;
             username.Font = new Font("Segoe UI", 20F);
             username.Location = new Point(452, 208);
             username.Name = "username";
@@ -185,6 +192,7 @@
             // 
             // phone2
             // 
+            phone2.Enabled = false;
             phone2.Font = new Font("Segoe UI", 20F);
             phone2.Location = new Point(452, 516);
             phone2.Name = "phone2";
@@ -206,6 +214,7 @@
             // 
             // Password
             // 
+            Password.Enabled = false;
             Password.Font = new Font("Segoe UI", 20F);
             Password.Location = new Point(452, 663);
             Password.Name = "Password";
@@ -227,6 +236,7 @@
             // 
             // Address
             // 
+            Address.Enabled = false;
             Address.Font = new Font("Segoe UI", 20F);
             Address.Location = new Point(452, 359);
             Address.Name = "Address";
@@ -248,6 +258,7 @@
             // 
             // Email
             // 
+            Email.Enabled = false;
             Email.Font = new Font("Segoe UI", 20F);
             Email.Location = new Point(452, 590);
             Email.Name = "Email";
@@ -269,6 +280,7 @@
             // 
             // phone1
             // 
+            phone1.Enabled = false;
             phone1.Font = new Font("Segoe UI", 20F);
             phone1.Location = new Point(452, 438);
             phone1.Name = "phone1";
@@ -311,6 +323,21 @@
             RemoveButton.UseVisualStyleBackColor = true;
             RemoveButton.Click += RemoveButton_Click;
             // 
+            // BackButton
+            // 
+            BackButton.BackColor = Color.Black;
+            BackButton.FlatAppearance.BorderSize = 0;
+            BackButton.FlatStyle = FlatStyle.Flat;
+            BackButton.Font = new Font("Segoe UI", 20F);
+            BackButton.ForeColor = Color.White;
+            BackButton.Location = new Point(43, 40);
+            BackButton.Name = "BackButton";
+            BackButton.Size = new Size(115, 47);
+            BackButton.TabIndex = 93;
+            BackButton.Text = "⇐ back";
+            BackButton.UseVisualStyleBackColor = false;
+            BackButton.Click += BackButton_Click;
+            // 
             // ShowStudent
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -318,6 +345,7 @@
             AutoScroll = true;
             BackColor = Color.Black;
             ClientSize = new Size(1116, 716);
+            Controls.Add(BackButton);
             Controls.Add(RemoveButton);
             Controls.Add(EditButton);
             Controls.Add(textBox1);
@@ -376,5 +404,6 @@
         private Label label1;
         private Label label11;
         private Button RemoveButton;
+        private Button BackButton;
     }
 }

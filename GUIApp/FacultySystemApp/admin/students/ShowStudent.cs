@@ -34,5 +34,12 @@ namespace FacultySystemApp.admin.students
         {
             Application.Exit();
         }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            ManageUsers manageUsers = new ManageUsers();
+            manageUsers.Show();
+            this.Hide();
+        }
     }
 }
