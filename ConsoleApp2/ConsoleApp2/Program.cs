@@ -570,7 +570,7 @@ namespace sqltest
                 createCourse();
             }
             else if(ch == "3"){
-
+                editCourse();                
             }
             else if(ch == "4"){
 
@@ -586,13 +586,13 @@ namespace sqltest
         }
         public static void createCourse(){
 
-            Console.WriteLine("             ----------------------");
-            Console.WriteLine("            |                       |");
-            Console.WriteLine("            |    create new course  |");
-            Console.WriteLine("            |                       |");
-            Console.WriteLine("             -----------------------" + "\n\n");
+            Console.WriteLine("         ----------------------");
+            Console.WriteLine("        |                       |");
+            Console.WriteLine("        |    create new course  |");
+            Console.WriteLine("        |                       |");
+            Console.WriteLine("         -----------------------" + "\n\n");
             Console.WriteLine("course id");
-            int courseId = int.Parse(Console.ReadLine());
+            string courseId = Console.ReadLine();
             Console.WriteLine("department id");
             string departmentId = Console.ReadLine();
             Console.WriteLine("course name");
@@ -600,7 +600,79 @@ namespace sqltest
             Console.WriteLine("credit hours");
             int creditHours = int.Parse(Console.ReadLine());
 
-            string addQuery = $"INSERT INTO course VALUES "
+            string addQuery = "INSERT INTO course VALUES(@courseId,@departmentId,@courseName,@creditHours)";
+            try{
+                SqlCommand sComm  = new SqlCommand(addQuery,sqlconn);
+                //sqlCommand.Parameters.AddWithValue("@table", table);
+                sComm.Parameters.AddWithValue("@courseId",courseId);
+                sComm.Parameters.AddWithValue("@departmentId",departmentId);
+                sComm.Parameters.AddWithValue("@courseName",courseName);
+                sComm.Parameters.AddWithValue("@creditHours",creditHours);
+                Console.WriteLine("\n    " + sComm.ExecuteNonQuery() + " course added.\n\n");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("error: " + e.Message);
+            }
+
+        }
+        public static void editCourse(string courseId){
+
+            Console.WriteLine("          -------------------");
+            Console.WriteLine("         |                   |");
+            Console.WriteLine("         |    edit course    |");
+            Console.WriteLine("         |                   |");
+            Console.WriteLine("          -------------------" + "\n\n");
+            Console.WriteLine("1-change course id\n2-change department of course\n3-change course name\n4-change credit hours of course\n\n ");
+            string ch = Console.ReadLine();
+            if(ch == "1"){
+                Console.Write("the new course id: ");
+                string newCourseId = Console.ReadLine();
+                string sqlQuery ="UPDATE  Course SET course_id = @newCourseId where course_id = @courseId";
+                SqlCommand sComm = new SqlCommand(sqlQuery,sqlconn);
+
+                sComm.Parameters.AddWithValue("newCourseId",newCourseId);
+                sComm.Parameters.AddWithValue("courseId",courseId);
+                Console.WriteLine("\n    " + sComm.ExecuteNonQuery() + " course id edited.\n\n");
+
+            }
+            else if(ch == "2"){
+                Console.Write("the new department id: ");
+                string newDepartmentId = Console.ReadLine();
+                string sqlQuery ="UPDATE  Course SET department_id = @newDepartmentId where course_id = @courseId";
+                SqlCommand sComm = new SqlCommand(sqlQuery,sqlconn);
+
+                sComm.Parameters.AddWithValue("newDepartmentId",newDepartmentId);
+                sComm.Parameters.AddWithValue("courseId",courseId);
+                Console.WriteLine("\n    " + sComm.ExecuteNonQuery() + "department id of course edited.\n\n");
+ 
+            }
+            else if(ch == "3"){
+                Console.Write("the new course name: ");
+                string newCourseName = Console.ReadLine();
+                string sqlQuery ="UPDATE  Course SET course_name = @newCourseName where course_id = @courseId";
+                SqlCommand sComm = new SqlCommand(sqlQuery,sqlconn);
+
+                sComm.Parameters.AddWithValue("newCourseName",newCourseName);
+                sComm.Parameters.AddWithValue("courseId",courseId);
+                Console.WriteLine("\n    " + sComm.ExecuteNonQuery() + " course name edited.\n\n");
+                
+            }
+            else if(ch == "4"){
+                Console.Write("the new credit hours: ");
+                int newCreditHours = int.Parse(Console.ReadLine());
+                string sqlQuery ="UPDATE  Course SET credit_hours = @newCreditHours where course_id = @courseId";
+                SqlCommand sComm = new SqlCommand(sqlQuery,sqlconn);
+
+                sComm.Parameters.AddWithValue("newCreditHours",newCreditHours);
+                sComm.Parameters.AddWithValue("courseId",courseId);
+                Console.WriteLine("\n    " + sComm.ExecuteNonQuery() + " credit hours of course edited.\n\n");
+
+            }
+            else if(ch == ""){
+
+            }
+
         }
         public static void show_student_data()
         {
