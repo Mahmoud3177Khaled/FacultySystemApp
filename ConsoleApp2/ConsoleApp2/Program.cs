@@ -871,27 +871,26 @@ namespace sqltest
         {
             try
             {
-                string department_Id;
+                string department_id;
                 string department_name;
 
 
                 Console.WriteLine("adding department");
 
-                Console.WriteLine("department_Id: ");
-                department_Id = Console.ReadLine();
+                Console.WriteLine("department id: ");
+                department_id = Console.ReadLine();
 
-                Console.WriteLine("department_name: ");
+                Console.WriteLine("department name: ");
                 department_name = Console.ReadLine();
 
 
-                string parametarizedQuery = "INSERT INTO " + "department";
+                string parametarizedQuery = "INSERT INTO " + "Department";
 
                 parametarizedQuery += " VALUES(@department_Id, @department_name);";
 
                 SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
 
-                //sqlCommand.Parameters.AddWithValue("@table", table);
-                sqlCommand.Parameters.AddWithValue("@department_Id", department_Id);
+                sqlCommand.Parameters.AddWithValue("@department_Id", department_id);
                 sqlCommand.Parameters.AddWithValue("@department_name", department_name);
 
 
@@ -939,9 +938,140 @@ namespace sqltest
             //show 
         }
 
+        public static void manage_department(){
+            string option = "1";
+            while (option !="e") // continue while invalid option
+            {
+                Console.WriteLine("\nPlease Select an option to continue: " + "\n");
+                Console.WriteLine("0- Go Back.");
+                Console.WriteLine("1- Show all departments");
+                Console.WriteLine("2- Add department");
+                Console.WriteLine("3- Edit department");
+                Console.WriteLine("4- Delete department");
+                Console.WriteLine("5- Assign students to a department");
+                Console.WriteLine("e- Exit.");
+                Console.Write("Enter your choise: ");
+                option = Console.ReadLine();
+                if (option == "0")
+                {
+                    return;
+                }
+                if (option == "e")
+                {
+                    CloseConnAndExit();
+                }
+                if (option == "1") //show all departments
+                {
+                    string query = "select * from Department";
+                    SqlCommand comm = new SqlCommand(query, sqlconn);
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        Console.WriteLine("\n------------------------------");
+                        while (reader.Read())
+                        {
+                            Console.WriteLine("department_id: " + reader[0]);
+                            Console.WriteLine("department_name: " + reader[1]);
+                            Console.WriteLine("------------------------------");
+                        }
+                    }
+                }
+                else if (option == "2") //add department
+                {
+                    add_department();
+                }
+                else if (option == "3") //edit department
+                {
+                    string query = "UPDATE Department SET department_name = @department_name WHERE department_id = @department_id";
+                    try
+                    {
+                        string department_name;
+                        string department_id;
+
+                        Console.WriteLine("editing department");
+
+                        Console.WriteLine("department id: ");
+                        department_id = Console.ReadLine();
+
+                        Console.WriteLine("department name: ");
+                        department_name = Console.ReadLine();
+
+                        SqlCommand sqlCommand = new SqlCommand(query, sqlconn);
+
+                        sqlCommand.Parameters.AddWithValue("@department_name", department_name);
+                        sqlCommand.Parameters.AddWithValue("@department_id", department_id);
+
+                        Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " department edited.\n\n");
+
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("error: " + e.Message);
+                    }
+                }
+                else if (option == "4") //delete department
+                {
+                    try
+                    {
+                        string department_id;
+
+                        Console.WriteLine("deleting department");
+
+                        Console.WriteLine("department id: ");
+                        department_id = Console.ReadLine();
+
+                        string query = "DELETE from Department where department_id = @department_id";
+
+                        SqlCommand sqlCommand = new SqlCommand(query, sqlconn);
+
+                        sqlCommand.Parameters.AddWithValue("@department_id", department_id);
+
+                        Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " department deleted.\n\n");
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("error: " + e.Message);
+                    }
+                }
+                else if (option == "5") //assign students to a department
+                {
+                    try
+                    {
+                        string student_id;
+                        string department_id;
+
+                        Console.WriteLine("assigning student to a department");
+
+                        Console.WriteLine("student id: ");
+                        student_id = Console.ReadLine();
+
+                        Console.WriteLine("department id: ");
+                        department_id = Console.ReadLine();
+
+                        string query = "UPDATE Student SET department_id = @department_id ";
+                        query += "WHERE student_id = @student_id";
+
+                        SqlCommand sqlCommand = new SqlCommand(query, sqlconn);
+
+                        sqlCommand.Parameters.AddWithValue("@department_id", department_id);
+                        sqlCommand.Parameters.AddWithValue("@student_id", student_id);
+
+                        Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " student assigned to a department.\n\n");
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("error: " + e.Message);
+                    }
+                }
+                else
+                {
+                    Console.Write("\n invalid option.please,try agien.\n");
+                }
+            }
+        }
+
         static void Main(String[] args)
         {
-            OpenConnTo("localhost", "faculty_management_system1");
+            OpenConnTo("localhost", "faculty_management_system");
 
             Console.WriteLine("---------------------------------------------------");
             Console.WriteLine("|                                                 |");
@@ -1014,7 +1144,7 @@ namespace sqltest
                         }
                         else if (option == "2")
                         {
-                            // manage department //george
+                            manage_department();
                         }
 
                         else if (option == "3")
