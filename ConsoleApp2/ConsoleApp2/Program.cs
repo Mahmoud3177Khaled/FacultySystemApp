@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Diagnostics;
@@ -11,7 +11,7 @@ namespace sqltest
 {
     internal class DataBaseManipulator
     {
-        public static SqlConnection? sqlconn;
+        public static SqlConnection sqlconn;
 
         public static String? table = "None";
         public static String? g_Database = "None";
@@ -56,11 +56,11 @@ namespace sqltest
                 g_Database = Database;
 
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine("Error: " + e.Message);
             }
-                                                             
+
         }
 
         /*public static void ReadTable()
@@ -357,7 +357,7 @@ namespace sqltest
             Console.WriteLine("1- Student \n2- admin");
             user = Console.ReadLine();
 
-            if(user == "1")
+            if (user == "1")
             {
                 try
                 {
@@ -395,13 +395,13 @@ namespace sqltest
 
                     Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " Student_account added.\n\n");
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     Console.WriteLine("error: " + e.Message);
                 }
 
             }
-            else if(user == "2")
+            else if (user == "2")
             {
                 try
                 {
@@ -456,8 +456,8 @@ namespace sqltest
             {
                 try
                 {
-                   // Console.WriteLine("signing in a student");
-                    
+                    // Console.WriteLine("signing in a student");
+
                     string temp_stud_id;
 
                     Console.WriteLine("student_id: ");
@@ -471,7 +471,7 @@ namespace sqltest
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
 
-                        if(reader.Read())
+                        if (reader.Read())
                         {
                             Console.Write("Student with id: " + reader[0] + " is signed in\n");
                             signedin_user_id = temp_stud_id;
@@ -541,7 +541,7 @@ namespace sqltest
 
             using (SqlDataReader reader = comm.ExecuteReader())
             {
-                if(reader.Read())
+                if (reader.Read())
                 {
                     Console.WriteLine("student_id: " + reader[0]);
                     Console.WriteLine("first_name: " + reader[1]);
@@ -591,33 +591,33 @@ namespace sqltest
                 string replacment_first_name;
                 string replacment_middle_name;
                 string replacment_last_name;
-                string replacment_address; 
+                string replacment_address;
                 string replacment_department_id;
 
 
                 Console.WriteLine("editing student");
 
                 Console.WriteLine("first_name: ");
-                    replacment_first_name = Console.ReadLine();
+                replacment_first_name = Console.ReadLine();
 
                 Console.WriteLine("middle_name: ");
-                    replacment_middle_name = Console.ReadLine();
+                replacment_middle_name = Console.ReadLine();
 
                 Console.WriteLine("last_name: ");
-                    replacment_last_name = Console.ReadLine();
+                replacment_last_name = Console.ReadLine();
 
                 Console.WriteLine("address: ");
-                    replacment_address = Console.ReadLine();
+                replacment_address = Console.ReadLine();
 
                 Console.WriteLine("department_id: ");
-                    replacment_department_id = Console.ReadLine();
+                replacment_department_id = Console.ReadLine();
 
 
-                string query = "update student " + 
+                string query = "update student " +
                                "set first_name = @replacment_first_name, middle_name = @replacment_middle_name, "
-                             + "last_name = @replacment_last_name, address = @replacment_address, " + 
+                             + "last_name = @replacment_last_name, address = @replacment_address, " +
                                "department_id = @replacment_department_id ";
-                      query += "where student_id = " + int.Parse(signedin_user_id);
+                query += "where student_id = " + int.Parse(signedin_user_id);
 
 
                 SqlCommand comm = new SqlCommand(query, sqlconn);
@@ -625,13 +625,13 @@ namespace sqltest
                 comm.Parameters.AddWithValue("@replacment_first_name", replacment_first_name);
                 comm.Parameters.AddWithValue("@replacment_middle_name", replacment_middle_name);
                 comm.Parameters.AddWithValue("@replacment_last_name", replacment_last_name);
-                comm.Parameters.AddWithValue("@replacment_address", replacment_address); 
+                comm.Parameters.AddWithValue("@replacment_address", replacment_address);
                 comm.Parameters.AddWithValue("@replacment_department_id", replacment_department_id);
 
                 Console.WriteLine("\n    " + comm.ExecuteNonQuery() + " student edited.\n\n");
 
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine("error: " + e.Message);
             }
@@ -650,13 +650,13 @@ namespace sqltest
                 Console.WriteLine("editing student");
 
                 Console.WriteLine("first_name: ");
-                    replacment_first_name = Console.ReadLine();
+                replacment_first_name = Console.ReadLine();
 
                 Console.WriteLine("middle_name: ");
-                    replacment_middle_name = Console.ReadLine();
+                replacment_middle_name = Console.ReadLine();
 
                 Console.WriteLine("last_name: ");
-                    replacment_last_name = Console.ReadLine();
+                replacment_last_name = Console.ReadLine();
 
                 Console.WriteLine("address: ");
                 replacment_admin_address = Console.ReadLine();
@@ -665,7 +665,7 @@ namespace sqltest
                 string query = "update Admin_data " +
                                "set first_name = @replacment_first_name, middle_name = @replacment_middle_name, "
                              + "last_name = @replacment_last_name, admin_address = @replacment_admin_address ";
-                      query += "where admin_id = " + int.Parse(signedin_user_id);
+                query += "where admin_id = " + int.Parse(signedin_user_id);
 
 
                 SqlCommand comm = new SqlCommand(query, sqlconn);
@@ -678,7 +678,7 @@ namespace sqltest
                 Console.WriteLine("\n    " + comm.ExecuteNonQuery() + " admin edited.\n\n");
 
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine("error: " + e.Message);
             }
@@ -764,18 +764,38 @@ namespace sqltest
 
         public static void CloseConn()  // Close the connection
         {
-            if(sqlconn != null)
+            if (sqlconn != null)
             {
                 sqlconn.Close();
                 Console.WriteLine("Database disconnected");
                 //Console.WriteLine("Thank you <3");
             }
-            else 
+            else
             {
                 //Console.WriteLine("No connected database");
             }
 
         }
+
+        public static void manage_users() //mahmoud
+        {
+            //student  
+                // add
+                //edit
+                //remove   from table account and table studend
+                //show 
+                //show all
+            //staff  
+                // add
+                //edit
+                //remove
+                //show
+            //admin  
+                // add
+                //edit
+                //remove
+                //show 
+          }
 
         static void Main(String[] args)
         {
@@ -788,9 +808,152 @@ namespace sqltest
             Console.WriteLine("---------------------------------------------------" + "\n");
 
 
+            bool exit = false;
+            while (!exit) // the program run
+            {
+                ////////////////////
+                // welcome page ///
+                //////////////////
+
+                string option = "1";
+                while (option !="e") // continue while invalid option
+                {
+                    Console.WriteLine("\nPlease Select an option to continue: " + "\n");
+                    Console.WriteLine("1- sign in.");
+                    Console.WriteLine("2- Sign up.");
+                    Console.WriteLine("e- Exit.");
+                    Console.Write("Enter your choise: ");
+                    option = Console.ReadLine();
+                    if (option == "1")
+                    {
+                        signin(); //philo
+                        break;
+
+                    }
+                    else if (option == "2")
+                    {
+                        signup(); //required sign in as admin //george
+                        break;
+                    }
+                    else if (option == "e")
+                    {
+                        Environment.Exit(0);
+
+                        exit = true;
+                        break;
+                    }
+                    else
+                    {
+                        Console.Write("\n invalid option.please,try agien.\n");
+                    }
+                }
+                if (exit)
+                {
+                    break;
+                }
+                if (singedin_type == "admin") //admin page
+                {
+                     option = "1";
+                    while (option != "e")
+                    {
+                        Console.WriteLine("\nPlease Select an option to continue: " + "\n");
+                        Console.WriteLine("1- manage users.");
+                        Console.WriteLine("2- manage courses.");
+                        Console.WriteLine("3- manage departments.");
+                        Console.WriteLine("e- Exit.");
+                        Console.Write("Enter your choise: ");
+                        option = Console.ReadLine();
+                        if (option == "1")
+                        {
+                            manage_users();
+                        }
+                        else if (option == "2")
+                        {
+                            // manage department //george
+                        }
+                       
+                        else if (option == "3")
+                        {
+                            //manage courses // philo
+                            break;
+                        }
+                        else if (option == "e")
+                        {
+                            exit = true;
+                            break;
+                        }
+                        else
+                        {
+                            Console.Write("\n invalid option.please,try agien.\n");
+                        }
+
+                    }
+                    if (exit)
+                    {
+                        Environment.Exit(0);
+                    }
+                }
+                else if (singedin_type == "student") //student page
+                {
+                    option = "1";
+                    while (option != "e")
+                    {
+                        Console.WriteLine("\nPlease Select an option to continue: " + "\n");
+                        Console.WriteLine("1- show profile.");
+                        Console.WriteLine("2- show enrolling courses.");
+                        Console.WriteLine("0- back");
+                        Console.WriteLine("e- Exit.");
+                        Console.Write("Enter your choise: ");
+                        option = Console.ReadLine();
+                        if (option == "1")
+                        {
+                            //profile --> george
+                        }
+                        else if (option == "2")
+                        {
+                            //show -->philo
+                        }
+                        else if (option == "0")
+                        {
+                            //-----> go to welcome page
+                            break;
+                        }
+                        else if (option == "e")
+                        {
+                            exit = true;
+                            break;
+                        }
+                        else
+                        {
+                            Console.Write("\n invalid option.please,try agien.\n");
+                        }
+                    }
+                    if (exit)
+                    {
+                        break;
+                    }
+
+                }
+            }
+
+
+
+
+
+
+
+
+
+            Console.WriteLine("---------------------------------------------------");
+            Console.WriteLine("|                                                 |");
+            Console.WriteLine("| Hello and Welcome to our Faculty System App :)  |");
+            Console.WriteLine("|                                                 |");
+            Console.WriteLine("---------------------------------------------------" + "\n");
+
+
             string choice = "";
 
-            while(choice != "7")
+           /* while (choice != "7")
             {
 
                 //Console.WriteLine("Currently selected    -->   Database: " + g_Database + " | " + "Table: " + table + "\n");
@@ -808,21 +971,21 @@ namespace sqltest
                 Console.Write("Your option: ");
                 choice = Console.ReadLine();
                 Console.WriteLine("");
-                if (choice ==  "1")
+                if (choice == "1")
                 {
                     signup();
                 }
-                else if(choice == "2")
-                {   
+                else if (choice == "2")
+                {
                     signin();
                 }
                 else if (choice == "3")
                 {
-                    if(singedin_type == "student")
+                    if (singedin_type == "student")
                     {
                         show_student_data();
                     }
-                    else if(singedin_type == "admin")
+                    else if (singedin_type == "admin")
                     {
                         show_admin_data();
                     }
@@ -855,7 +1018,7 @@ namespace sqltest
                 {
                     add_department();
                 }
-                else if (choice == "7")  
+                else if (choice == "7")
                 {
                     CloseConn();
                     Console.WriteLine("App closed, Thank you for using our App :)");
@@ -918,7 +1081,7 @@ namespace sqltest
                     Console.WriteLine("Undefined command... Try again");
                 }*/
 
-            }
+            
 
         }
 
