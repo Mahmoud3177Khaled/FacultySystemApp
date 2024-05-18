@@ -1,10 +1,14 @@
 
 using Microsoft.VisualBasic.Logging;
+using FacultySystemApp.student;
+using FacultySystemApp.admin;
 
 namespace FacultySystemApp
 {
     public partial class WelcomeForm : Form
     {
+        Form page;
+
         public WelcomeForm()
         {
             InitializeComponent();
@@ -14,9 +18,26 @@ namespace FacultySystemApp
         private void LoginButton_Click(object sender, EventArgs e)
         {
             LoginForm login = new LoginForm();
+            login.LoginSuccess += login_LoginSuccess;
             login.Show();
-            this.Hide();
+            //this.Hide();
         }
+
+        private void login_LoginSuccess(object sender, UserTypeEventArgs e)
+        {
+            //this.Hide();
+            this.Hide();
+            if (e.UserType == "admin")
+            {
+                page = new AdminPage();
+            }
+            else if (e.UserType == "student")
+            {
+                page = new StudentPage();
+            }
+            page.Show();
+        }
+
 
         private void SignupButton_Click(object sender, EventArgs e)
         {

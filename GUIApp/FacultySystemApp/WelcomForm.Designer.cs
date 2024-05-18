@@ -41,7 +41,7 @@
             welcome.AutoSize = true;
             welcome.Font = new Font("Segoe UI", 30F);
             welcome.ForeColor = Color.White;
-            welcome.Location = new Point(382, 65);
+            welcome.Location = new Point(220, 27);
             welcome.Name = "welcome";
             welcome.Size = new Size(588, 54);
             welcome.TabIndex = 0;
@@ -52,7 +52,7 @@
             madeBy.AutoSize = true;
             madeBy.Font = new Font("Segoe UI", 25F);
             madeBy.ForeColor = Color.White;
-            madeBy.Location = new Point(514, 167);
+            madeBy.Location = new Point(352, 129);
             madeBy.Name = "madeBy";
             madeBy.Size = new Size(284, 46);
             madeBy.TabIndex = 1;
@@ -62,7 +62,7 @@
             // 
             LoginButton.FlatStyle = FlatStyle.System;
             LoginButton.Font = new Font("Segoe UI", 20F);
-            LoginButton.Location = new Point(395, 337);
+            LoginButton.Location = new Point(233, 299);
             LoginButton.Name = "LoginButton";
             LoginButton.Size = new Size(139, 53);
             LoginButton.TabIndex = 2;
@@ -74,7 +74,7 @@
             // 
             SignupButton.FlatStyle = FlatStyle.System;
             SignupButton.Font = new Font("Segoe UI", 20F);
-            SignupButton.Location = new Point(818, 337);
+            SignupButton.Location = new Point(656, 299);
             SignupButton.Name = "SignupButton";
             SignupButton.Size = new Size(139, 53);
             SignupButton.TabIndex = 3;
@@ -84,7 +84,7 @@
             // 
             // hScrollBar1
             // 
-            hScrollBar1.Location = new Point(663, 337);
+            hScrollBar1.Location = new Point(501, 299);
             hScrollBar1.Name = "hScrollBar1";
             hScrollBar1.Size = new Size(10, 190);
             hScrollBar1.TabIndex = 4;
@@ -95,7 +95,7 @@
             smile.BackColor = Color.Transparent;
             smile.Font = new Font("Segoe UI Black", 180F);
             smile.ForeColor = Color.White;
-            smile.Location = new Point(505, 506);
+            smile.Location = new Point(343, 468);
             smile.Name = "smile";
             smile.Size = new Size(345, 318);
             smile.TabIndex = 5;
@@ -106,13 +106,14 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            ClientSize = new Size(1334, 761);
+            ClientSize = new Size(1010, 664);
             Controls.Add(hScrollBar1);
             Controls.Add(smile);
             Controls.Add(SignupButton);
             Controls.Add(LoginButton);
             Controls.Add(madeBy);
             Controls.Add(welcome);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "WelcomeForm";
             Text = "welcome";
             FormClosed += WelcomeFormClosed;

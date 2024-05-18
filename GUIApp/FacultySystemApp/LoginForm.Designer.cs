@@ -32,11 +32,10 @@
             loginlabel = new Label();
             loginEmailLabel = new Label();
             loginPasswordLabel = new Label();
-            loginEmailInput = new TextBox();
+            EmailInput = new TextBox();
             contextMenuStrip1 = new ContextMenuStrip(components);
-            textBox1 = new TextBox();
-            LoginUserButton = new Button();
-            BackToWelcom = new Button();
+            PasswordInput = new TextBox();
+            LoginButton = new Button();
             SuspendLayout();
             // 
             // loginlabel
@@ -44,7 +43,7 @@
             loginlabel.AutoSize = true;
             loginlabel.Font = new Font("Segoe UI", 30F);
             loginlabel.ForeColor = Color.White;
-            loginlabel.Location = new Point(446, 80);
+            loginlabel.Location = new Point(264, 78);
             loginlabel.Name = "loginlabel";
             loginlabel.Size = new Size(416, 54);
             loginlabel.TabIndex = 1;
@@ -55,7 +54,7 @@
             loginEmailLabel.AutoSize = true;
             loginEmailLabel.Font = new Font("Segoe UI", 30F);
             loginEmailLabel.ForeColor = Color.White;
-            loginEmailLabel.Location = new Point(285, 358);
+            loginEmailLabel.Location = new Point(166, 210);
             loginEmailLabel.Name = "loginEmailLabel";
             loginEmailLabel.Size = new Size(117, 54);
             loginEmailLabel.TabIndex = 2;
@@ -66,74 +65,61 @@
             loginPasswordLabel.AutoSize = true;
             loginPasswordLabel.Font = new Font("Segoe UI", 30F);
             loginPasswordLabel.ForeColor = Color.White;
-            loginPasswordLabel.Location = new Point(214, 506);
+            loginPasswordLabel.Location = new Point(95, 342);
             loginPasswordLabel.Name = "loginPasswordLabel";
             loginPasswordLabel.Size = new Size(188, 54);
             loginPasswordLabel.TabIndex = 3;
             loginPasswordLabel.Text = "Password";
             // 
-            // loginEmailInput
+            // EmailInput
             // 
-            loginEmailInput.Font = new Font("Segoe UI", 15F);
-            loginEmailInput.Location = new Point(466, 358);
-            loginEmailInput.Name = "loginEmailInput";
-            loginEmailInput.Size = new Size(372, 34);
-            loginEmailInput.TabIndex = 4;
+            EmailInput.Font = new Font("Segoe UI", 15F);
+            EmailInput.Location = new Point(347, 210);
+            EmailInput.Name = "EmailInput";
+            EmailInput.Size = new Size(372, 34);
+            EmailInput.TabIndex = 4;
             // 
             // contextMenuStrip1
             // 
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(61, 4);
             // 
-            // textBox1
+            // PasswordInput
             // 
-            textBox1.Font = new Font("Segoe UI", 15F);
-            textBox1.Location = new Point(466, 519);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(372, 34);
-            textBox1.TabIndex = 5;
+            PasswordInput.Font = new Font("Segoe UI", 15F);
+            PasswordInput.Location = new Point(347, 355);
+            PasswordInput.Name = "PasswordInput";
+            PasswordInput.Size = new Size(372, 34);
+            PasswordInput.TabIndex = 5;
             // 
-            // LoginUserButton
+            // LoginButton
             // 
-            LoginUserButton.FlatStyle = FlatStyle.System;
-            LoginUserButton.Font = new Font("Segoe UI", 20F);
-            LoginUserButton.Location = new Point(568, 638);
-            LoginUserButton.Name = "LoginUserButton";
-            LoginUserButton.Size = new Size(165, 65);
-            LoginUserButton.TabIndex = 6;
-            LoginUserButton.Text = "Login";
-            LoginUserButton.UseVisualStyleBackColor = true;
-            LoginUserButton.Click += LoginUserButton_Click;
-            // 
-            // BackToWelcom
-            // 
-            BackToWelcom.Font = new Font("Segoe UI", 15F);
-            BackToWelcom.ForeColor = Color.Black;
-            BackToWelcom.Location = new Point(40, 30);
-            BackToWelcom.Name = "BackToWelcom";
-            BackToWelcom.Size = new Size(90, 40);
-            BackToWelcom.TabIndex = 7;
-            BackToWelcom.Text = "⇐ back";
-            BackToWelcom.UseVisualStyleBackColor = true;
-            BackToWelcom.Click += BackToWelcome_Click;
+            LoginButton.FlatStyle = FlatStyle.System;
+            LoginButton.Font = new Font("Segoe UI", 20F);
+            LoginButton.Location = new Point(421, 482);
+            LoginButton.Name = "LoginButton";
+            LoginButton.Size = new Size(131, 52);
+            LoginButton.TabIndex = 6;
+            LoginButton.Text = "Login";
+            LoginButton.UseVisualStyleBackColor = true;
+            LoginButton.Click += LoginButton_Click;
             // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            ClientSize = new Size(1334, 761);
-            Controls.Add(BackToWelcom);
-            Controls.Add(LoginUserButton);
-            Controls.Add(textBox1);
-            Controls.Add(loginEmailInput);
+            ClientSize = new Size(971, 656);
+            Controls.Add(LoginButton);
+            Controls.Add(PasswordInput);
+            Controls.Add(EmailInput);
             Controls.Add(loginPasswordLabel);
             Controls.Add(loginEmailLabel);
             Controls.Add(loginlabel);
             ForeColor = Color.White;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "LoginForm";
             Text = "Login";
-            FormClosed += LoginFormClosed;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -143,10 +129,9 @@
         private Label loginlabel;
         private Label loginEmailLabel;
         private Label loginPasswordLabel;
-        private TextBox loginEmailInput;
+        private TextBox EmailInput;
         private ContextMenuStrip contextMenuStrip1;
-        private TextBox textBox1;
-        private Button LoginUserButton;
-        private Button BackToWelcom;
+        private TextBox PasswordInput;
+        private Button LoginButton;
     }
 }

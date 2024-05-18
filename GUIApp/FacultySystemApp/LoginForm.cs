@@ -13,29 +13,45 @@ namespace FacultySystemApp
 {
     public partial class LoginForm : Form
     {
+        //public event EventHandler verified;
+        public event EventHandler<UserTypeEventArgs> LoginSuccess;
+
         public LoginForm()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
-        private void BackToWelcome_Click(object sender, EventArgs e)
+        private void LoginButton_Click(object sender, EventArgs e)
         {
-            WelcomeForm welcome = new WelcomeForm();
-            welcome.Show();
-            this.Hide();
+            string email = EmailInput.Text;
+            string password = PasswordInput.Text;
+
+            // Replace these with your actual user validation logic
+            if (email == "a" && password == "a")
+            {
+                LoginSuccess?.Invoke(this, new UserTypeEventArgs("admin"));
+                this.Hide();
+            }
+            else if (email == "s" && password == "s")
+            {
+                LoginSuccess?.Invoke(this, new UserTypeEventArgs("student"));
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Invalid credentials. Please try again.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+    }
+}
 
+public class UserTypeEventArgs : EventArgs
+{
+    public string UserType { get; }
 
-        private void LoginFormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-
-        }
-
-        private void LoginUserButton_Click(object sender, EventArgs e)
-        {
-
-        }
+    public UserTypeEventArgs(string userType)
+    {
+        UserType = userType;
     }
 }
