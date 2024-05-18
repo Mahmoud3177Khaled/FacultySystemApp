@@ -455,7 +455,7 @@ namespace sqltest
             Console.Write("password: ");
             password = Console.ReadLine();
 
-            string check_query = $"SELECT role FROM accounts WHERE email = '{email}' AND password='{password}'";
+            string check_query = $"SELECT account_id, role FROM accounts WHERE email = '{email}' AND password='{password}'";
             try
             {
                 SqlCommand sc = new SqlCommand(check_query, sqlconn);
@@ -464,8 +464,8 @@ namespace sqltest
                 {
                     if (reader.Read())
                     {
-                        singedin_type = "" + reader[0];
-                        //Console.WriteLine(singedin_type);
+                        signedin_user_id = "" + reader[0];
+                        singedin_type = "" + reader[1];
                     }
                     else
                     {
@@ -2025,6 +2025,151 @@ namespace sqltest
             // show all               DONE
         }
 
+        public static void manage_profile(){
+            string option = "1";
+            string query = $"SELECT student_id FROM Student WHERE account_id={signedin_user_id}";
+            string student_id = "";
+            using (SqlCommand sqlCommand = new SqlCommand(query, sqlconn))
+            {
+                using (SqlDataReader reader = sqlCommand.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        student_id = "" + reader[0];
+                    }
+                }
+            }
+            while (option !="e") // continue while invalid option
+            {
+                Console.WriteLine("\nPlease Select an option to continue: " + "\n");
+                Console.WriteLine("0- Go Back.");
+                Console.WriteLine("1- Show profile.");
+                Console.WriteLine("2- Edit profile");
+                Console.WriteLine("3- Add phone number");
+                Console.WriteLine("4- Delete phone number");
+                Console.WriteLine("e- Exit.");
+                Console.Write("Enter your choise: ");
+                option = Console.ReadLine();
+                if (option == "0")
+                {
+                    return;
+                }
+                if (option == "e")
+                {
+                    CloseConnAndExit();
+                }
+                if (option == "1")
+                {
+                    try
+                    {
+                        query = "SELECT user_name, email from accounts ";
+                        query += $"WHERE account_id = {signedin_user_id}";
+
+                        using (SqlCommand sqlCommand = new SqlCommand(query, sqlconn))
+                        {
+                            using (SqlDataReader reader = sqlCommand.ExecuteReader())
+                            {
+                                Console.WriteLine("Account Info:");
+                                reader.Read();
+                                Console.WriteLine("user_name: " + reader[0]);
+                                Console.WriteLine("email: " + reader[1]);
+                            }
+                        }
+
+                        query = "SELECT student_id, department_name, student_first_name, student_middle_name, student_last_name, entry_year, student_address FROM Student ";
+                        query += $"JOIN Department ON Department.department_id = Student.department_id";
+                        query += $"WHERE student_id = '{student_id}'";
+                        using (SqlCommand sqlCommand = new SqlCommand(query, sqlconn))
+                        {
+                            using (SqlDataReader reader = sqlCommand.ExecuteReader())
+                            {
+                                Console.WriteLine("Student Info:");
+                                reader.Read();
+                                Console.WriteLine("Student ID: " + reader[0]);
+                                Console.WriteLine("Student Department: " + reader[1]);
+                                string full_name = reader[2] + " " + reader[3] + " " + reader[4];
+                                Console.WriteLine("Student Name: " + full_name);
+                                Console.WriteLine("Entry Year: " + reader[5]);
+                                Console.WriteLine("Student Address: " + reader[6]);
+                            }
+                        }
+
+                        query = $"SELECT phone_number FROM phones WHERE account_id = {signedin_user_id}";
+                        using (SqlCommand sqlCommand = new SqlCommand(query, sqlconn))
+                        {
+                            using (SqlDataReader reader = sqlCommand.ExecuteReader())
+                            {
+                                Console.WriteLine("Phone numbers:");
+                                while (reader.Read())
+                                {
+                                    Console.WriteLine(reader[0]);
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("error: " + e.Message);
+                    }
+                }
+                else if (option == "2")
+                {
+                    string edit_option = "1";
+                    Console.WriteLine("1- Edit password");
+                    Console.WriteLine("2- Edit address");
+                    if (edit_option == "1")
+                    {
+                        Console.WriteLine("Enter new password: ");
+                        string new_password = Console.ReadLine();
+                        query = $"UPDATE accounts SET password='{new_password}' WHERE account_id={signedin_user_id}";
+                        using (SqlCommand sqlCommand = new SqlCommand(query, sqlconn))
+                        {
+                            Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " password edited.\n\n");
+                        }
+                    }
+                    else if (edit_option == "2")
+                    {
+                        Console.WriteLine("Enter new address: ");
+                        string new_address = Console.ReadLine();
+                        query = $"UPDATE Student SET student_address='{new_address}' WHERE student_id='{student_id}'";
+                        using (SqlCommand sqlCommand = new SqlCommand(query, sqlconn))
+                        {
+                            Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " address edited.\n\n");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid option");
+                    }
+
+                }
+                else if (option == "3")
+                {
+                    Console.WriteLine("Enter new phone number: ");
+                    string new_phone = Console.ReadLine();
+                    query = $"INSERT INTO phones VALUES({signedin_user_id}, '{new_phone}')";
+                    using (SqlCommand sqlCommand = new SqlCommand(query, sqlconn))
+                    {
+                        Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " phone added.\n\n");
+                    }
+                }
+                else if (option == "4")
+                {
+                    Console.WriteLine("Enter phone number to delete: ");
+                    string phone = Console.ReadLine();
+                    query = $"DELETE FROM phones WHERE account_id={signedin_user_id} AND phone_number='{phone}'";
+                    using (SqlCommand sqlCommand = new SqlCommand(query, sqlconn))
+                    {
+                        Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " phone deleted.\n\n");
+                    }
+                }
+                else
+                {
+                    Console.Write("\n invalid option.please,try agien.\n");
+                }
+            }
+        }
+
         static void Main(String[] args)
         {
             OpenConnTo("localhost", "faculty_management_system");
@@ -2136,7 +2281,7 @@ namespace sqltest
                         option = Console.ReadLine();
                         if (option == "1")
                         {
-                            //profile --> george
+                            manage_profile();
                         }
                         else if (option == "2")
                         {
