@@ -1778,13 +1778,10 @@ namespace sqltest
 
                 string department_id = "";
                 string year = "";
-                string cousre = "";
-                string GPA = "";
+            
 
                 bool department_id_bool = false;
                 bool year_bool = false;
-                bool cousre_bool = false;
-                bool GPA_bool = false;
 
                 Console.WriteLine("Add department constraint?  [y/n]");
                 if (Console.ReadLine() == "y")
@@ -1802,22 +1799,6 @@ namespace sqltest
                     year = Console.ReadLine();
                 }
 
-                Console.WriteLine("Add Course constraint?  [y/n]");
-                if (Console.ReadLine() == "y")
-                {
-                    cousre_bool = true;
-                    Console.WriteLine("cousre: ");
-                    cousre = Console.ReadLine();
-                }
-
-                Console.WriteLine("Add GPA constraint?  [y/n]");
-                if (Console.ReadLine() == "y")
-                {
-                    GPA_bool = true;
-                    Console.WriteLine("GPA: ");
-                    GPA = Console.ReadLine();
-                }
-
 
                 string parametarizedQuery = "SELECT * FROM " + "accounts, Student " +
                                             " where accounts.account_id = Student.account_id";
@@ -1833,18 +1814,6 @@ namespace sqltest
                     parametarizedQuery += " and entry_year = " + year;
 
                 }
-
-                // if (cousre_bool)
-                // {
-                //     parametarizedQuery += " and course_id = " + cousre;
-
-                // }
-
-                // if (GPA_bool)
-                // {
-                //    parametarizedQuery += " and GPA = " + GPA;
-
-                // }
 
                 SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
                 //Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " Student deleted.\n");
