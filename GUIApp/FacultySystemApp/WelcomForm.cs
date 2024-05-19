@@ -2,6 +2,7 @@
 using Microsoft.VisualBasic.Logging;
 using FacultySystemApp.student;
 using FacultySystemApp.admin;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace FacultySystemApp
 {
@@ -27,6 +28,8 @@ namespace FacultySystemApp
         {
             //this.Hide();
             this.Hide();
+            UserSession.Email = e.Email;
+            UserSession.Password = e.Password;
             if (e.UserType == "admin")
             {
                 page = new AdminPage();

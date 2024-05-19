@@ -13,10 +13,17 @@ namespace FacultySystemApp.admin
 {
     public partial class AdminPage : Form
     {
+
         public AdminPage()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
+            LoadProfile(UserSession.Email, UserSession.Password);
+        }
+
+        private void LoadProfile(string email, string password)
+        {
+            // Load user profile using email and password
 
         }
 

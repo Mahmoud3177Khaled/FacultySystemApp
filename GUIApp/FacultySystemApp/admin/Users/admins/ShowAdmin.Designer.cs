@@ -319,7 +319,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.Black;
-            ClientSize = new Size(1067, 677);
+            ClientSize = new Size(1065, 612);
             Controls.Add(BackButton);
             Controls.Add(RemoveButton);
             Controls.Add(EditButton);

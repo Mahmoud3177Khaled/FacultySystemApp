@@ -297,7 +297,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.Black;
-            ClientSize = new Size(1092, 611);
+            ClientSize = new Size(1099, 649);
             Controls.Add(BackButton);
             Controls.Add(label9);
             Controls.Add(id);

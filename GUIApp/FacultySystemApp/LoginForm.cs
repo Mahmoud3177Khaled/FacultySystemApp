@@ -30,12 +30,12 @@ namespace FacultySystemApp
             // Replace these with your actual user validation logic
             if (email == "a" && password == "a")
             {
-                LoginSuccess?.Invoke(this, new UserTypeEventArgs("admin"));
+                LoginSuccess?.Invoke(this, new UserTypeEventArgs("admin", email , password));
                 this.Hide();
             }
             else if (email == "s" && password == "s")
             {
-                LoginSuccess?.Invoke(this, new UserTypeEventArgs("student"));
+                LoginSuccess?.Invoke(this, new UserTypeEventArgs("student", email, password));
                 this.Hide();
             }
             else
@@ -49,9 +49,13 @@ namespace FacultySystemApp
 public class UserTypeEventArgs : EventArgs
 {
     public string UserType { get; }
+    public string Email { get; }
+    public string Password { get; }
 
-    public UserTypeEventArgs(string userType)
+    public UserTypeEventArgs(string userType, string email, string password)
     {
         UserType = userType;
+        Email = email;
+        Password = password;
     }
 }

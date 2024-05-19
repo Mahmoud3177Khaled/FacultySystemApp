@@ -22,7 +22,6 @@ C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\bin\Deb
 C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\bin\Debug\net8.0-windows\FacultySystemApp.dll
 C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\bin\Debug\net8.0-windows\FacultySystemApp.pdb
 C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.LoginForm.resources
-C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.SignupForm.resources
 C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.WelcomeForm.resources
 C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.csproj.GenerateResource.cache
 C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.GeneratedMSBuildEditorConfig.editorconfig
@@ -64,3 +63,4 @@ C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Deb
 C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.admin.Departments.EditDepartment.resources
 C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.admin.Departments.ShowAllDepartments.resources
 C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.admin.Departments.ShowDepartment.resources
+C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.student.EditStudentProfile.resources

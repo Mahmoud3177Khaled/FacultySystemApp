@@ -1,16 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|c:\\users\\jojo1\\documents\\github\\facultysystemapp\\guiapp\\facultysystemapp\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|solutionrelative:facultysystemapp\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|c:\\users\\jojo1\\documents\\github\\facultysystemapp\\guiapp\\facultysystemapp\\signupform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|solutionrelative:facultysystemapp\\signupform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 1,
@@ -18,35 +9,11 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SignupForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\SignupForm.cs",
-              "RelativeDocumentMoniker": "FacultySystemApp\\SignupForm.cs",
-              "ToolTip": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\SignupForm.cs [Design]",
-              "RelativeToolTip": "FacultySystemApp\\SignupForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T16:30:26.771Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "LoginForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\LoginForm.cs",
-              "RelativeDocumentMoniker": "FacultySystemApp\\LoginForm.cs",
-              "ToolTip": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\LoginForm.cs [Design]",
-              "RelativeToolTip": "FacultySystemApp\\LoginForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T16:30:21.584Z",
-              "EditorCaption": " [Design]"
             }
           ]
         },

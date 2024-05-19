@@ -16,11 +16,36 @@ namespace FacultySystemApp.student
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
+            LoadProfile(UserSession.Email, UserSession.Password);
+        }
+
+        private void LoadProfile(string email, string password)
+        {
+            // Load user profile using email and password
+
         }
 
         private void StudentPageClosed(object sender, FormClosedEventArgs e)
+
         {
             Application.Exit();
+        }
+
+        private void EditButton_Click(object sender, EventArgs e)
+        {
+            EditStudentProfile editStudentProfile = new EditStudentProfile();
+            editStudentProfile.Show();
+            this.Hide();
+        }
+
+        private void ShowEnrollingCourses_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void StudentPage_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
