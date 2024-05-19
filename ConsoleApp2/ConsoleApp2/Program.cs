@@ -1466,6 +1466,12 @@ namespace sqltest
                 {
                     try
                     {
+                                Console.Clear();
+                                Console.WriteLine("\t\t -----------------------");
+                                Console.WriteLine("\t\t|                       |");
+                                Console.WriteLine("\t\t|     your profile      |");
+                                Console.WriteLine("\t\t|                       |");
+                                Console.WriteLine("\t\t -----------------------" + "\n");
                         query = "SELECT user_name, email from accounts ";
                         query += $"WHERE account_id = {signedin_user_id}";
 
@@ -1473,12 +1479,6 @@ namespace sqltest
                         {
                             using (SqlDataReader reader = sqlCommand.ExecuteReader())
                             {
-                                Console.Clear();
-                                Console.WriteLine("\t\t -----------------------");
-                                Console.WriteLine("\t\t|                       |");
-                                Console.WriteLine("\t\t|     your profile      |");
-                                Console.WriteLine("\t\t|                       |");
-                                Console.WriteLine("\t\t -----------------------" + "\n");
                 
                                 reader.Read();
                                 Console.WriteLine("user_name: " + reader[0]);
@@ -1573,27 +1573,34 @@ namespace sqltest
                 }
                 else if (option == "3")
                 {
-                    Console.WriteLine("Enter new phone number: ");
+                    Console.Write("Enter new phone number: ");
                     string new_phone = Console.ReadLine();
                     query = $"INSERT INTO phones VALUES({signedin_user_id}, '{new_phone}')";
                     using (SqlCommand sqlCommand = new SqlCommand(query, sqlconn))
                     {
-                        Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " phone added.\n\n");
+                        Console.WriteLine(sqlCommand.ExecuteNonQuery() + " phone added.\n\n");
+                        Console.WriteLine("press 'Enter' to continue.");
+                        Console.ReadKey();
                     }
+
                 }
                 else if (option == "4")
                 {
-                    Console.WriteLine("Enter phone number to delete: ");
+                    Console.Write("Enter phone number to delete: ");
                     string phone = Console.ReadLine();
                     query = $"DELETE FROM phones WHERE account_id={signedin_user_id} AND phone_number='{phone}'";
                     using (SqlCommand sqlCommand = new SqlCommand(query, sqlconn))
                     {
-                        Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " phone deleted.\n\n");
+                        Console.WriteLine(sqlCommand.ExecuteNonQuery() + " phone deleted.\n\n");
+                        Console.WriteLine("press 'Enter' to continue.");
+                        Console.ReadKey();
                     }
                 }
                 else
                 {
                     Console.Write("\n invalid option.please,try agien.\n");
+                    Console.WriteLine("press 'Enter' to continue.");
+                    Console.ReadKey();
                 }
             }
         }
@@ -2906,7 +2913,6 @@ namespace sqltest
                         Console.WriteLine("\t\t|    Home page    |");
                         Console.WriteLine("\t\t|                 |");
                         Console.WriteLine("\t\t -----------------" + "\n");
-                        Console.WriteLine("\nPlease Select an option to continue: " + "\n");
                         Console.WriteLine("\nPlease Select an option to continue: " + "\n");
                         Console.WriteLine("1- show profile.");
                         Console.WriteLine("2- show enrolling courses.");
