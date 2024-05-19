@@ -1054,7 +1054,9 @@ namespace sqltest
                     Console.WriteLine("\t\t|    show Departments    |");
                     Console.WriteLine("\t\t|                        |");
                     Console.WriteLine("\t\t ------------------------" + "\n");
-                    string query = "select * from Department";
+                    string query = "select d.department_id, d.department_name, COUNT(s.student_id) from Department d ";
+                    query += "LEFT JOIN Student s on d.department_id = s.department_id ";
+                    query += "GROUP BY d.department_id, d.department_name";
                     SqlCommand comm = new SqlCommand(query, sqlconn);
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
@@ -1063,6 +1065,7 @@ namespace sqltest
                         {
                             Console.WriteLine("department_id: " + reader[0]);
                             Console.WriteLine("department_name: " + reader[1]);
+                            Console.WriteLine("number of students: " + reader[2]);
                             Console.WriteLine("------------------------------");
                         }
                     }
@@ -1300,8 +1303,10 @@ namespace sqltest
                             {
 
                                 reader.Read();
+                                Console.WriteLine("Account Info:");
                                 Console.WriteLine("user_name: " + reader[0]);
                                 Console.WriteLine("email: " + reader[1]);
+                                Console.WriteLine("________________________");
                             }
                         }
 
@@ -1313,12 +1318,14 @@ namespace sqltest
                             using (SqlDataReader reader = sqlCommand.ExecuteReader())
                             {
                                 reader.Read();
+                                Console.WriteLine("student Info:");
                                 Console.WriteLine("Student ID: " + reader[0]);
                                 Console.WriteLine("Student Department: " + reader[1]);
                                 string full_name = reader[2] + " " + reader[3] + " " + reader[4];
                                 Console.WriteLine("Student Name: " + full_name);
                                 Console.WriteLine("Entry Year: " + reader[5]);
                                 Console.WriteLine("Student Address: " + reader[6]);
+                                Console.WriteLine("________________________");
                             }
                         }
 
@@ -1332,6 +1339,7 @@ namespace sqltest
                                 {
                                     Console.WriteLine(reader[0]);
                                 }
+                                Console.WriteLine("________________________");
                             }
                         }
                         Console.WriteLine("press 'Enter' to continue.");
@@ -1425,966 +1433,968 @@ namespace sqltest
 
 
         public static void AddStudent()
+{
+
+    int account_id;
+    string user_name;
+    string password;
+    string email;
+    //string role;
+
+    string student_id = "";
+    string? department_id;
+    string student_first_name;
+    string student_middle_name;
+    string student_last_name;
+    string entry_year;
+    string student_address;
+
+    Console.WriteLine("adding a student with his account");
+
+
+    Console.WriteLine("user_name: ");
+    user_name = Console.ReadLine();
+
+    Console.WriteLine("password: ");
+    password = Console.ReadLine();
+
+    Console.WriteLine("email: ");
+    email = Console.ReadLine();
+
+    // Console.WriteLine("role: ");
+    // role = Console.ReadLine();
+
+
+    Console.WriteLine("student_id: ");
+    student_id = Console.ReadLine();
+
+    Console.WriteLine("department_id: ");
+    department_id = Console.ReadLine();
+
+    Console.WriteLine("student_first_name: ");
+    student_first_name = Console.ReadLine();
+
+    Console.WriteLine("student_middle_name: ");
+    student_middle_name = Console.ReadLine();
+
+    Console.WriteLine("student_last_name: ");
+    student_last_name = Console.ReadLine();
+
+    Console.WriteLine("entry_year: ");
+    entry_year = Console.ReadLine();
+
+    Console.WriteLine("student_address: ");
+    student_address = Console.ReadLine();
+
+    try
+    {
+
+        string prequery = "INSERT INTO accounts " +
+                          " VALUES('" + user_name + "', '" + password + "', '" + email + "', '" + "student" + "');";
+
+        SqlCommand precommand = new SqlCommand(prequery, sqlconn);
+        Console.WriteLine("\n     " + precommand.ExecuteNonQuery() + "  account added.\n\n");
+
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine("error: " + e.Message);
+        return;
+
+    }
+
+    SqlCommand idcommand = new SqlCommand(" SELECT SCOPE_IDENTITY();", sqlconn);
+    account_id = Convert.ToInt32(idcommand.ExecuteScalar());
+
+    try
+    {
+        string parametarizedQuery = "INSERT INTO " + "Student ";
+
+        parametarizedQuery += " VALUES(@student_id, @department_id, @account_id, @student_first_name," +
+                              " @student_middle_name, @student_last_name, @entry_year, @student_address);";
+
+        SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
+
+        sqlCommand.Parameters.AddWithValue("@student_id", student_id);
+        sqlCommand.Parameters.AddWithValue("@department_id", department_id);
+        sqlCommand.Parameters.AddWithValue("@account_id", account_id);
+        sqlCommand.Parameters.AddWithValue("@student_first_name", student_first_name);
+        sqlCommand.Parameters.AddWithValue("@student_middle_name", student_middle_name);
+        sqlCommand.Parameters.AddWithValue("@student_last_name", student_last_name);
+        sqlCommand.Parameters.AddWithValue("@entry_year", entry_year);
+        sqlCommand.Parameters.AddWithValue("@student_address", student_address);
+
+        Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " Student added.\n");
+
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine("Error: " + e.Message);
+
+        string deleteQuery = "DELETE FROM " + "accounts " +
+                                    " where account_id = " + account_id + ";";
+
+        SqlCommand sqlCommand = new SqlCommand(deleteQuery, sqlconn);
+        Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " account deleted.\n");
+    }
+
+}
+
+public static void EditStudent()
+{
+
+    try
+    {
+        int account_id;
+        string user_name;
+        string password;
+        string email;
+        string role;
+
+        string student_id = "";
+        string department_id;
+        string student_first_name;
+        string student_middle_name;
+        string student_last_name;
+        string entry_year;
+        string student_address;
+
+        Console.WriteLine("editing a student and his account");
+
+
+        Console.WriteLine("student_id: ");
+        student_id = Console.ReadLine();
+
+
+        Console.WriteLine("user_name: ");
+        user_name = Console.ReadLine();
+
+        Console.WriteLine("password: ");
+        password = Console.ReadLine();
+
+        Console.WriteLine("email: ");
+        email = Console.ReadLine();
+
+        Console.WriteLine("role: ");
+        role = Console.ReadLine();
+
+
+        Console.WriteLine("department_id: ");
+        department_id = Console.ReadLine();
+
+        Console.WriteLine("student_first_name: ");
+        student_first_name = Console.ReadLine();
+
+        Console.WriteLine("student_middle_name: ");
+        student_middle_name = Console.ReadLine();
+
+        Console.WriteLine("student_last_name: ");
+        student_last_name = Console.ReadLine();
+
+        Console.WriteLine("entry_year: ");
+        entry_year = Console.ReadLine();
+
+        Console.WriteLine("student_address: ");
+        student_address = Console.ReadLine();
+
+        string preprequery = $"select account_id from Student where student_id = {student_id}";
+        SqlCommand preprecommand = new SqlCommand(preprequery, sqlconn);
+        account_id = Convert.ToInt32(preprecommand.ExecuteScalar());
+        //Console.WriteLine("--" + account_id + "--");
+
+
+        string prequery = "update accounts " +
+                          $"set  user_name = '{user_name}',  password = '{password}',  email = '{email}', role = '{role}'" +
+                          $" where account_id = {account_id}";
+
+
+        SqlCommand precommand = new SqlCommand(prequery, sqlconn);
+        Console.WriteLine("\n    " + precommand.ExecuteNonQuery() + " account edited.\n\n");
+
+
+        string parametarizedQuery = "update " + "Student ";
+        parametarizedQuery += " set department_id = @department_id, student_first_name = @student_first_name," +
+                             " student_middle_name = @student_middle_name, student_last_name = @student_last_name, entry_year = @entry_year, student_address = @student_address";
+        parametarizedQuery += " where student_id = " + student_id;
+
+        SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
+
+
+        sqlCommand.Parameters.AddWithValue("@department_id", department_id);
+        sqlCommand.Parameters.AddWithValue("@student_first_name", student_first_name);
+        sqlCommand.Parameters.AddWithValue("@student_middle_name", student_middle_name);
+        sqlCommand.Parameters.AddWithValue("@student_last_name", student_last_name);
+        sqlCommand.Parameters.AddWithValue("@entry_year", entry_year);
+        sqlCommand.Parameters.AddWithValue("@student_address", student_address);
+
+        Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " Student edited.\n");
+
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine("error: " + e.Message);
+    }
+}
+
+public static void DeleteStudent()
+{
+
+
+    try
+    {
+        int account_id;
+        string student_id = "";
+
+        Console.WriteLine("Deleting a student and his account");
+
+        Console.WriteLine("student_id: ");
+        student_id = Console.ReadLine();
+
+
+
+
+
+        string preprequery = $"select account_id from Student where student_id = {student_id}";
+        SqlCommand preprecommand = new SqlCommand(preprequery, sqlconn);
+        account_id = Convert.ToInt32(preprecommand.ExecuteScalar());
+        Console.WriteLine("--" + account_id + "--");
+
+
+        string parametarizedQuery = "DELETE FROM " + "Student " +
+                                    " where student_id = " + student_id;
+
+        SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
+        Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " Student deleted.\n");
+
+
+        string prequery = "DELETE FROM accounts " +
+                         $" where account_id = {account_id}";
+
+        SqlCommand precommand = new SqlCommand(prequery, sqlconn);
+        Console.WriteLine("\n    " + precommand.ExecuteNonQuery() + " account deleted.\n\n");
+
+
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine("error: " + e.Message);
+    }
+}
+
+public static void ShowStudentById()
+{
+    try
+    {
+        string student_id = "";
+
+        Console.WriteLine("showing a student by id");
+
+        Console.WriteLine("student_id: ");
+        student_id = Console.ReadLine();
+
+
+
+        string parametarizedQuery = "SELECT * FROM " + "accounts, Student " +
+                                    " where accounts.account_id = Student.account_id" +
+                                    " and student_id = " + student_id;
+
+        SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
+        //Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " Student deleted.\n");
+
+        using (SqlDataReader reader = sqlCommand.ExecuteReader())
         {
+            if (reader.Read())
+            {
+                Console.WriteLine();
+                Console.WriteLine("account_id: ........... " + reader[0]);
+                Console.WriteLine("User_name: ............ " + reader[1]);
+                Console.WriteLine("password: ............. " + reader[2]);
+                Console.WriteLine("email: ................ " + reader[3]);
+                Console.WriteLine("role: ................. " + reader[4]);
+                Console.WriteLine("student_id: ........... " + reader[5]);
+                Console.WriteLine("depertment_id: ........ " + reader[6]);
+                //Console.WriteLine("middle_name:      ... " + reader[7]);
+                Console.WriteLine("student_first_name: ... " + reader[8]);
+                Console.WriteLine("student_middle_name: .. " + reader[9]);
+                Console.WriteLine("student_last_name: .... " + reader[10]);
+                Console.WriteLine("entry_year: ........... " + reader[11]);
+                Console.WriteLine("student_address: ...... " + reader[12]);
+                Console.WriteLine("---------------------------------------");
+            }
+            else
+            {
+                Console.WriteLine("No registered Student with such ID...");
+            }
 
-            int account_id;
-            string user_name;
-            string password;
-            string email;
-            //string role;
+        }
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine("error: " + e.Message);
+    }
+}
 
-            string student_id = "";
-            string? department_id;
-            string student_first_name;
-            string student_middle_name;
-            string student_last_name;
-            string entry_year;
-            string student_address;
+public static void ShowAllStudents()
+{
+    try
+    {
+        Console.WriteLine("showing all students ");
 
-            Console.WriteLine("adding a student with his account");
+        string parametarizedQuery = "SELECT * FROM " + "accounts, Student " +
+                                    " where accounts.account_id = Student.account_id";
+
+        SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
+        //Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " Student deleted.\n");
+
+        int count = 1;
+        using (SqlDataReader reader = sqlCommand.ExecuteReader())
+        {
+            while (reader.Read())
+            {
+                Console.WriteLine("---------------------------------------");
+                Console.WriteLine("Student #" + count + ":");
+                Console.WriteLine();
+                Console.WriteLine("account_id: ........... " + reader[0]);
+                Console.WriteLine("User_name: ............ " + reader[1]);
+                Console.WriteLine("password: ............. " + reader[2]);
+                Console.WriteLine("email: ................ " + reader[3]);
+                Console.WriteLine("role: ................. " + reader[4]);
+                Console.WriteLine("student_id: ........... " + reader[5]);
+                Console.WriteLine("depertment_id: ........ " + reader[6]);
+                //Console.WriteLine("middle_name:      ... " + reader[7]);
+                Console.WriteLine("student_first_name: ... " + reader[8]);
+                Console.WriteLine("student_middle_name: .. " + reader[9]);
+                Console.WriteLine("student_last_name: .... " + reader[10]);
+                Console.WriteLine("entry_year: ........... " + reader[11]);
+                Console.WriteLine("student_address: ...... " + reader[12]);
+                Console.WriteLine("---------------------------------------");
+                count++;
+            }
+
+        }
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine("error: " + e.Message);
+    }
+}
+
+public static void ShowAllSatisfying()
+{
+    try
+    {
+        Console.WriteLine("showing all students satisfying a certain criteria");
+
+        string department_id = "";
+        string year = "";
 
 
-            Console.WriteLine("user_name: ");
-            user_name = Console.ReadLine();
+        bool department_id_bool = false;
+        bool year_bool = false;
 
-            Console.WriteLine("password: ");
-            password = Console.ReadLine();
-
-            Console.WriteLine("email: ");
-            email = Console.ReadLine();
-
-            // Console.WriteLine("role: ");
-            // role = Console.ReadLine();
-
-
-            Console.WriteLine("student_id: ");
-            student_id = Console.ReadLine();
-
+        Console.WriteLine("Add department constraint?  [y/n]");
+        if (Console.ReadLine() == "y")
+        {
+            department_id_bool = true;
             Console.WriteLine("department_id: ");
             department_id = Console.ReadLine();
-
-            Console.WriteLine("student_first_name: ");
-            student_first_name = Console.ReadLine();
-
-            Console.WriteLine("student_middle_name: ");
-            student_middle_name = Console.ReadLine();
-
-            Console.WriteLine("student_last_name: ");
-            student_last_name = Console.ReadLine();
-
-            Console.WriteLine("entry_year: ");
-            entry_year = Console.ReadLine();
-
-            Console.WriteLine("student_address: ");
-            student_address = Console.ReadLine();
-
-            try
-            {
-
-                string prequery = "INSERT INTO accounts " +
-                                  " VALUES('" + user_name + "', '" + password + "', '" + email + "', '" + "student" + "');";
-
-                SqlCommand precommand = new SqlCommand(prequery, sqlconn);
-                Console.WriteLine("\n     " + precommand.ExecuteNonQuery() + "  account added.\n\n");
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("error: " + e.Message);
-
-            }
-
-            SqlCommand idcommand = new SqlCommand(" SELECT SCOPE_IDENTITY();", sqlconn);
-            account_id = Convert.ToInt32(idcommand.ExecuteScalar());
-
-            try
-            {
-                string parametarizedQuery = "INSERT INTO " + "Student ";
-
-                parametarizedQuery += " VALUES(@student_id, @department_id, @account_id, @student_first_name," +
-                                      " @student_middle_name, @student_last_name, @entry_year, @student_address);";
-
-                SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
-
-                sqlCommand.Parameters.AddWithValue("@student_id", student_id);
-                sqlCommand.Parameters.AddWithValue("@department_id", department_id);
-                sqlCommand.Parameters.AddWithValue("@account_id", account_id);
-                sqlCommand.Parameters.AddWithValue("@student_first_name", student_first_name);
-                sqlCommand.Parameters.AddWithValue("@student_middle_name", student_middle_name);
-                sqlCommand.Parameters.AddWithValue("@student_last_name", student_last_name);
-                sqlCommand.Parameters.AddWithValue("@entry_year", entry_year);
-                sqlCommand.Parameters.AddWithValue("@student_address", student_address);
-
-                Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " Student added.\n");
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Error: " + e.Message);
-
-                string deleteQuery = "DELETE FROM " + "accounts " +
-                                            " where account_id = " + account_id + ";";
-
-                SqlCommand sqlCommand = new SqlCommand(deleteQuery, sqlconn);
-                Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " account deleted.\n");
-            }
-
         }
 
-        public static void EditStudent()
+        Console.WriteLine("Add Graduation Year constraint?  [y/n]");
+        if (Console.ReadLine() == "y")
         {
-
-            try
-            {
-                int account_id;
-                string user_name;
-                string password;
-                string email;
-                string role;
-
-                string student_id = "";
-                string department_id;
-                string student_first_name;
-                string student_middle_name;
-                string student_last_name;
-                string entry_year;
-                string student_address;
-
-                Console.WriteLine("editing a student and his account");
-
-
-                Console.WriteLine("student_id: ");
-                student_id = Console.ReadLine();
-
-
-                Console.WriteLine("user_name: ");
-                user_name = Console.ReadLine();
-
-                Console.WriteLine("password: ");
-                password = Console.ReadLine();
-
-                Console.WriteLine("email: ");
-                email = Console.ReadLine();
-
-                Console.WriteLine("role: ");
-                role = Console.ReadLine();
-
-
-                Console.WriteLine("department_id: ");
-                department_id = Console.ReadLine();
-
-                Console.WriteLine("student_first_name: ");
-                student_first_name = Console.ReadLine();
-
-                Console.WriteLine("student_middle_name: ");
-                student_middle_name = Console.ReadLine();
-
-                Console.WriteLine("student_last_name: ");
-                student_last_name = Console.ReadLine();
-
-                Console.WriteLine("entry_year: ");
-                entry_year = Console.ReadLine();
-
-                Console.WriteLine("student_address: ");
-                student_address = Console.ReadLine();
-
-                string preprequery = $"select account_id from Student where student_id = {student_id}";
-                SqlCommand preprecommand = new SqlCommand(preprequery, sqlconn);
-                account_id = Convert.ToInt32(preprecommand.ExecuteScalar());
-                //Console.WriteLine("--" + account_id + "--");
-
-
-                string prequery = "update accounts " +
-                                  $"set  user_name = '{user_name}',  password = '{password}',  email = '{email}', role = '{role}'" +
-                                  $" where account_id = {account_id}";
-
-
-                SqlCommand precommand = new SqlCommand(prequery, sqlconn);
-                Console.WriteLine("\n    " + precommand.ExecuteNonQuery() + " account edited.\n\n");
-
-
-                string parametarizedQuery = "update " + "Student ";
-                parametarizedQuery += " set department_id = @department_id, student_first_name = @student_first_name," +
-                                     " student_middle_name = @student_middle_name, student_last_name = @student_last_name, entry_year = @entry_year, student_address = @student_address";
-                parametarizedQuery += " where student_id = " + student_id;
-
-                SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
-
-
-                sqlCommand.Parameters.AddWithValue("@department_id", department_id);
-                sqlCommand.Parameters.AddWithValue("@student_first_name", student_first_name);
-                sqlCommand.Parameters.AddWithValue("@student_middle_name", student_middle_name);
-                sqlCommand.Parameters.AddWithValue("@student_last_name", student_last_name);
-                sqlCommand.Parameters.AddWithValue("@entry_year", entry_year);
-                sqlCommand.Parameters.AddWithValue("@student_address", student_address);
-
-                Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " Student edited.\n");
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("error: " + e.Message);
-            }
+            year_bool = true;
+            Console.WriteLine("year: ");
+            year = Console.ReadLine();
         }
 
-        public static void DeleteStudent()
+
+        string parametarizedQuery = "SELECT * FROM " + "accounts, Student " +
+                                    " where accounts.account_id = Student.account_id";
+
+        if (department_id_bool)
         {
+            parametarizedQuery += " and department_id = " + department_id;
 
-
-            try
-            {
-                int account_id;
-                string student_id = "";
-
-                Console.WriteLine("Deleting a student and his account");
-
-                Console.WriteLine("student_id: ");
-                student_id = Console.ReadLine();
-
-
-
-
-
-                string preprequery = $"select account_id from Student where student_id = {student_id}";
-                SqlCommand preprecommand = new SqlCommand(preprequery, sqlconn);
-                account_id = Convert.ToInt32(preprecommand.ExecuteScalar());
-                Console.WriteLine("--" + account_id + "--");
-
-
-                string parametarizedQuery = "DELETE FROM " + "Student " +
-                                            " where student_id = " + student_id;
-
-                SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
-                Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " Student deleted.\n");
-
-
-                string prequery = "DELETE FROM accounts " +
-                                 $" where account_id = {account_id}";
-
-                SqlCommand precommand = new SqlCommand(prequery, sqlconn);
-                Console.WriteLine("\n    " + precommand.ExecuteNonQuery() + " account deleted.\n\n");
-
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("error: " + e.Message);
-            }
         }
 
-        public static void ShowStudentById()
+        if (year_bool)
         {
-            try
-            {
-                string student_id = "";
+            parametarizedQuery += " and entry_year = " + year;
 
-                Console.WriteLine("showing a student by id");
-
-                Console.WriteLine("student_id: ");
-                student_id = Console.ReadLine();
-
-
-
-                string parametarizedQuery = "SELECT * FROM " + "accounts, Student " +
-                                            " where accounts.account_id = Student.account_id" +
-                                            " and student_id = " + student_id;
-
-                SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
-                //Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " Student deleted.\n");
-
-                using (SqlDataReader reader = sqlCommand.ExecuteReader())
-                {
-                    if (reader.Read())
-                    {
-                        Console.WriteLine();
-                        Console.WriteLine("account_id: ........... " + reader[0]);
-                        Console.WriteLine("User_name: ............ " + reader[1]);
-                        Console.WriteLine("password: ............. " + reader[2]);
-                        Console.WriteLine("email: ................ " + reader[3]);
-                        Console.WriteLine("role: ................. " + reader[4]);
-                        Console.WriteLine("student_id: ........... " + reader[5]);
-                        Console.WriteLine("depertment_id: ........ " + reader[6]);
-                        //Console.WriteLine("middle_name:      ... " + reader[7]);
-                        Console.WriteLine("student_first_name: ... " + reader[8]);
-                        Console.WriteLine("student_middle_name: .. " + reader[9]);
-                        Console.WriteLine("student_last_name: .... " + reader[10]);
-                        Console.WriteLine("entry_year: ........... " + reader[11]);
-                        Console.WriteLine("student_address: ...... " + reader[12]);
-                        Console.WriteLine("---------------------------------------");
-                    }
-                    else
-                    {
-                        Console.WriteLine("No registered Student with such ID...");
-                    }
-
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("error: " + e.Message);
-            }
         }
 
-        public static void ShowAllStudents()
+        SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
+        //Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " Student deleted.\n");
+
+        int count = 1;
+        using (SqlDataReader reader = sqlCommand.ExecuteReader())
         {
-            try
+            while (reader.Read())
             {
-                Console.WriteLine("showing all students ");
-
-                string parametarizedQuery = "SELECT * FROM " + "accounts, Student " +
-                                            " where accounts.account_id = Student.account_id";
-
-                SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
-                //Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " Student deleted.\n");
-
-                int count = 1;
-                using (SqlDataReader reader = sqlCommand.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        Console.WriteLine("---------------------------------------");
-                        Console.WriteLine("Student #" + count + ":");
-                        Console.WriteLine();
-                        Console.WriteLine("account_id: ........... " + reader[0]);
-                        Console.WriteLine("User_name: ............ " + reader[1]);
-                        Console.WriteLine("password: ............. " + reader[2]);
-                        Console.WriteLine("email: ................ " + reader[3]);
-                        Console.WriteLine("role: ................. " + reader[4]);
-                        Console.WriteLine("student_id: ........... " + reader[5]);
-                        Console.WriteLine("depertment_id: ........ " + reader[6]);
-                        //Console.WriteLine("middle_name:      ... " + reader[7]);
-                        Console.WriteLine("student_first_name: ... " + reader[8]);
-                        Console.WriteLine("student_middle_name: .. " + reader[9]);
-                        Console.WriteLine("student_last_name: .... " + reader[10]);
-                        Console.WriteLine("entry_year: ........... " + reader[11]);
-                        Console.WriteLine("student_address: ...... " + reader[12]);
-                        Console.WriteLine("---------------------------------------");
-                        count++;
-                    }
-
-                }
+                Console.WriteLine("--------------------------------------");
+                Console.WriteLine("Student #" + count + ":");
+                Console.WriteLine();
+                Console.WriteLine("account_id: ........... " + reader[0]);
+                Console.WriteLine("User_name: ............ " + reader[1]);
+                Console.WriteLine("password: ............. " + reader[2]);
+                Console.WriteLine("email: ................ " + reader[3]);
+                Console.WriteLine("role: ................. " + reader[4]);
+                Console.WriteLine("student_id: ........... " + reader[5]);
+                Console.WriteLine("depertment_id: ........ " + reader[6]);
+                //Console.WriteLine("middle_name:      ... " + reader[7]);
+                Console.WriteLine("student_first_name: ... " + reader[8]);
+                Console.WriteLine("student_middle_name: .. " + reader[9]);
+                Console.WriteLine("student_last_name: .... " + reader[10]);
+                Console.WriteLine("entry_year: ........... " + reader[11]);
+                Console.WriteLine("student_address: ...... " + reader[12]);
+                Console.WriteLine("--------------------------------------");
+                count++;
             }
-            catch (Exception e)
-            {
-                Console.WriteLine("error: " + e.Message);
-            }
+
+
         }
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine("error: " + e.Message);
+    }
+}
 
-        public static void ShowAllSatisfying()
+public static void AddStaff()
+{
+
+    try
+    {
+
+        string staff_id = "";
+        string department_id;
+        string staff_first_name;
+        string staff_middle_name;
+        string staff_last_name;
+
+
+        Console.WriteLine("adding a staff member");
+
+        Console.WriteLine("staff_id: ");
+        staff_id = Console.ReadLine();
+
+        Console.WriteLine("department_id: ");
+        department_id = Console.ReadLine();
+
+        Console.WriteLine("staff_first_name: ");
+        staff_first_name = Console.ReadLine();
+
+        Console.WriteLine("staff_middle_name: ");
+        staff_middle_name = Console.ReadLine();
+
+        Console.WriteLine("staff_last_name: ");
+        staff_last_name = Console.ReadLine();
+
+
+        string parametarizedQuery = "INSERT INTO " + "Staff ";
+
+        parametarizedQuery += " VALUES(@staff_id, @department_id, @staff_first_name," +
+                              " @staff_middle_name, @staff_last_name);";
+
+        SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
+
+        sqlCommand.Parameters.AddWithValue("@staff_id", staff_id);
+        sqlCommand.Parameters.AddWithValue("@department_id", department_id);
+        sqlCommand.Parameters.AddWithValue("@staff_first_name", staff_first_name);
+        sqlCommand.Parameters.AddWithValue("@staff_middle_name", staff_middle_name);
+        sqlCommand.Parameters.AddWithValue("@staff_last_name", staff_last_name);
+
+        Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " staff member added.\n");
+
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine("error: " + e.Message);
+
+    }
+}
+
+public static void EditStaff()
+{
+
+    try
+    {
+        string staff_id = "";
+        string department_id;
+        string staff_first_name;
+        string staff_middle_name;
+        string staff_last_name;
+
+
+        Console.WriteLine("editing a staff member");
+
+        Console.WriteLine("staff_id: ");
+        staff_id = Console.ReadLine();
+
+
+        // Console.WriteLine("department_id: ");
+        // department_id = Console.ReadLine();
+
+        Console.WriteLine("staff_first_name: ");
+        staff_first_name = Console.ReadLine();
+
+        Console.WriteLine("staff_middle_name: ");
+        staff_middle_name = Console.ReadLine();
+
+        Console.WriteLine("staff_last_name: ");
+        staff_last_name = Console.ReadLine();
+
+
+        string parametarizedQuery = "update " + "Staff  ";
+        parametarizedQuery += " set staff_first_name = @staff_first_name," +
+                             " staff_middle_name = @staff_middle_name, staff_last_name = @staff_last_name";
+        parametarizedQuery += " where staff_id = " + staff_id;
+        // department_id = @department_id,
+
+        SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
+
+        //sqlCommand.Parameters.AddWithValue("@department_id", department_id);
+        sqlCommand.Parameters.AddWithValue("@staff_first_name", staff_first_name);
+        sqlCommand.Parameters.AddWithValue("@staff_middle_name", staff_middle_name);
+        sqlCommand.Parameters.AddWithValue("@staff_last_name", staff_last_name);
+
+        Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " staff member updated.\n");
+
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine("error: " + e.Message);
+    }
+}
+
+public static void DeleteStaff()
+{
+
+    try
+    {
+        string staff_id = "";
+
+        Console.WriteLine("Deleteing a staff member");
+
+        Console.WriteLine("staff_id: ");
+        staff_id = Console.ReadLine();
+
+
+        string prequery = "DELETE FROM Staff  " +
+                         $" where staff_id = {staff_id}";
+
+        SqlCommand precommand = new SqlCommand(prequery, sqlconn);
+        Console.WriteLine("\n    " + precommand.ExecuteNonQuery() + " staff member deleted.\n\n");
+
+
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine("error: " + e.Message);
+    }
+}
+
+public static void ShowStaffById()
+{
+    try
+    {
+        string staff_id = "";
+
+        Console.WriteLine("showing a staff member by id");
+
+        Console.WriteLine("staff_id: ");
+        staff_id = Console.ReadLine();
+
+
+
+        string parametarizedQuery = "SELECT * FROM " + "Staff " +
+                                    //" where accounts.account_id = Student.account_id" +
+                                    " where staff_id = " + staff_id;
+
+        SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
+        //Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " Student deleted.\n");
+
+        using (SqlDataReader reader = sqlCommand.ExecuteReader())
         {
-            try
+            if (reader.Read())
             {
-                Console.WriteLine("showing all students satisfying a certain criteria");
-
-                string department_id = "";
-                string year = "";
-            
-
-                bool department_id_bool = false;
-                bool year_bool = false;
-
-                Console.WriteLine("Add department constraint?  [y/n]");
-                if (Console.ReadLine() == "y")
-                {
-                    department_id_bool = true;
-                    Console.WriteLine("department_id: ");
-                    department_id = Console.ReadLine();
-                }
-
-                Console.WriteLine("Add Graduation Year constraint?  [y/n]");
-                if (Console.ReadLine() == "y")
-                {
-                    year_bool = true;
-                    Console.WriteLine("year: ");
-                    year = Console.ReadLine();
-                }
-
-
-                string parametarizedQuery = "SELECT * FROM " + "accounts, Student " +
-                                            " where accounts.account_id = Student.account_id";
-
-                if (department_id_bool)
-                {
-                    parametarizedQuery += " and department_id = " + department_id;
-
-                }
-
-                if (year_bool)
-                {
-                    parametarizedQuery += " and entry_year = " + year;
-
-                }
-
-                SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
-                //Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " Student deleted.\n");
-
-                int count = 1;
-                using (SqlDataReader reader = sqlCommand.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        Console.WriteLine("--------------------------------------");
-                        Console.WriteLine("Student #" + count + ":");
-                        Console.WriteLine();
-                        Console.WriteLine("account_id: ........... " + reader[0]);
-                        Console.WriteLine("User_name: ............ " + reader[1]);
-                        Console.WriteLine("password: ............. " + reader[2]);
-                        Console.WriteLine("email: ................ " + reader[3]);
-                        Console.WriteLine("role: ................. " + reader[4]);
-                        Console.WriteLine("student_id: ........... " + reader[5]);
-                        Console.WriteLine("depertment_id: ........ " + reader[6]);
-                        //Console.WriteLine("middle_name:      ... " + reader[7]);
-                        Console.WriteLine("student_first_name: ... " + reader[8]);
-                        Console.WriteLine("student_middle_name: .. " + reader[9]);
-                        Console.WriteLine("student_last_name: .... " + reader[10]);
-                        Console.WriteLine("entry_year: ........... " + reader[11]);
-                        Console.WriteLine("student_address: ...... " + reader[12]);
-                        Console.WriteLine("--------------------------------------");
-                        count++;
-                    }
-
-
-                }
+                Console.WriteLine();
+                Console.WriteLine("staff_id: .............. " + reader[0]);
+                Console.WriteLine("department_id: ......... " + reader[1]);
+                Console.WriteLine("staff_first_name: ...... " + reader[2]);
+                Console.WriteLine("staff_middle_name: ..... " + reader[3]);
+                Console.WriteLine("staff_last_name: ....... " + reader[4]);
             }
-            catch (Exception e)
+            else
             {
-                Console.WriteLine("error: " + e.Message);
+                Console.WriteLine("No registered Student with such ID...");
             }
+
         }
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine("error: " + e.Message);
+    }
+}
 
-        public static void AddStaff()
+public static void ShowAllStaff()
+{
+    try
+    {
+        Console.WriteLine("showing all Staff members ");
+
+        string parametarizedQuery = "SELECT * FROM " + "Staff ";
+
+        SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
+        //Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " Student deleted.\n");
+
+        int count = 1;
+        using (SqlDataReader reader = sqlCommand.ExecuteReader())
         {
-
-            try
+            while (reader.Read())
             {
-
-                string staff_id = "";
-                string department_id;
-                string staff_first_name;
-                string staff_middle_name;
-                string staff_last_name;
-
-
-                Console.WriteLine("adding a staff member");
-
-                Console.WriteLine("staff_id: ");
-                staff_id = Console.ReadLine();
-
-                Console.WriteLine("department_id: ");
-                department_id = Console.ReadLine();
-
-                Console.WriteLine("staff_first_name: ");
-                staff_first_name = Console.ReadLine();
-
-                Console.WriteLine("staff_middle_name: ");
-                staff_middle_name = Console.ReadLine();
-
-                Console.WriteLine("staff_last_name: ");
-                staff_last_name = Console.ReadLine();
-
-
-                string parametarizedQuery = "INSERT INTO " + "Staff ";
-
-                parametarizedQuery += " VALUES(@staff_id, @department_id, @staff_first_name," +
-                                      " @staff_middle_name, @staff_last_name);";
-
-                SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
-
-                sqlCommand.Parameters.AddWithValue("@staff_id", staff_id);
-                sqlCommand.Parameters.AddWithValue("@department_id", department_id);
-                sqlCommand.Parameters.AddWithValue("@staff_first_name", staff_first_name);
-                sqlCommand.Parameters.AddWithValue("@staff_middle_name", staff_middle_name);
-                sqlCommand.Parameters.AddWithValue("@staff_last_name", staff_last_name);
-
-                Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " staff member added.\n");
-
+                Console.WriteLine("--------------------------------------");
+                Console.WriteLine("Staff member #" + count + ":");
+                Console.WriteLine();
+                Console.WriteLine("staff_id: .............. " + reader[0]);
+                Console.WriteLine("department_id: ......... " + reader[1]);
+                Console.WriteLine("staff_first_name: ...... " + reader[2]);
+                Console.WriteLine("staff_middle_name: ..... " + reader[3]);
+                Console.WriteLine("staff_last_name: ....... " + reader[4]);
+                Console.WriteLine("--------------------------------------");
+                count++;
             }
-            catch (Exception e)
-            {
-                Console.WriteLine("error: " + e.Message);
 
-            }
         }
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine("error: " + e.Message);
+    }
+}
 
-        public static void EditStaff()
+public static void AddAdmin()
+{
+    int account_id;
+    string user_name;
+    string password;
+    string email;
+    //string role;
+
+    string admin_id = "";
+    string admin_first_name;
+    string admin_middle_name;
+    string admin_last_name;
+    string admin_address;
+
+    Console.WriteLine("adding an admin with his account");
+
+
+    Console.WriteLine("user_name: ");
+    user_name = Console.ReadLine();
+
+    Console.WriteLine("password: ");
+    password = Console.ReadLine();
+
+    Console.WriteLine("email: ");
+    email = Console.ReadLine();
+
+    // Console.WriteLine("role: ");
+    // role = Console.ReadLine();
+
+
+    Console.WriteLine("admin_id: ");
+    admin_id = Console.ReadLine();
+
+    Console.WriteLine("admin_first_name: ");
+    admin_first_name = Console.ReadLine();
+
+    Console.WriteLine("admin_middle_name: ");
+    admin_middle_name = Console.ReadLine();
+
+    Console.WriteLine("admin_last_name: ");
+    admin_last_name = Console.ReadLine();
+
+    Console.WriteLine("admin_address: ");
+    admin_address = Console.ReadLine();
+
+    try
+    {
+        string prequery = "INSERT INTO accounts " +
+                          " VALUES('" + user_name + "', '" + password + "', '" + email + "', '" + "admin" + "');";
+
+        SqlCommand precommand = new SqlCommand(prequery, sqlconn);
+
+
+        //Console.WriteLine(account_id);
+        Console.WriteLine("\n     " + precommand.ExecuteNonQuery() + " account added.\n\n");
+
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine("error: " + e.Message);
+        return;
+    }
+
+    SqlCommand idcommand = new SqlCommand(" SELECT SCOPE_IDENTITY();", sqlconn);
+    account_id = Convert.ToInt32(idcommand.ExecuteScalar());
+
+    try
+    {
+
+        string parametarizedQuery = "INSERT INTO " + "Admin  ";
+
+        parametarizedQuery += " VALUES(@admin_id, @account_id, @admin_first_name," +
+                              " @admin_middle_name, @admin_last_name, @admin_address);";
+
+        SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
+
+        sqlCommand.Parameters.AddWithValue("@admin_id", admin_id);
+        sqlCommand.Parameters.AddWithValue("@account_id", account_id);
+        sqlCommand.Parameters.AddWithValue("@admin_first_name", admin_first_name);
+        sqlCommand.Parameters.AddWithValue("@admin_middle_name", admin_middle_name);
+        sqlCommand.Parameters.AddWithValue("@admin_last_name", admin_last_name);
+        sqlCommand.Parameters.AddWithValue("@admin_address", admin_address);
+
+        Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " Admin added.\n");
+
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine("Error: " + e.Message);
+
+        string deleteQuery = "DELETE FROM " + "accounts " +
+                                    " where account_id = " + account_id + ";";
+
+        SqlCommand sqlCommand = new SqlCommand(deleteQuery, sqlconn);
+        Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " account deleted.\n");
+
+    }
+}
+
+public static void EditAdmin()
+{
+
+    try
+    {
+        int account_id;
+        string user_name;
+        string password;
+        string email;
+        string role;
+
+        string admin_id = "";
+        string admin_first_name;
+        string admin_middle_name;
+        string admin_last_name;
+        string admin_address;
+
+        Console.WriteLine("editing an admin with his account");
+
+
+        Console.WriteLine("admin_id: ");
+        admin_id = Console.ReadLine();
+
+
+        Console.WriteLine("user_name: ");
+        user_name = Console.ReadLine();
+
+        Console.WriteLine("password: ");
+        password = Console.ReadLine();
+
+        Console.WriteLine("email: ");
+        email = Console.ReadLine();
+
+        Console.WriteLine("role: ");
+        role = Console.ReadLine();
+
+
+        Console.WriteLine("admin_first_name: ");
+        admin_first_name = Console.ReadLine();
+
+        Console.WriteLine("admin_middle_name: ");
+        admin_middle_name = Console.ReadLine();
+
+        Console.WriteLine("admin_last_name: ");
+        admin_last_name = Console.ReadLine();
+
+        Console.WriteLine("admin_address: ");
+        admin_address = Console.ReadLine();
+
+        //string preprequery = "select account_id from "
+
+
+        string preprequery = $"select account_id from Admin where admin_id = {admin_id}";
+        SqlCommand preprecommand = new SqlCommand(preprequery, sqlconn);
+        account_id = Convert.ToInt32(preprecommand.ExecuteScalar());
+        //Console.WriteLine("--" + account_id + "--");
+
+        string prequery = "update accounts " +
+                          $" set  user_name = '{user_name}',  password = '{password}',  email = '{email}', role = '{role}'" +
+                          $" where account_id = {account_id}";
+
+        SqlCommand precommand = new SqlCommand(prequery, sqlconn);
+        Console.WriteLine("\n    " + precommand.ExecuteNonQuery() + " account edited.\n\n");
+
+
+        string parametarizedQuery = "update " + "Admin  ";
+        parametarizedQuery += " set admin_first_name = @admin_first_name," +
+                             " admin_middle_name = @admin_middle_name, admin_last_name = @admin_last_name, admin_address = @admin_address";
+        parametarizedQuery += " where admin_id = " + admin_id;
+
+        SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
+
+
+        //sqlCommand.Parameters.AddWithValue("@department_id", department_id);
+        sqlCommand.Parameters.AddWithValue("@admin_first_name", admin_first_name);
+        sqlCommand.Parameters.AddWithValue("@admin_middle_name", admin_middle_name);
+        sqlCommand.Parameters.AddWithValue("@admin_last_name", admin_last_name);
+        //sqlCommand.Parameters.AddWithValue("@entry_year", entry_year);
+        sqlCommand.Parameters.AddWithValue("@admin_address", admin_address);
+
+        Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " Admin edited.\n");
+
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine("error: " + e.Message);
+    }
+}
+
+public static void DeleteAdmin()
+{
+
+
+    try
+    {
+        int account_id;
+        string admin_id = "";
+
+        Console.WriteLine("Deleting an admin and his account");
+
+        Console.WriteLine("admin_id: ");
+        admin_id = Console.ReadLine();
+
+
+
+
+        string preprequery = $"select account_id from Admin where admin_id = {admin_id}";
+        SqlCommand preprecommand = new SqlCommand(preprequery, sqlconn);
+        account_id = Convert.ToInt32(preprecommand.ExecuteScalar());
+        //Console.WriteLine("--" + account_id + "--");
+
+        string parametarizedQuery = "DELETE FROM " + "Admin " +
+                                    " where admin_id = " + admin_id;
+
+        SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
+        Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " admin deleted.\n");
+
+        string prequery = "DELETE FROM accounts " +
+                         $" where account_id = {account_id}";
+
+        SqlCommand precommand = new SqlCommand(prequery, sqlconn);
+        Console.WriteLine("\n    " + precommand.ExecuteNonQuery() + " account deleted.\n\n");
+
+
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine("error: " + e.Message);
+    }
+}
+
+public static void ShowAdminById()
+{
+    try
+    {
+        string admin_id = "";
+
+        Console.WriteLine("showing an admin by id");
+
+        Console.WriteLine("admin_id: ");
+        admin_id = Console.ReadLine();
+
+
+
+        string parametarizedQuery = "SELECT * FROM " + "accounts, Admin " +
+                                    " where accounts.account_id = Admin.account_id" +
+                                    " and admin_id = " + admin_id;
+
+        SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
+        //Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " Student deleted.\n");
+
+        using (SqlDataReader reader = sqlCommand.ExecuteReader())
         {
-
-            try
+            if (reader.Read())
             {
-                string staff_id = "";
-                string department_id;
-                string staff_first_name;
-                string staff_middle_name;
-                string staff_last_name;
-
-
-                Console.WriteLine("editing a staff member");
-
-                Console.WriteLine("staff_id: ");
-                staff_id = Console.ReadLine();
-
-
-                // Console.WriteLine("department_id: ");
-                // department_id = Console.ReadLine();
-
-                Console.WriteLine("staff_first_name: ");
-                staff_first_name = Console.ReadLine();
-
-                Console.WriteLine("staff_middle_name: ");
-                staff_middle_name = Console.ReadLine();
-
-                Console.WriteLine("staff_last_name: ");
-                staff_last_name = Console.ReadLine();
-
-
-                string parametarizedQuery = "update " + "Staff  ";
-                parametarizedQuery += " set staff_first_name = @staff_first_name," +
-                                     " staff_middle_name = @staff_middle_name, staff_last_name = @staff_last_name";
-                parametarizedQuery += " where staff_id = " + staff_id;
-                // department_id = @department_id,
-
-                SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
-
-                //sqlCommand.Parameters.AddWithValue("@department_id", department_id);
-                sqlCommand.Parameters.AddWithValue("@staff_first_name", staff_first_name);
-                sqlCommand.Parameters.AddWithValue("@staff_middle_name", staff_middle_name);
-                sqlCommand.Parameters.AddWithValue("@staff_last_name", staff_last_name);
-
-                Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " staff member updated.\n");
-
+                Console.WriteLine();
+                Console.WriteLine("account_id: ........... " + reader[0]);
+                Console.WriteLine("User_name: ............ " + reader[1]);
+                Console.WriteLine("password: ............. " + reader[2]);
+                Console.WriteLine("email: ................ " + reader[3]);
+                Console.WriteLine("role: ................. " + reader[4]);
+                Console.WriteLine("admin_id: ............. " + reader[5]);
+                Console.WriteLine("admint_first_name: .... " + reader[7]);
+                Console.WriteLine("admin_middle_name: .... " + reader[8]);
+                Console.WriteLine("admin_last_name: ...... " + reader[9]);
+                Console.WriteLine("admin_address: ........ " + reader[10]);
+                Console.WriteLine("---------------------------------------");
             }
-            catch (Exception e)
+            else
             {
-                Console.WriteLine("error: " + e.Message);
+                Console.WriteLine("No registered Admin with such ID...");
             }
+
         }
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine("error: " + e.Message);
+    }
+}
 
-        public static void DeleteStaff()
+public static void ShowAllAdmins()
+{
+    try
+    {
+        Console.WriteLine("showing all admins ");
+
+        string parametarizedQuery = "SELECT * FROM " + "accounts, Admin " +
+                                    " where accounts.account_id = Admin.account_id";
+
+        SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
+        //Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " Student deleted.\n");
+
+        int count = 1;
+        using (SqlDataReader reader = sqlCommand.ExecuteReader())
         {
-
-            try
+            while (reader.Read())
             {
-                string staff_id = "";
-
-                Console.WriteLine("Deleteing a staff member");
-
-                Console.WriteLine("staff_id: ");
-                staff_id = Console.ReadLine();
-
-
-                string prequery = "DELETE FROM Staff  " +
-                                 $" where staff_id = {staff_id}";
-
-                SqlCommand precommand = new SqlCommand(prequery, sqlconn);
-                Console.WriteLine("\n    " + precommand.ExecuteNonQuery() + " staff member deleted.\n\n");
-
-
+                Console.WriteLine("---------------------------------------");
+                Console.WriteLine("Admin #" + count + ":");
+                Console.WriteLine("account_id: ........... " + reader[0]);
+                Console.WriteLine("User_name: ............ " + reader[1]);
+                Console.WriteLine("password: ............. " + reader[2]);
+                Console.WriteLine("email: ................ " + reader[3]);
+                Console.WriteLine("role: ................. " + reader[4]);
+                Console.WriteLine("admin_id: ............. " + reader[5]);
+                Console.WriteLine("admint_first_name: .... " + reader[7]);
+                Console.WriteLine("admin_middle_name: .... " + reader[8]);
+                Console.WriteLine("admin_last_name: ...... " + reader[9]);
+                Console.WriteLine("admin_address: ........ " + reader[10]);
+                Console.WriteLine("---------------------------------------");
+                count++;
             }
-            catch (Exception e)
-            {
-                Console.WriteLine("error: " + e.Message);
-            }
+
         }
-
-        public static void ShowStaffById()
-        {
-            try
-            {
-                string staff_id = "";
-
-                Console.WriteLine("showing a staff member by id");
-
-                Console.WriteLine("staff_id: ");
-                staff_id = Console.ReadLine();
-
-
-
-                string parametarizedQuery = "SELECT * FROM " + "Staff " +
-                                            //" where accounts.account_id = Student.account_id" +
-                                            " where staff_id = " + staff_id;
-
-                SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
-                //Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " Student deleted.\n");
-
-                using (SqlDataReader reader = sqlCommand.ExecuteReader())
-                {
-                    if (reader.Read())
-                    {
-                        Console.WriteLine();
-                        Console.WriteLine("staff_id: .............. " + reader[0]);
-                        Console.WriteLine("department_id: ......... " + reader[1]);
-                        Console.WriteLine("staff_first_name: ...... " + reader[2]);
-                        Console.WriteLine("staff_middle_name: ..... " + reader[3]);
-                        Console.WriteLine("staff_last_name: ....... " + reader[4]);
-                    }
-                    else
-                    {
-                        Console.WriteLine("No registered Student with such ID...");
-                    }
-
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("error: " + e.Message);
-            }
-        }
-
-        public static void ShowAllStaff()
-        {
-            try
-            {
-                Console.WriteLine("showing all Staff members ");
-
-                string parametarizedQuery = "SELECT * FROM " + "Staff ";
-
-                SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
-                //Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " Student deleted.\n");
-
-                int count = 1;
-                using (SqlDataReader reader = sqlCommand.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        Console.WriteLine("--------------------------------------");
-                        Console.WriteLine("Staff member #" + count + ":");
-                        Console.WriteLine();
-                        Console.WriteLine("staff_id: .............. " + reader[0]);
-                        Console.WriteLine("department_id: ......... " + reader[1]);
-                        Console.WriteLine("staff_first_name: ...... " + reader[2]);
-                        Console.WriteLine("staff_middle_name: ..... " + reader[3]);
-                        Console.WriteLine("staff_last_name: ....... " + reader[4]);
-                        Console.WriteLine("--------------------------------------");
-                        count++;
-                    }
-
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("error: " + e.Message);
-            }
-        }
-
-        public static void AddAdmin()
-        {
-            int account_id;
-            string user_name;
-            string password;
-            string email;
-            //string role;
-
-            string admin_id = "";
-            string admin_first_name;
-            string admin_middle_name;
-            string admin_last_name;
-            string admin_address;
-
-            Console.WriteLine("adding an admin with his account");
-
-
-            Console.WriteLine("user_name: ");
-            user_name = Console.ReadLine();
-
-            Console.WriteLine("password: ");
-            password = Console.ReadLine();
-
-            Console.WriteLine("email: ");
-            email = Console.ReadLine();
-
-            // Console.WriteLine("role: ");
-            // role = Console.ReadLine();
-
-
-            Console.WriteLine("admin_id: ");
-            admin_id = Console.ReadLine();
-
-            Console.WriteLine("admin_first_name: ");
-            admin_first_name = Console.ReadLine();
-
-            Console.WriteLine("admin_middle_name: ");
-            admin_middle_name = Console.ReadLine();
-
-            Console.WriteLine("admin_last_name: ");
-            admin_last_name = Console.ReadLine();
-
-            Console.WriteLine("admin_address: ");
-            admin_address = Console.ReadLine();
-
-            try
-            {
-                string prequery = "INSERT INTO accounts " +
-                                  " VALUES('" + user_name + "', '" + password + "', '" + email + "', '" + "admin" + "');";
-
-                SqlCommand precommand = new SqlCommand(prequery, sqlconn);
-
-
-                //Console.WriteLine(account_id);
-                Console.WriteLine("\n     " + precommand.ExecuteNonQuery() + " account added.\n\n");
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("error: " + e.Message);
-            }
-
-            SqlCommand idcommand = new SqlCommand(" SELECT SCOPE_IDENTITY();", sqlconn);
-            account_id = Convert.ToInt32(idcommand.ExecuteScalar());
-
-            try
-            {
-
-                string parametarizedQuery = "INSERT INTO " + "Admin  ";
-
-                parametarizedQuery += " VALUES(@admin_id, @account_id, @admin_first_name," +
-                                      " @admin_middle_name, @admin_last_name, @admin_address);";
-
-                SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
-
-                sqlCommand.Parameters.AddWithValue("@admin_id", admin_id);
-                sqlCommand.Parameters.AddWithValue("@account_id", account_id);
-                sqlCommand.Parameters.AddWithValue("@admin_first_name", admin_first_name);
-                sqlCommand.Parameters.AddWithValue("@admin_middle_name", admin_middle_name);
-                sqlCommand.Parameters.AddWithValue("@admin_last_name", admin_last_name);
-                sqlCommand.Parameters.AddWithValue("@admin_address", admin_address);
-
-                Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " Admin added.\n");
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Error: " + e.Message);
-
-                string deleteQuery = "DELETE FROM " + "accounts " +
-                                            " where account_id = " + account_id + ";";
-
-                SqlCommand sqlCommand = new SqlCommand(deleteQuery, sqlconn);
-                Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " account deleted.\n");
-
-            }
-        }
-
-        public static void EditAdmin()
-        {
-
-            try
-            {
-                int account_id;
-                string user_name;
-                string password;
-                string email;
-                string role;
-
-                string admin_id = "";
-                string admin_first_name;
-                string admin_middle_name;
-                string admin_last_name;
-                string admin_address;
-
-                Console.WriteLine("editing an admin with his account");
-
-
-                Console.WriteLine("admin_id: ");
-                admin_id = Console.ReadLine();
-
-
-                Console.WriteLine("user_name: ");
-                user_name = Console.ReadLine();
-
-                Console.WriteLine("password: ");
-                password = Console.ReadLine();
-
-                Console.WriteLine("email: ");
-                email = Console.ReadLine();
-
-                Console.WriteLine("role: ");
-                role = Console.ReadLine();
-
-
-                Console.WriteLine("admin_first_name: ");
-                admin_first_name = Console.ReadLine();
-
-                Console.WriteLine("admin_middle_name: ");
-                admin_middle_name = Console.ReadLine();
-
-                Console.WriteLine("admin_last_name: ");
-                admin_last_name = Console.ReadLine();
-
-                Console.WriteLine("admin_address: ");
-                admin_address = Console.ReadLine();
-
-                //string preprequery = "select account_id from "
-
-
-                string preprequery = $"select account_id from Admin where admin_id = {admin_id}";
-                SqlCommand preprecommand = new SqlCommand(preprequery, sqlconn);
-                account_id = Convert.ToInt32(preprecommand.ExecuteScalar());
-                //Console.WriteLine("--" + account_id + "--");
-
-                string prequery = "update accounts " +
-                                  $" set  user_name = '{user_name}',  password = '{password}',  email = '{email}', role = '{role}'" +
-                                  $" where account_id = {account_id}";
-
-                SqlCommand precommand = new SqlCommand(prequery, sqlconn);
-                Console.WriteLine("\n    " + precommand.ExecuteNonQuery() + " account edited.\n\n");
-
-
-                string parametarizedQuery = "update " + "Admin  ";
-                parametarizedQuery += " set admin_first_name = @admin_first_name," +
-                                     " admin_middle_name = @admin_middle_name, admin_last_name = @admin_last_name, admin_address = @admin_address";
-                parametarizedQuery += " where admin_id = " + admin_id;
-
-                SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
-
-
-                //sqlCommand.Parameters.AddWithValue("@department_id", department_id);
-                sqlCommand.Parameters.AddWithValue("@admin_first_name", admin_first_name);
-                sqlCommand.Parameters.AddWithValue("@admin_middle_name", admin_middle_name);
-                sqlCommand.Parameters.AddWithValue("@admin_last_name", admin_last_name);
-                //sqlCommand.Parameters.AddWithValue("@entry_year", entry_year);
-                sqlCommand.Parameters.AddWithValue("@admin_address", admin_address);
-
-                Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " Admin edited.\n");
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("error: " + e.Message);
-            }
-        }
-
-        public static void DeleteAdmin()
-        {
-
-
-            try
-            {
-                int account_id;
-                string admin_id = "";
-
-                Console.WriteLine("Deleting an admin and his account");
-
-                Console.WriteLine("admin_id: ");
-                admin_id = Console.ReadLine();
-
-
-
-
-                string preprequery = $"select account_id from Admin where admin_id = {admin_id}";
-                SqlCommand preprecommand = new SqlCommand(preprequery, sqlconn);
-                account_id = Convert.ToInt32(preprecommand.ExecuteScalar());
-                //Console.WriteLine("--" + account_id + "--");
-
-                string parametarizedQuery = "DELETE FROM " + "Admin " +
-                                            " where admin_id = " + admin_id;
-
-                SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
-                Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " admin deleted.\n");
-
-                string prequery = "DELETE FROM accounts " +
-                                 $" where account_id = {account_id}";
-
-                SqlCommand precommand = new SqlCommand(prequery, sqlconn);
-                Console.WriteLine("\n    " + precommand.ExecuteNonQuery() + " account deleted.\n\n");
-
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("error: " + e.Message);
-            }
-        }
-
-        public static void ShowAdminById()
-        {
-            try
-            {
-                string admin_id = "";
-
-                Console.WriteLine("showing an admin by id");
-
-                Console.WriteLine("admin_id: ");
-                admin_id = Console.ReadLine();
-
-
-
-                string parametarizedQuery = "SELECT * FROM " + "accounts, Admin " +
-                                            " where accounts.account_id = Admin.account_id" +
-                                            " and admin_id = " + admin_id;
-
-                SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
-                //Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " Student deleted.\n");
-
-                using (SqlDataReader reader = sqlCommand.ExecuteReader())
-                {
-                    if (reader.Read())
-                    {
-                        Console.WriteLine();
-                        Console.WriteLine("account_id: ........... " + reader[0]);
-                        Console.WriteLine("User_name: ............ " + reader[1]);
-                        Console.WriteLine("password: ............. " + reader[2]);
-                        Console.WriteLine("email: ................ " + reader[3]);
-                        Console.WriteLine("role: ................. " + reader[4]);
-                        Console.WriteLine("admin_id: ............. " + reader[5]);
-                        Console.WriteLine("admint_first_name: .... " + reader[7]);
-                        Console.WriteLine("admin_middle_name: .... " + reader[8]);
-                        Console.WriteLine("admin_last_name: ...... " + reader[9]);
-                        Console.WriteLine("admin_address: ........ " + reader[10]);
-                        Console.WriteLine("---------------------------------------");
-                    }
-                    else
-                    {
-                        Console.WriteLine("No registered Admin with such ID...");
-                    }
-
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("error: " + e.Message);
-            }
-        }
-
-        public static void ShowAllAdmins()
-        {
-            try
-            {
-                Console.WriteLine("showing all admins ");
-
-                string parametarizedQuery = "SELECT * FROM " + "accounts, Admin " +
-                                            " where accounts.account_id = Admin.account_id";
-
-                SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
-                //Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " Student deleted.\n");
-
-                int count = 1;
-                using (SqlDataReader reader = sqlCommand.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        Console.WriteLine("---------------------------------------");
-                        Console.WriteLine("Admin #" + count + ":");
-                        Console.WriteLine("account_id: ........... " + reader[0]);
-                        Console.WriteLine("User_name: ............ " + reader[1]);
-                        Console.WriteLine("password: ............. " + reader[2]);
-                        Console.WriteLine("email: ................ " + reader[3]);
-                        Console.WriteLine("role: ................. " + reader[4]);
-                        Console.WriteLine("admin_id: ............. " + reader[5]);
-                        Console.WriteLine("admint_first_name: .... " + reader[6]);
-                        Console.WriteLine("admin_middle_name: .... " + reader[7]);
-                        Console.WriteLine("admin_last_name: ...... " + reader[8]);
-                        Console.WriteLine("admin_address: ........ " + reader[9]);
-                        Console.WriteLine("---------------------------------------");
-                        count++;
-                    }
-
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("error: " + e.Message);
-            }
-        }
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine("error: " + e.Message);
+    }
+}
 
 
         public static void manage_users() //mahmoud
