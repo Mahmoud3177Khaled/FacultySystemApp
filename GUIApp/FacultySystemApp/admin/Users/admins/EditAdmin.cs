@@ -13,10 +13,13 @@ namespace FacultySystemApp.admin.admins
 {
     public partial class EditAdmin : Form
     {
-        public EditAdmin()
+        private string AdminID;
+
+        public EditAdmin(string AdminID)
         {
             InitializeComponent();
             CenterToScreen();
+            this.AdminID = AdminID;
         }
 
         private void EditAdmin_close(object sender, FormClosedEventArgs e)
@@ -31,7 +34,7 @@ namespace FacultySystemApp.admin.admins
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            ShowAdmin showAdmin = new ShowAdmin("g");
+            ShowAdmin showAdmin = new ShowAdmin(AdminID);
             showAdmin.Show();
             this.Hide();
         }

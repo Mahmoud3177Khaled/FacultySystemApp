@@ -12,15 +12,18 @@ namespace FacultySystemApp.admin.Courses
 {
     public partial class EditCourse : Form
     {
-        public EditCourse()
+        private string CourseID;
+
+        public EditCourse(string CourseID)
         {
             InitializeComponent();
             CenterToScreen();
+            this.CourseID = CourseID;
         }
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            ShowCourse showCourse = new ShowCourse("g");
+            ShowCourse showCourse = new ShowCourse(CourseID);
             showCourse.Show();
             this.Hide();
         }

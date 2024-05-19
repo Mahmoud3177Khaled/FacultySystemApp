@@ -10,24 +10,18 @@ using System.Windows.Forms;
 
 namespace FacultySystemApp.admin.Departments
 {
-    public partial class AddDepartment : Form
+    public partial class ShowAllDepartments : Form
     {
-        public AddDepartment()
+        public ShowAllDepartments()
         {
             InitializeComponent();
             CenterToScreen();
         }
 
-        private void AddDepartment_FormClosed(object sender, FormClosedEventArgs e)
+        private void ShowAllDepartments_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
 
-        private void BackButton_Click(object sender, EventArgs e)
-        {
-            ManageDepartments manageDepartments = new ManageDepartments();
-            manageDepartments.Show();
-            this.Hide();
-        }
     }
 }

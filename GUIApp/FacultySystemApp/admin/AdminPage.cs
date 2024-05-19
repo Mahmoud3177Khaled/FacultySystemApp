@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FacultySystemApp.admin.Departments;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -44,6 +45,13 @@ namespace FacultySystemApp.admin
             manageCourses.Show();
             this.Hide();
 
+        }
+
+        private void ManageDepartmentsButton_Click(object sender, EventArgs e)
+        {
+            ManageDepartments manageDepartment = new ManageDepartments();
+            manageDepartment.Show();
+            this.Hide();
         }
     }
 }

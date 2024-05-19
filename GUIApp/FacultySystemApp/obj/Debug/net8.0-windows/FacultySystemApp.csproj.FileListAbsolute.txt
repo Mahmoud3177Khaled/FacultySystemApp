@@ -60,3 +60,7 @@ C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Deb
 C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.admin.UserIDInputForm.resources
 C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.admin.Departments.AddDepartment.resources
 C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.admin.Departments.ManageDepartments.resources
+C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.admin.DepartmentIDInputForm.resources
+C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.admin.Departments.EditDepartment.resources
+C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.admin.Departments.ShowAllDepartments.resources
+C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.admin.Departments.ShowDepartment.resources

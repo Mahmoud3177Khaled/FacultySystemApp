@@ -10,24 +10,32 @@ using System.Windows.Forms;
 
 namespace FacultySystemApp.admin.Departments
 {
-    public partial class AddDepartment : Form
+    public partial class EditDepartment : Form
     {
-        public AddDepartment()
+        private string DepartmentID;
+
+        public EditDepartment(string DepartmentID)
         {
             InitializeComponent();
             CenterToScreen();
+            this.DepartmentID = DepartmentID;
         }
 
-        private void AddDepartment_FormClosed(object sender, FormClosedEventArgs e)
+        private void EditDepartment_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            ManageDepartments manageDepartments = new ManageDepartments();
-            manageDepartments.Show();
+            ShowDepartment showDepartment = new ShowDepartment(DepartmentID);
+            showDepartment.Show();
             this.Hide();
+        }
+
+        private void SaveDepartmentButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

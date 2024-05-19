@@ -12,16 +12,19 @@ namespace FacultySystemApp.admin.staff
 {
     public partial class EditStaff : Form
     {
-        public EditStaff()
+        private string StaffID;
+
+        public EditStaff(string StaffID)
         {
             InitializeComponent();
             CenterToScreen();
+            this.StaffID = StaffID;
 
         }
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            ShowStaff showStaff = new ShowStaff("g");
+            ShowStaff showStaff = new ShowStaff(StaffID);
             showStaff.Show();
             this.Hide();
         }
