@@ -43,5 +43,28 @@ namespace FacultySystemApp.admin.Courses
         {
             CourseIDLabel.Text = "Course : " + CourseID;
         }
+
+        private void EnrollStudentButton_Click(object sender, EventArgs e)
+        {
+            List<string> StudentIDs = new List<string>
+                {
+                "Student",
+                "Student",
+                "Student"
+                };
+            UserIDInputForm idInputForm = new UserIDInputForm("Student", StudentIDs);
+            if (idInputForm.ShowDialog() == DialogResult.OK)
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to Enroll " + idInputForm.UserID +" to Course " + CourseID + "?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    MessageBox.Show("The student enrolled successfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    string userId = idInputForm.UserID;
+
+                    ////////////function////////////////
+                }
+                
+            }
+        }
     }
 }

@@ -3,40 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|c:\\users\\jojo1\\documents\\github\\facultysystemapp\\guiapp\\facultysystemapp\\admin\\courses\\courseidinputform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|solutionrelative:facultysystemapp\\admin\\courses\\courseidinputform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|c:\\users\\jojo1\\documents\\github\\facultysystemapp\\guiapp\\facultysystemapp\\admin\\departments\\managedepartments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|solutionrelative:facultysystemapp\\admin\\departments\\managedepartments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|c:\\users\\jojo1\\documents\\github\\facultysystemapp\\guiapp\\facultysystemapp\\admin\\courses\\courseidinputform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|solutionrelative:facultysystemapp\\admin\\courses\\courseidinputform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|c:\\users\\jojo1\\documents\\github\\facultysystemapp\\guiapp\\facultysystemapp\\admin\\departments\\adddepartment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|solutionrelative:facultysystemapp\\admin\\departments\\adddepartment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|c:\\users\\jojo1\\documents\\github\\facultysystemapp\\guiapp\\facultysystemapp\\admin\\useridinputform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|solutionrelative:facultysystemapp\\admin\\useridinputform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|c:\\users\\jojo1\\documents\\github\\facultysystemapp\\guiapp\\facultysystemapp\\admin\\useridinputform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|solutionrelative:facultysystemapp\\admin\\useridinputform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|c:\\users\\jojo1\\documents\\github\\facultysystemapp\\guiapp\\facultysystemapp\\admin\\managecourses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|solutionrelative:facultysystemapp\\admin\\managecourses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|c:\\users\\jojo1\\documents\\github\\facultysystemapp\\guiapp\\facultysystemapp\\admin\\managecourses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|solutionrelative:facultysystemapp\\admin\\managecourses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|c:\\users\\jojo1\\documents\\github\\facultysystemapp\\guiapp\\facultysystemapp\\admin\\manageusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|solutionrelative:facultysystemapp\\admin\\manageusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|c:\\users\\jojo1\\documents\\github\\facultysystemapp\\guiapp\\facultysystemapp\\admin\\manageusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\facultysystemapp\\admin\\manageusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|solutionrelative:facultysystemapp\\admin\\manageusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\facultysystemapp\\admin\\admins\\showalladmins.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|solutionrelative:facultysystemapp\\admin\\admins\\showalladmins.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|c:\\users\\jojo1\\documents\\github\\facultysystemapp\\guiapp\\facultysystemapp\\admin\\courses\\showcourse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|solutionrelative:facultysystemapp\\admin\\courses\\showcourse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\facultysystemapp\\admin\\manageusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51636711-CCB9-440F-B4BD-D96B0B06DA1F}|FacultySystemApp\\FacultySystemApp.csproj|solutionrelative:facultysystemapp\\admin\\manageusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,70 +38,57 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CourseIDInputForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\admin\\Courses\\CourseIDInputForm.cs",
-              "RelativeDocumentMoniker": "FacultySystemApp\\admin\\Courses\\CourseIDInputForm.cs",
-              "ToolTip": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\admin\\Courses\\CourseIDInputForm.cs [Design]",
-              "RelativeToolTip": "FacultySystemApp\\admin\\Courses\\CourseIDInputForm.cs [Design]",
+              "DocumentIndex": 0,
+              "Title": "ManageDepartments.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\admin\\Departments\\ManageDepartments.cs",
+              "RelativeDocumentMoniker": "FacultySystemApp\\admin\\Departments\\ManageDepartments.cs",
+              "ToolTip": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\admin\\Departments\\ManageDepartments.cs [Design]",
+              "RelativeToolTip": "FacultySystemApp\\admin\\Departments\\ManageDepartments.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T14:10:09.627Z",
+              "WhenOpened": "2024-05-19T14:54:43.331Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CourseIDInputForm.cs",
-              "DocumentMoniker": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\admin\\Courses\\CourseIDInputForm.cs",
-              "RelativeDocumentMoniker": "FacultySystemApp\\admin\\Courses\\CourseIDInputForm.cs",
-              "ToolTip": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\admin\\Courses\\CourseIDInputForm.cs",
-              "RelativeToolTip": "FacultySystemApp\\admin\\Courses\\CourseIDInputForm.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAwwB0AAAAgAAAA",
+              "DocumentIndex": 1,
+              "Title": "AddDepartment.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\admin\\Departments\\AddDepartment.cs",
+              "RelativeDocumentMoniker": "FacultySystemApp\\admin\\Departments\\AddDepartment.cs",
+              "ToolTip": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\admin\\Departments\\AddDepartment.cs [Design]",
+              "RelativeToolTip": "FacultySystemApp\\admin\\Departments\\AddDepartment.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T14:09:24.506Z",
+              "WhenOpened": "2024-05-19T14:44:20.519Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ShowCourse.cs",
+              "DocumentMoniker": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\admin\\Courses\\ShowCourse.cs",
+              "RelativeDocumentMoniker": "FacultySystemApp\\admin\\Courses\\ShowCourse.cs",
+              "ToolTip": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\admin\\Courses\\ShowCourse.cs",
+              "RelativeToolTip": "FacultySystemApp\\admin\\Courses\\ShowCourse.cs",
+              "ViewState": "AQIAACsAAAAAAAAAAAAzwD8AAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-19T14:16:11.499Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "ManageCourses.cs",
-              "DocumentMoniker": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\admin\\ManageCourses.cs",
-              "RelativeDocumentMoniker": "FacultySystemApp\\admin\\ManageCourses.cs",
-              "ToolTip": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\admin\\ManageCourses.cs",
-              "RelativeToolTip": "FacultySystemApp\\admin\\ManageCourses.cs",
-              "ViewState": "AQIAABkAAAAAAAAAAAApwCkAAABBAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T14:07:18.979Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ManageCourses.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\admin\\ManageCourses.cs",
-              "RelativeDocumentMoniker": "FacultySystemApp\\admin\\ManageCourses.cs",
-              "ToolTip": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\admin\\ManageCourses.cs [Design]",
-              "RelativeToolTip": "FacultySystemApp\\admin\\ManageCourses.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T14:07:12.263Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "ManageUsers.cs",
               "DocumentMoniker": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\admin\\ManageUsers.cs",
               "RelativeDocumentMoniker": "FacultySystemApp\\admin\\ManageUsers.cs",
               "ToolTip": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\admin\\ManageUsers.cs",
               "RelativeToolTip": "FacultySystemApp\\admin\\ManageUsers.cs",
-              "ViewState": "AQIAAGcAAAAAAAAAAAAtwHgAAAApAAAA",
+              "ViewState": "AQIAAGgAAAAAAAAAAAAIwGoAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-19T13:54:17.62Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 2,
               "Title": "ManageUsers.cs [Design]",
               "DocumentMoniker": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\admin\\ManageUsers.cs",
               "RelativeDocumentMoniker": "FacultySystemApp\\admin\\ManageUsers.cs",
@@ -126,44 +97,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-19T13:54:16.074Z",
               "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UserIDInputForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\admin\\UserIDInputForm.cs",
-              "RelativeDocumentMoniker": "FacultySystemApp\\admin\\UserIDInputForm.cs",
-              "ToolTip": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\admin\\UserIDInputForm.cs [Design]",
-              "RelativeToolTip": "FacultySystemApp\\admin\\UserIDInputForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T13:45:22.158Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserIDInputForm.cs",
-              "DocumentMoniker": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\admin\\UserIDInputForm.cs",
-              "RelativeDocumentMoniker": "FacultySystemApp\\admin\\UserIDInputForm.cs",
-              "ToolTip": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\admin\\UserIDInputForm.cs",
-              "RelativeToolTip": "FacultySystemApp\\admin\\UserIDInputForm.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAA4wCMAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T13:43:52.502Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ShowAllAdmins.cs",
-              "DocumentMoniker": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\admin\\admins\\ShowAllAdmins.cs",
-              "RelativeDocumentMoniker": "FacultySystemApp\\admin\\admins\\ShowAllAdmins.cs",
-              "ToolTip": "C:\\Users\\jojo1\\Documents\\GitHub\\FacultySystemApp\\GUIApp\\FacultySystemApp\\admin\\admins\\ShowAllAdmins.cs",
-              "RelativeToolTip": "FacultySystemApp\\admin\\admins\\ShowAllAdmins.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAmwCAAAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-18T22:07:17.471Z",
-              "EditorCaption": ""
             }
           ]
         },

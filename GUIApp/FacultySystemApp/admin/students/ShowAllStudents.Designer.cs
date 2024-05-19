@@ -36,12 +36,9 @@
             Major = new ComboBox();
             label3 = new Label();
             Course = new ComboBox();
-            label4 = new Label();
             ShowButton = new Button();
-            GPA = new NumericUpDown();
             Students = new DataGridView();
             BackButton = new Button();
-            ((System.ComponentModel.ISupportInitialize)GPA).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Students).BeginInit();
             SuspendLayout();
             // 
@@ -71,7 +68,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 15F);
-            label2.Location = new Point(417, 39);
+            label2.Location = new Point(496, 39);
             label2.Name = "label2";
             label2.Size = new Size(64, 28);
             label2.TabIndex = 3;
@@ -84,7 +81,7 @@
             Major.Font = new Font("Segoe UI", 15F);
             Major.ForeColor = Color.White;
             Major.FormattingEnabled = true;
-            Major.Location = new Point(367, 92);
+            Major.Location = new Point(446, 92);
             Major.Name = "Major";
             Major.Size = new Size(164, 36);
             Major.TabIndex = 2;
@@ -93,7 +90,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 15F);
-            label3.Location = new Point(645, 39);
+            label3.Location = new Point(804, 39);
             label3.Name = "label3";
             label3.Size = new Size(72, 28);
             label3.TabIndex = 5;
@@ -106,42 +103,22 @@
             Course.Font = new Font("Segoe UI", 15F);
             Course.ForeColor = Color.White;
             Course.FormattingEnabled = true;
-            Course.Location = new Point(599, 92);
+            Course.Location = new Point(757, 92);
             Course.Name = "Course";
             Course.Size = new Size(164, 36);
             Course.TabIndex = 4;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 15F);
-            label4.Location = new Point(889, 39);
-            label4.Name = "label4";
-            label4.Size = new Size(49, 28);
-            label4.TabIndex = 7;
-            label4.Text = "GPA";
             // 
             // ShowButton
             // 
             ShowButton.Font = new Font("Segoe UI", 20F);
             ShowButton.ForeColor = Color.Black;
-            ShowButton.Location = new Point(451, 163);
+            ShowButton.Location = new Point(448, 163);
             ShowButton.Name = "ShowButton";
             ShowButton.Size = new Size(142, 46);
             ShowButton.TabIndex = 0;
             ShowButton.Text = "Show";
             ShowButton.UseVisualStyleBackColor = true;
             ShowButton.Click += ShowButton_Click;
-            // 
-            // GPA
-            // 
-            GPA.DecimalPlaces = 3;
-            GPA.Font = new Font("Segoe UI", 15F);
-            GPA.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
-            GPA.Location = new Point(831, 92);
-            GPA.Name = "GPA";
-            GPA.Size = new Size(164, 34);
-            GPA.TabIndex = 9;
             // 
             // Students
             // 
@@ -190,9 +167,7 @@
             ClientSize = new Size(1038, 614);
             Controls.Add(BackButton);
             Controls.Add(Students);
-            Controls.Add(GPA);
             Controls.Add(ShowButton);
-            Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(Course);
             Controls.Add(label2);
@@ -204,7 +179,6 @@
             Text = "ShowAllStudents";
             FormClosed += ShowAllStudents_close;
             Load += ShowAllStudents_Load;
-            ((System.ComponentModel.ISupportInitialize)GPA).EndInit();
             ((System.ComponentModel.ISupportInitialize)Students).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -218,9 +192,7 @@
         private ComboBox Major;
         private Label label3;
         private ComboBox Course;
-        private Label label4;
         private Button ShowButton;
-        private NumericUpDown GPA;
         private DataGridView Students;
         private Button BackButton;
     }

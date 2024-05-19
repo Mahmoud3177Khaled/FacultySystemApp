@@ -31,6 +31,12 @@
     <Compile Update="admin\Courses\ShowCourse.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="admin\Departments\AddDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="admin\Departments\ManageDepartments.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="admin\UserIDInputForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -189,6 +189,7 @@
             EnrollStudentButton.TabIndex = 92;
             EnrollStudentButton.Text = "Enroll Student";
             EnrollStudentButton.UseVisualStyleBackColor = true;
+            EnrollStudentButton.Click += EnrollStudentButton_Click;
             // 
             // ShowCourse
             // 
