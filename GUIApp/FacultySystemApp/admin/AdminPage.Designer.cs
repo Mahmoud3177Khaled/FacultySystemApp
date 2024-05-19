@@ -59,6 +59,7 @@
             ManageCoursesButton.TabIndex = 1;
             ManageCoursesButton.Text = "Manage Courses";
             ManageCoursesButton.UseVisualStyleBackColor = false;
+            ManageCoursesButton.Click += ManageCoursesButton_Click;
             // 
             // label1
             // 

@@ -37,5 +37,13 @@ namespace FacultySystemApp.admin
             manageUsers.Show();
             this.Hide();
         }
+
+        private void ManageCoursesButton_Click(object sender, EventArgs e)
+        {
+            ManageCourses manageCourses = new ManageCourses();
+            manageCourses.Show();
+            this.Hide();
+
+        }
     }
 }

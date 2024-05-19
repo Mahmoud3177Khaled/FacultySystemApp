@@ -51,3 +51,12 @@ C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Deb
 C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.admin.staff.EditStaff.resources
 C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.admin.staff.ShowAllStaff.resources
 C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.admin.staff.ShowStaff.resources
+C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.admin.Courses.CreateCourse.resources
+C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.admin.Courses.EditCourse.resources
+C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.admin.Courses.ShowAllCourses.resources
+C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.admin.Courses.ShowCourse.resources
+C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.admin.ManageCourses.resources
+C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.admin.CourseIDInputForm.resources
+C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.admin.UserIDInputForm.resources
+C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.admin.Departments.AddDepartment.resources
+C:\Users\jojo1\Documents\GitHub\FacultySystemApp\GUIApp\FacultySystemApp\obj\Debug\net8.0-windows\FacultySystemApp.admin.Departments.ManageDepartments.resources
