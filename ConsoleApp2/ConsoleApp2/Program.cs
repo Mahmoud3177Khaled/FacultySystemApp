@@ -279,7 +279,7 @@ namespace sqltest
                     Console.WriteLine("         -------------------" + "\n\n");
                     Console.Write("Enter the course id: ");
                     string courseId = Console.ReadLine();
-                    string sqlQuery = $"SELECT * FROM course WHERE course_id = {courseId}";
+                    string sqlQuery = $"SELECT * FROM course WHERE course_id = '{courseId}'";
                     SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
                     using (SqlDataReader reader = sComm.ExecuteReader())
                     {
@@ -322,10 +322,10 @@ namespace sqltest
                     SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
                     using (SqlDataReader reader = sComm.ExecuteReader())
                     {
+                        Console.WriteLine("------------------------------");
                         while (reader.Read())
                         {
 
-                            Console.WriteLine("------------------------------");
                             Console.WriteLine("course id: " + reader[0]);
                             Console.WriteLine("department id: " + reader[1]);
                             Console.WriteLine("course name: " + reader[2]);
@@ -361,10 +361,10 @@ namespace sqltest
                     SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
                     using (SqlDataReader reader = sComm.ExecuteReader())
                     {
+                        Console.WriteLine("------------------------------");
                         while (reader.Read())
                         {
 
-                            Console.WriteLine("------------------------------");
                             Console.WriteLine("course id: " + reader[0]);
                             Console.WriteLine("department id: " + reader[1]);
                             Console.WriteLine("course name: " + reader[2]);
@@ -639,10 +639,10 @@ namespace sqltest
             try{
                 using (SqlDataReader reader = sComm.ExecuteReader())
                 {
+
+                    Console.WriteLine("------------------------------");
                     while (reader.Read())
                     {
-
-                        Console.WriteLine("------------------------------");
                         Console.WriteLine("id: " + reader[0]);
                         Console.WriteLine("first name: " + reader[1]);
                         Console.WriteLine("middle name: " + reader[2]);
@@ -664,37 +664,48 @@ namespace sqltest
         }
         public static void enrollingStudentIntoCourses()
         {
-            Console.WriteLine("          ---------------------------------------");
-            Console.WriteLine("         |                                        |");
-            Console.WriteLine("         |    Enrolling students into courses     |");
-            Console.WriteLine("         |                                        |");
-            Console.WriteLine("          ----------------------------------------" + "\n\n");
-            Console.Write("Enter the student id: ");
-            int id = int.Parse(Console.ReadLine());
-            Console.Write("Enter the semester: ");
-            string semester = Console.ReadLine();
-            Console.Write("Enter academic year: ");
-            int year = int.Parse(Console.ReadLine());
-            string courseId;
-            while (true)
-            {
-                Console.Write("Enter course id or '0' to save: ");
-                courseId = Console.ReadLine();
-                if (courseId == "0")
-                {
-                    break;
+                try{
+                    Console.Clear();
+                    Console.WriteLine("          ---------------------------------------");
+                    Console.WriteLine("         |                                        |");
+                    Console.WriteLine("         |    Enrolling students into courses     |");
+                    Console.WriteLine("         |                                        |");
+                    Console.WriteLine("          ----------------------------------------" + "\n\n");
+                    Console.Write("Enter the student id: ");
+                    int id = int.Parse(Console.ReadLine());
+                    Console.Write("Enter the semester: ");
+                    string semester = Console.ReadLine();
+                    Console.Write("Enter academic year: ");
+                    int year = int.Parse(Console.ReadLine());
+                    string courseId;
+                    while (true)
+                    {
+                        Console.Write("Enter course id or '0' to save: ");
+                        courseId = Console.ReadLine();
+                        if (courseId == "0")
+                        {
+                            break;
+                        }
+                        string sqlQuery = " INSERT INTO enrolls (student_id,course_id,semester,year) VALUES (@id,@courseId,@semester,@year)";
+                        SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
+                        sComm.Parameters.AddWithValue("@id", id);
+                        sComm.Parameters.AddWithValue("@courseId", courseId);
+                        sComm.Parameters.AddWithValue("@semester", semester);
+                        sComm.Parameters.AddWithValue("@year", year);
+                        sComm.ExecuteNonQuery();
+
+                    }
+
+                    Console.WriteLine("press 'Enter' to continue.");
+                    Console.ReadKey();
+
                 }
-                string sqlQuery = " INSERT INTO enrolls (student_id,course_id,semester,year) VALUES (@id,@courseId,@semester,@year)";
-                SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
-                sComm.Parameters.AddWithValue("@id", id);
-                sComm.Parameters.AddWithValue("@courseId", courseId);
-                sComm.Parameters.AddWithValue("@semester", semester);
-                sComm.Parameters.AddWithValue("@year", year);
-                sComm.ExecuteNonQuery();
-
-            }
-
-
+                catch (Exception e)
+                {
+                    Console.WriteLine("error: " + e.Message);
+                    Console.WriteLine("press 'Enter' to continue.");
+                    Console.ReadKey();
+                }
         }
         public static void showEnrollingCourses()
         {
@@ -1767,13 +1778,10 @@ namespace sqltest
 
                 string department_id = "";
                 string year = "";
-                string cousre = "";
-                string GPA = "";
+            
 
                 bool department_id_bool = false;
                 bool year_bool = false;
-                bool cousre_bool = false;
-                bool GPA_bool = false;
 
                 Console.WriteLine("Add department constraint?  [y/n]");
                 if (Console.ReadLine() == "y")
@@ -1791,22 +1799,6 @@ namespace sqltest
                     year = Console.ReadLine();
                 }
 
-                Console.WriteLine("Add Course constraint?  [y/n]");
-                if (Console.ReadLine() == "y")
-                {
-                    cousre_bool = true;
-                    Console.WriteLine("cousre: ");
-                    cousre = Console.ReadLine();
-                }
-
-                Console.WriteLine("Add GPA constraint?  [y/n]");
-                if (Console.ReadLine() == "y")
-                {
-                    GPA_bool = true;
-                    Console.WriteLine("GPA: ");
-                    GPA = Console.ReadLine();
-                }
-
 
                 string parametarizedQuery = "SELECT * FROM " + "accounts, Student " +
                                             " where accounts.account_id = Student.account_id";
@@ -1822,18 +1814,6 @@ namespace sqltest
                     parametarizedQuery += " and entry_year = " + year;
 
                 }
-
-                // if (cousre_bool)
-                // {
-                //     parametarizedQuery += " and course_id = " + cousre;
-
-                // }
-
-                // if (GPA_bool)
-                // {
-                //    parametarizedQuery += " and GPA = " + GPA;
-
-                // }
 
                 SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
                 //Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " Student deleted.\n");
