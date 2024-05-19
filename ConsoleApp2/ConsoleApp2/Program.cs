@@ -1054,7 +1054,9 @@ namespace sqltest
                     Console.WriteLine("\t\t|    show Departments    |");
                     Console.WriteLine("\t\t|                        |");
                     Console.WriteLine("\t\t ------------------------" + "\n");
-                    string query = "select * from Department";
+                    string query = "select d.department_id, d.department_name, COUNT(s.student_id) from Department d ";
+                    query += "LEFT JOIN Student s on d.department_id = s.department_id ";
+                    query += "GROUP BY d.department_id, d.department_name";
                     SqlCommand comm = new SqlCommand(query, sqlconn);
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
@@ -1063,6 +1065,7 @@ namespace sqltest
                         {
                             Console.WriteLine("department_id: " + reader[0]);
                             Console.WriteLine("department_name: " + reader[1]);
+                            Console.WriteLine("number of students: " + reader[2]);
                             Console.WriteLine("------------------------------");
                         }
                     }
@@ -1300,8 +1303,10 @@ namespace sqltest
                             {
 
                                 reader.Read();
+                                Console.WriteLine("Account Info:");
                                 Console.WriteLine("user_name: " + reader[0]);
                                 Console.WriteLine("email: " + reader[1]);
+                                Console.WriteLine("________________________");
                             }
                         }
 
@@ -1313,12 +1318,14 @@ namespace sqltest
                             using (SqlDataReader reader = sqlCommand.ExecuteReader())
                             {
                                 reader.Read();
+                                Console.WriteLine("student Info:");
                                 Console.WriteLine("Student ID: " + reader[0]);
                                 Console.WriteLine("Student Department: " + reader[1]);
                                 string full_name = reader[2] + " " + reader[3] + " " + reader[4];
                                 Console.WriteLine("Student Name: " + full_name);
                                 Console.WriteLine("Entry Year: " + reader[5]);
                                 Console.WriteLine("Student Address: " + reader[6]);
+                                Console.WriteLine("________________________");
                             }
                         }
 
@@ -1332,6 +1339,7 @@ namespace sqltest
                                 {
                                     Console.WriteLine(reader[0]);
                                 }
+                                Console.WriteLine("________________________");
                             }
                         }
                         Console.WriteLine("press 'Enter' to continue.");
