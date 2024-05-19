@@ -640,74 +640,162 @@ namespace sqltest
             Console.WriteLine("        |   show courses   |");
             Console.WriteLine("        |                  |");
             Console.WriteLine("         ------------------" + "\n\n");
-            Console.WriteLine("1-show course details\n2-show all courses \n3-show all courses in specific department\n\n ");
+            Console.WriteLine("1-show course details\n2-show all courses \n3-show all courses in specific department\n4-show number students per course\n ");
             Console.Write("your choice: ");
             string ch = Console.ReadLine();
             if (ch == "1")
             {
-                Console.Write("Enter the course id: ");
-                string courseId = Console.ReadLine();
-                string sqlQuery = $"SELECT * FROM course WHERE course_id = {courseId}";
-                SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
-                using (SqlDataReader reader = sComm.ExecuteReader())
-                {
-                    if (reader.Read())
+                try{
+                    Console.Clear();
+                    Console.WriteLine("         -------------------");
+                    Console.WriteLine("        |                   |");
+                    Console.WriteLine("        |    show course    |");
+                    Console.WriteLine("        |                   |");
+                    Console.WriteLine("         -------------------" + "\n\n");
+                    Console.Write("Enter the course id: ");
+                    string courseId = Console.ReadLine();
+                    string sqlQuery = $"SELECT * FROM course WHERE course_id = {courseId}";
+                    SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
+                    using (SqlDataReader reader = sComm.ExecuteReader())
                     {
-                        Console.WriteLine("course id: " + reader[0]);
-                        Console.WriteLine("department id: " + reader[1]);
-                        Console.WriteLine("course name: " + reader[2]);
-                        Console.WriteLine("credit hours: " + reader[3]);
+                        if (reader.Read())
+                        {
+                            Console.WriteLine("course id: " + reader[0]);
+                            Console.WriteLine("department id: " + reader[1]);
+                            Console.WriteLine("course name: " + reader[2]);
+                            Console.WriteLine("credit hours: " + reader[3]);
+                        }
+                        else
+                        {
+                            Console.WriteLine("no course with that id");
+                        }
                     }
-                    else
-                    {
-                        Console.WriteLine("no course with that id");
-                    }
-                }
+                    Console.WriteLine("press 'Enter' to continue.");
+                    Console.ReadKey();
 
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("error: " + e.Message);
+                    Console.WriteLine("press 'Enter' to continue.");
+                    Console.ReadKey();
+
+
+                }
             }
             else if (ch == "2")
             {
-                string sqlQuery = "SELECT * FROM course ";
-                SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
-                using (SqlDataReader reader = sComm.ExecuteReader())
-                {
-                    while (reader.Read())
+                try
+                {    
+                    Console.Clear();
+                    Console.WriteLine("         -----------------------");
+                    Console.WriteLine("        |                       |");
+                    Console.WriteLine("        |    show all courses   |");
+                    Console.WriteLine("        |                       |");
+                    Console.WriteLine("         -----------------------" + "\n\n");
+                    string sqlQuery = "SELECT * FROM course ";
+                    SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
+                    using (SqlDataReader reader = sComm.ExecuteReader())
                     {
+                        while (reader.Read())
+                        {
 
-                        Console.WriteLine("------------------------------");
-                        Console.WriteLine("course id: " + reader[0]);
-                        Console.WriteLine("department id: " + reader[1]);
-                        Console.WriteLine("course name: " + reader[2]);
-                        Console.WriteLine("credit hours: " + reader[3]);
-                        Console.WriteLine("------------------------------");
+                            Console.WriteLine("------------------------------");
+                            Console.WriteLine("course id: " + reader[0]);
+                            Console.WriteLine("department id: " + reader[1]);
+                            Console.WriteLine("course name: " + reader[2]);
+                            Console.WriteLine("credit hours: " + reader[3]);
+                            Console.WriteLine("------------------------------");
+                        }
                     }
+                    Console.WriteLine("press 'Enter' to continue.");
+                    Console.ReadKey();
+
                 }
+                catch (Exception e)
+                    {
+                        Console.WriteLine("error: " + e.Message);
+                        Console.WriteLine("press 'Enter' to continue.");
+                        Console.ReadKey();
+                    }
             }
             else if (ch == "3")
             {
-                Console.Write("Enter the department id: ");
-                string departmentId = Console.ReadLine();
-                string sqlQuery = $"SELECT * FROM Course WHERE department_id = '{departmentId}'";
-
-                SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
-                using (SqlDataReader reader = sComm.ExecuteReader())
+                try
                 {
-                    while (reader.Read())
-                    {
+                    Console.Clear();
+                    Console.WriteLine("         -----------------------------------------------");
+                    Console.WriteLine("        |                                               |");
+                    Console.WriteLine("        |    show all courses in specific department    |");
+                    Console.WriteLine("        |                                               |");
+                    Console.WriteLine("         -----------------------------------------------" + "\n\n");
+                    Console.Write("Enter the department id: ");
+                    string departmentId = Console.ReadLine();
+                    string sqlQuery = $"SELECT * FROM Course WHERE department_id = '{departmentId}'";
 
-                        Console.WriteLine("------------------------------");
-                        Console.WriteLine("course id: " + reader[0]);
-                        Console.WriteLine("department id: " + reader[1]);
-                        Console.WriteLine("course name: " + reader[2]);
-                        Console.WriteLine("credit hours: " + reader[3]);
-                        Console.WriteLine("------------------------------");
+                    SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
+                    using (SqlDataReader reader = sComm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+
+                            Console.WriteLine("------------------------------");
+                            Console.WriteLine("course id: " + reader[0]);
+                            Console.WriteLine("department id: " + reader[1]);
+                            Console.WriteLine("course name: " + reader[2]);
+                            Console.WriteLine("credit hours: " + reader[3]);
+                            Console.WriteLine("------------------------------");
+                        }
                     }
+                    Console.WriteLine("press 'Enter' to continue.");
+                    Console.ReadKey();
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("error: " + e.Message);
+                    Console.WriteLine("press 'Enter' to continue.");
+                    Console.ReadKey();
+
+                }
+            }
+            else if (ch=="4"){
+                try{
+                    Console.Clear();
+                    Console.WriteLine("         -----------------------------------------");
+                    Console.WriteLine("        |                                          |");
+                    Console.WriteLine("        |    show number of students per course    |");
+                    Console.WriteLine("        |                                          |");
+                    Console.WriteLine("         ------------------------------------------" + "\n\n");
+                    string sqlQuery = "SELECT course_name,count(*) FROM course GROUP BY course_name";
+                    SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
+                    using (SqlDataReader reader = sComm.ExecuteReader())
+                    {
+                        
+                        Console.WriteLine("------------------------------");
+                        while (reader.Read())
+                        {
+                            Console.WriteLine("course name: " + reader[0]);
+                            Console.WriteLine("number of students: " + reader[1]);
+                            Console.WriteLine("------------------------------");
+                        }
+                    }
+                    
+                    Console.WriteLine("press 'Enter' to continue.");
+                    Console.ReadKey();
+
+                }  catch (Exception e)
+                {
+                    Console.WriteLine("error: " + e.Message);
+                    Console.WriteLine("press 'Enter' to continue.");
+                    Console.ReadKey();
+
                 }
             }
         }
         public static void createCourse()
         {//philo
-
+            Console.Clear();
             Console.WriteLine("     -----------------------");
             Console.WriteLine("    |                       |");
             Console.WriteLine("    |   create new course   |");
@@ -732,25 +820,22 @@ namespace sqltest
                 sComm.Parameters.AddWithValue("@courseName", courseName);
                 sComm.Parameters.AddWithValue("@creditHours", creditHours);
                 Console.WriteLine("\n    " + sComm.ExecuteNonQuery() + " course added.\n\n");
+                Console.WriteLine("press 'Enter' to continue.");
+                Console.ReadKey();
+
             }
             catch (Exception e)
             {
                 Console.WriteLine("error: " + e.Message);
-            }
-            Console.WriteLine("\n0-back\ne-exit\n");
-            Console.Write("your choice: ");
-            string ch = Console.ReadLine();
-            if (ch == "e")
-            {
-                CloseConnAndExit();
-            }
+                Console.WriteLine("press 'Enter' to continue.");
+                Console.ReadKey();
 
-
+            }
         }
         public static void editCourse()
         { //philo
 
-
+            Console.Clear();
             Console.WriteLine("          -------------------");
             Console.WriteLine("         |                   |");
             Console.WriteLine("         |    edit course    |");
@@ -762,60 +847,103 @@ namespace sqltest
             string ch = Console.ReadLine();
             if (ch == "1")
             {
-                Console.Write("the new course id: ");
-                string newCourseId = Console.ReadLine();
-                string sqlQuery = "UPDATE  Course SET course_id = @newCourseId where course_id = @courseId";
-                SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
+                try{
+                    Console.Write("the new course id: ");
+                    string newCourseId = Console.ReadLine();
+                    string sqlQuery = "UPDATE  Course SET course_id = @newCourseId where course_id = @courseId";
+                    SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
 
-                sComm.Parameters.AddWithValue("newCourseId", newCourseId);
-                sComm.Parameters.AddWithValue("courseId", courseId);
-                Console.WriteLine("\n    " + sComm.ExecuteNonQuery() + " course id edited.\n\n");
+                    sComm.Parameters.AddWithValue("newCourseId", newCourseId);
+                    sComm.Parameters.AddWithValue("courseId", courseId);
+                    Console.WriteLine("\n    " + sComm.ExecuteNonQuery() + " course id edited.\n\n");
+                    Console.WriteLine("press 'Enter' to continue.");
+                    Console.ReadKey();
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("error: " + e.Message);
+                    Console.WriteLine("press 'Enter' to continue.");
+                    Console.ReadKey();
+                }
 
             }
             else if (ch == "2")
             {
-                Console.Write("the new department id: ");
-                string newDepartmentId = Console.ReadLine();
-                string sqlQuery = "UPDATE  Course SET department_id = @newDepartmentId where course_id = @courseId";
-                SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
+                try{
 
-                sComm.Parameters.AddWithValue("newDepartmentId", newDepartmentId);
-                sComm.Parameters.AddWithValue("courseId", courseId);
-                Console.WriteLine("\n    " + sComm.ExecuteNonQuery() + "department id of course edited.\n\n");
+                    Console.Write("the new department id: ");
+                    string newDepartmentId = Console.ReadLine();
+                    string sqlQuery = "UPDATE  Course SET department_id = @newDepartmentId where course_id = @courseId";
+                    SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
+
+                    sComm.Parameters.AddWithValue("newDepartmentId", newDepartmentId);
+                    sComm.Parameters.AddWithValue("courseId", courseId);
+                    Console.WriteLine("\n    " + sComm.ExecuteNonQuery() + "department id of course edited.\n\n");
+                    Console.WriteLine("press 'Enter' to continue.");
+                    Console.ReadKey();
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("error: " + e.Message);
+                    Console.WriteLine("press 'Enter' to continue.");
+                    Console.ReadKey();
+                }
 
             }
             else if (ch == "3")
             {
-                Console.Write("the new course name: ");
-                string newCourseName = Console.ReadLine();
-                string sqlQuery = "UPDATE  Course SET course_name = @newCourseName where course_id = @courseId";
-                SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
+                try{
 
-                sComm.Parameters.AddWithValue("newCourseName", newCourseName);
-                sComm.Parameters.AddWithValue("courseId", courseId);
-                Console.WriteLine("\n    " + sComm.ExecuteNonQuery() + " course name edited.\n\n");
+                    Console.Write("the new course name: ");
+                    string newCourseName = Console.ReadLine();
+                    string sqlQuery = "UPDATE  Course SET course_name = @newCourseName where course_id = @courseId";
+                    SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
+
+                    sComm.Parameters.AddWithValue("newCourseName", newCourseName);
+                    sComm.Parameters.AddWithValue("courseId", courseId);
+                    Console.WriteLine("\n    " + sComm.ExecuteNonQuery() + " course name edited.\n\n");
+                    Console.WriteLine("press 'Enter' to continue.");
+                    Console.ReadKey();
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("error: " + e.Message);
+                    Console.WriteLine("press 'Enter' to continue.");
+                    Console.ReadKey();
+                }
 
             }
             else if (ch == "4")
             {
-                Console.Write("the new credit hours: ");
-                int newCreditHours = int.Parse(Console.ReadLine());
-                string sqlQuery = "UPDATE  Course SET credit_hours = @newCreditHours where course_id = @courseId";
-                SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
+                try{
 
-                sComm.Parameters.AddWithValue("newCreditHours", newCreditHours);
-                sComm.Parameters.AddWithValue("courseId", courseId);
-                Console.WriteLine("\n    " + sComm.ExecuteNonQuery() + " credit hours of course edited.\n\n");
+                    Console.Write("the new credit hours: ");
+                    int newCreditHours = int.Parse(Console.ReadLine());
+                    string sqlQuery = "UPDATE  Course SET credit_hours = @newCreditHours where course_id = @courseId";
+                    SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
+
+                    sComm.Parameters.AddWithValue("newCreditHours", newCreditHours);
+                    sComm.Parameters.AddWithValue("courseId", courseId);
+                    Console.WriteLine("\n    " + sComm.ExecuteNonQuery() + " credit hours of course edited.\n\n");
+                    Console.WriteLine("press 'Enter' to continue.");
+                    Console.ReadKey();
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("error: " + e.Message);
+                    Console.WriteLine("press 'Enter' to continue.");
+                    Console.ReadKey();
+                }
 
             }
-            else if (ch == "")
-            {
-
-            }
-
         }
         public static void deleteCourse()
         {
+            Console.Clear();
             Console.WriteLine("          -------------------");
             Console.WriteLine("         |                   |");
             Console.WriteLine("         |   delete course   |");
@@ -825,34 +953,55 @@ namespace sqltest
             string ch = Console.ReadLine();
             if (ch == "1")
             {
-                Console.Write("Enter course id: ");
-                string courseId = Console.ReadLine();
-                string sqlQuery = "DELETE FROM  Course where course_id = @courseId";
-                SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
+                try{
 
-                sComm.Parameters.AddWithValue("courseId", courseId);
-                Console.WriteLine("\n    " + sComm.ExecuteNonQuery() + " course deleted.\n\n");
+                    Console.Write("Enter course id: ");
+                    string courseId = Console.ReadLine();
+                    string sqlQuery = "DELETE FROM  Course where course_id = @courseId";
+                    SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
+
+                    sComm.Parameters.AddWithValue("courseId", courseId);
+                    Console.WriteLine("\n    " + sComm.ExecuteNonQuery() + " course deleted.\n\n");
+                    Console.WriteLine("press 'Enter' to continue.");
+                    Console.ReadKey();
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("error: " + e.Message);
+                    Console.WriteLine("press 'Enter' to continue.");
+                    Console.ReadKey();
+                }
 
             }
             else if (ch == "2")
             {
-                Console.Write("Enter course name: ");
-                string courseName = Console.ReadLine();
-                string sqlQuery = "DELETE FROM  Course where course_name = @courseName";
-                SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
+                try{
 
-                sComm.Parameters.AddWithValue("courseName", courseName);
-                Console.WriteLine("\n    " + sComm.ExecuteNonQuery() + "course deleted.\n\n");
+                    Console.Write("Enter course name: ");
+                    string courseName = Console.ReadLine();
+                    string sqlQuery = "DELETE FROM  Course where course_name = @courseName";
+                    SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
 
-            }
-            else if (ch == "")
-            {
+                    sComm.Parameters.AddWithValue("courseName", courseName);
+                    Console.WriteLine("\n    " + sComm.ExecuteNonQuery() + "course deleted.\n\n");
+                    Console.WriteLine("press 'Enter' to continue.");
+                    Console.ReadKey();
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("error: " + e.Message);
+                    Console.WriteLine("press 'Enter' to continue.");
+                    Console.ReadKey();
+                }
 
             }
 
         }
         public static void showStudentsEnrolledInACourse()
         {
+            Console.Clear();
             Console.WriteLine("          ---------------------------------------");
             Console.WriteLine("         |                                        |");
             Console.WriteLine("         |   Show students enrolled in a course   |");
@@ -862,19 +1011,30 @@ namespace sqltest
             string courseId = Console.ReadLine();
             string sqlQuery = $"SELECT Student.student_id,student_first_name,student_middle_name,student_last_name,entry_year FROM enrolls LEFT OUTER JOIN Student on enrolls.student_id=Student.student_id where course_id='{courseId}' ";
             SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
-            using (SqlDataReader reader = sComm.ExecuteReader())
-            {
-                while (reader.Read())
+            try{
+                using (SqlDataReader reader = sComm.ExecuteReader())
                 {
+                    while (reader.Read())
+                    {
 
-                    Console.WriteLine("------------------------------");
-                    Console.WriteLine("id: " + reader[0]);
-                    Console.WriteLine("first name: " + reader[1]);
-                    Console.WriteLine("middle name: " + reader[2]);
-                    Console.WriteLine("last name: " + reader[3]);
-                    Console.WriteLine("entry year: " + reader[4]);
-                    Console.WriteLine("------------------------------");
+                        Console.WriteLine("------------------------------");
+                        Console.WriteLine("id: " + reader[0]);
+                        Console.WriteLine("first name: " + reader[1]);
+                        Console.WriteLine("middle name: " + reader[2]);
+                        Console.WriteLine("last name: " + reader[3]);
+                        Console.WriteLine("entry year: " + reader[4]);
+                        Console.WriteLine("------------------------------");
+                    }
                 }
+                Console.WriteLine("press 'Enter' to continue.");
+                Console.ReadKey();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("error: " + e.Message);
+                Console.WriteLine("press 'Enter' to continue.");
+                Console.ReadKey();
             }
         }
         public static void enrollingStudentIntoCourses()
@@ -913,36 +1073,49 @@ namespace sqltest
         }
         public static void showEnrollingCourses()
         {
-            Console.WriteLine("          -----------------------");
-            Console.WriteLine("         |                       |");
-            Console.WriteLine("         |   enrolling courses   |");
-            Console.WriteLine("         |                       |");
-            Console.WriteLine("          -----------------------" + "\n\n");
-            string sqlQuery1 = $"SELECT student_id FROM Student where account_id={singedin_account_id} ";
-            int studentId = 0;
-            SqlCommand sComm1 = new SqlCommand(sqlQuery1, sqlconn);
-            using (SqlDataReader reader = sComm1.ExecuteReader())
-            {
-                if (reader.Read())
+            try{
+                Console.Clear();
+                Console.WriteLine("          -----------------------");
+                Console.WriteLine("         |                       |");
+                Console.WriteLine("         |   enrolling courses   |");
+                Console.WriteLine("         |                       |");
+                Console.WriteLine("          -----------------------" + "\n\n");
+                string sqlQuery1 = $"SELECT student_id FROM Student where account_id={singedin_account_id} ";
+                int studentId = 0;
+                SqlCommand sComm1 = new SqlCommand(sqlQuery1, sqlconn);
+                using (SqlDataReader reader = sComm1.ExecuteReader())
                 {
-                    studentId = int.Parse("" + reader[0]);
-                    Console.WriteLine(studentId);
+                    if (reader.Read())
+                    {
+                        studentId = int.Parse("" + reader[0]);
+                        Console.WriteLine(studentId);
+                    }
                 }
-            }
-            string sqlQuery2 = $"SELECT Course.course_id,department_id,course_name,credit_hours FROM enrolls LEFT OUTER JOIN Course on enrolls.course_id=Course.course_id where student_id={studentId} ";
-            SqlCommand sComm2 = new SqlCommand(sqlQuery2, sqlconn);
-            using (SqlDataReader reader = sComm2.ExecuteReader())
-            {
-                while (reader.Read())
+                string sqlQuery2 = $"SELECT Course.course_id,department_id,course_name,credit_hours FROM enrolls LEFT OUTER JOIN Course on enrolls.course_id=Course.course_id where student_id={studentId} ";
+                SqlCommand sComm2 = new SqlCommand(sqlQuery2, sqlconn);
+                using (SqlDataReader reader = sComm2.ExecuteReader())
                 {
+                    while (reader.Read())
+                    {
 
-                    Console.WriteLine("------------------------------");
-                    Console.WriteLine("course id: " + reader[0]);
-                    Console.WriteLine("department id: " + reader[1]);
-                    Console.WriteLine("course name: " + reader[2]);
-                    Console.WriteLine("credit hours: " + reader[3]);
-                    Console.WriteLine("------------------------------");
+                        Console.WriteLine("------------------------------");
+                        Console.WriteLine("course id: " + reader[0]);
+                        Console.WriteLine("department id: " + reader[1]);
+                        Console.WriteLine("course name: " + reader[2]);
+                        Console.WriteLine("credit hours: " + reader[3]);
+                        Console.WriteLine("------------------------------");
+                    }
                 }
+                Console.WriteLine("press 'Enter' to continue.");
+                Console.ReadKey();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("error: " + e.Message);
+                Console.WriteLine("press 'Enter' to continue.");
+                Console.ReadKey();
+
             }
         }
         public static void show_student_data()
