@@ -1139,36 +1139,56 @@ namespace sqltest
         }
         public static void add_department()
         {
-            try
+            while (true)
             {
-                string department_id;
-                string department_name;
+                try
+                {
+                    Console.Clear();
+                    Console.WriteLine("\t\t -----------------------");
+                    Console.WriteLine("\t\t|                       |");
+                    Console.WriteLine("\t\t|    Add Department     |");
+                    Console.WriteLine("\t\t|                       |");
+                    Console.WriteLine("\t\t -----------------------" + "\n");
+
+                    string department_id;
+                    string department_name;
+
+                    Console.Write("department id: ");
+                    department_id = Console.ReadLine();
+
+                    Console.Write("department name: ");
+                    department_name = Console.ReadLine();
 
 
-                Console.WriteLine("adding department");
+                    string parametarizedQuery = "INSERT INTO " + "Department";
 
-                Console.WriteLine("department id: ");
-                department_id = Console.ReadLine();
+                    parametarizedQuery += " VALUES(@department_Id, @department_name);";
 
-                Console.WriteLine("department name: ");
-                department_name = Console.ReadLine();
+                    SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
 
-
-                string parametarizedQuery = "INSERT INTO " + "Department";
-
-                parametarizedQuery += " VALUES(@department_Id, @department_name);";
-
-                SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, sqlconn);
-
-                sqlCommand.Parameters.AddWithValue("@department_Id", department_id);
-                sqlCommand.Parameters.AddWithValue("@department_name", department_name);
+                    sqlCommand.Parameters.AddWithValue("@department_Id", department_id);
+                    sqlCommand.Parameters.AddWithValue("@department_name", department_name);
 
 
-                Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " department added.\n\n");
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("error: " + e.Message);
+                    Console.WriteLine(sqlCommand.ExecuteNonQuery() + " department added.\n\n");
+                    Console.WriteLine("press '0' to Go Back\npress '1' to add anther department");
+                    Console.Write("Enter your choice: ");
+                    string ch = Console.ReadLine();
+                    if (ch == "0")
+                    {
+                        return;
+                    }
+
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("error: " + e.Message);
+                    Console.WriteLine("press 'Enter' to continue.");
+                    Console.ReadKey();
+                    return;
+
+                }
             }
         }
 
@@ -1193,6 +1213,12 @@ namespace sqltest
             string option = "1";
             while (option != "e") // continue while invalid option
             {
+                Console.Clear();
+                Console.WriteLine("\t\t ----------------------------");
+                Console.WriteLine("\t\t|                            |");
+                Console.WriteLine("\t\t|     Manage departments     |");
+                Console.WriteLine("\t\t|                            |");
+                Console.WriteLine("\t\t ----------------------------" + "\n");
                 Console.WriteLine("\nPlease Select an option to continue: " + "\n");
                 Console.WriteLine("0- Go Back.");
                 Console.WriteLine("1- Show all departments");
@@ -1213,6 +1239,12 @@ namespace sqltest
                 }
                 if (option == "1") //show all departments
                 {
+                    Console.Clear();
+                    Console.WriteLine("\t\t -----------------------");
+                    Console.WriteLine("\t\t|                        |");
+                    Console.WriteLine("\t\t|    show Departments    |");
+                    Console.WriteLine("\t\t|                        |");
+                    Console.WriteLine("\t\t ------------------------" + "\n");
                     string query = "select * from Department";
                     SqlCommand comm = new SqlCommand(query, sqlconn);
                     using (SqlDataReader reader = comm.ExecuteReader())
@@ -1225,6 +1257,9 @@ namespace sqltest
                             Console.WriteLine("------------------------------");
                         }
                     }
+                    Console.WriteLine("press 'Enter' to continue.");
+                    Console.ReadKey();
+
                 }
                 else if (option == "2") //add department
                 {
@@ -1232,90 +1267,156 @@ namespace sqltest
                 }
                 else if (option == "3") //edit department
                 {
-                    string query = "UPDATE Department SET department_name = @department_name WHERE department_id = @department_id";
-                    try
+                    while (true)
                     {
-                        string department_name;
-                        string department_id;
+                        Console.Clear();
+                        Console.WriteLine("\t\t ------------------------");
+                        Console.WriteLine("\t\t|                         |");
+                        Console.WriteLine("\t\t|     Edit Department     |");
+                        Console.WriteLine("\t\t|                         |");
+                        Console.WriteLine("\t\t -------------------------" + "\n");
 
-                        Console.WriteLine("editing department");
+                        string query = "UPDATE Department SET department_name = @department_name WHERE department_id = @department_id";
+                        try
+                        {
+                            string department_name;
+                            string department_id;
 
-                        Console.WriteLine("department id: ");
-                        department_id = Console.ReadLine();
+                            Console.Write("department id: ");
+                            department_id = Console.ReadLine();
 
-                        Console.WriteLine("department name: ");
-                        department_name = Console.ReadLine();
+                            Console.Write("department name: ");
+                            department_name = Console.ReadLine();
 
-                        SqlCommand sqlCommand = new SqlCommand(query, sqlconn);
+                            SqlCommand sqlCommand = new SqlCommand(query, sqlconn);
 
-                        sqlCommand.Parameters.AddWithValue("@department_name", department_name);
-                        sqlCommand.Parameters.AddWithValue("@department_id", department_id);
+                            sqlCommand.Parameters.AddWithValue("@department_name", department_name);
+                            sqlCommand.Parameters.AddWithValue("@department_id", department_id);
 
-                        Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " department edited.\n\n");
+                            Console.WriteLine(sqlCommand.ExecuteNonQuery() + " department edited.\n\n");
+                            Console.WriteLine("press '0' to Go Back\npress '1' to edit anther department");
+                            Console.Write("Enter your choice: ");
+                            string ch = Console.ReadLine();
+                            if (ch == "0")
+                            {
+                                break;
+                            }
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("error: " + e.Message);
+                            Console.WriteLine("press '0' to Go Back\npress '1' to edit anther department");
+                            Console.Write("Enter your choice: ");
+                            string ch = Console.ReadLine();
+                            if (ch == "0")
+                            {
+                                break;
+                            }
 
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine("error: " + e.Message);
+                        }
                     }
                 }
                 else if (option == "4") //delete department
                 {
-                    try
+                    while (true)
                     {
-                        string department_id;
+                        try
+                        {
+                            string department_id;
+                            Console.Clear();
+                            Console.WriteLine("\t\t -----------------------");
+                            Console.WriteLine("\t\t|                       |");
+                            Console.WriteLine("\t\t|   delete Department   |");
+                            Console.WriteLine("\t\t|                       |");
+                            Console.WriteLine("\t\t -----------------------" + "\n");
 
-                        Console.WriteLine("deleting department");
+                            Console.Write("department id: ");
+                            department_id = Console.ReadLine();
 
-                        Console.WriteLine("department id: ");
-                        department_id = Console.ReadLine();
+                            string query = "DELETE from Department where department_id = @department_id";
 
-                        string query = "DELETE from Department where department_id = @department_id";
+                            SqlCommand sqlCommand = new SqlCommand(query, sqlconn);
 
-                        SqlCommand sqlCommand = new SqlCommand(query, sqlconn);
+                            sqlCommand.Parameters.AddWithValue("@department_id", department_id);
 
-                        sqlCommand.Parameters.AddWithValue("@department_id", department_id);
-
-                        Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " department deleted.\n\n");
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine("error: " + e.Message);
+                            Console.WriteLine(sqlCommand.ExecuteNonQuery() + " department deleted.\n\n");
+                            Console.WriteLine("press '0' to Go Back\npress '1' to delete anther department");
+                            Console.Write("Enter your choice: ");
+                            string ch = Console.ReadLine();
+                            if (ch == "0")
+                            {
+                                break;
+                            }
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("error: " + e.Message);
+                            Console.WriteLine("press '0' to Go Back\npress '1' to delete anther department");
+                            Console.Write("Enter your choice: ");
+                            string ch = Console.ReadLine();
+                            if (ch == "0")
+                            {
+                                break;
+                            }
+                        }
                     }
                 }
                 else if (option == "5") //assign students to a department
                 {
-                    try
+                    while (true)
                     {
-                        string student_id;
-                        string department_id;
+                        try
+                        {
+                            string student_id;
+                            string department_id;
+                            Console.Clear();
+                            Console.WriteLine("\t\t -----------------------------------------");
+                            Console.WriteLine("\t\t|                                         |");
+                            Console.WriteLine("\t\t|     Assign students to a department     |");
+                            Console.WriteLine("\t\t|                                         |");
+                            Console.WriteLine("\t\t -----------------------------------------" + "\n");
+                        
+                            Console.Write("student id: ");
+                            student_id = Console.ReadLine();
 
-                        Console.WriteLine("assigning student to a department");
+                            Console.Write("department id: ");
+                            department_id = Console.ReadLine();
 
-                        Console.WriteLine("student id: ");
-                        student_id = Console.ReadLine();
+                            string query = "UPDATE Student SET department_id = @department_id ";
+                            query += "WHERE student_id = @student_id";
 
-                        Console.WriteLine("department id: ");
-                        department_id = Console.ReadLine();
+                            SqlCommand sqlCommand = new SqlCommand(query, sqlconn);
 
-                        string query = "UPDATE Student SET department_id = @department_id ";
-                        query += "WHERE student_id = @student_id";
+                            sqlCommand.Parameters.AddWithValue("@department_id", department_id);
+                            sqlCommand.Parameters.AddWithValue("@student_id", student_id);
 
-                        SqlCommand sqlCommand = new SqlCommand(query, sqlconn);
-
-                        sqlCommand.Parameters.AddWithValue("@department_id", department_id);
-                        sqlCommand.Parameters.AddWithValue("@student_id", student_id);
-
-                        Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " student assigned to a department.\n\n");
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine("error: " + e.Message);
+                            Console.WriteLine(sqlCommand.ExecuteNonQuery() + " student assigned to a department.\n\n");
+                            Console.WriteLine("press '0' to Go Back\npress '1' to assign anther student");
+                            Console.Write("Enter your choice: ");
+                            string ch = Console.ReadLine();
+                            if (ch == "0")
+                            {
+                                break;
+                            }
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("error: " + e.Message);
+                            Console.WriteLine("press '0' to Go Back\npress '1' to assign anther student");
+                            Console.Write("Enter your choice: ");
+                            string ch = Console.ReadLine();
+                            if (ch == "0")
+                            {
+                                break;
+                            }
+                        }
                     }
                 }
                 else
                 {
                     Console.Write("\n invalid option.please,try agien.\n");
+                    Console.WriteLine("press 'Enter' to continue.");
+                    Console.ReadKey();
                 }
             }
         }
@@ -2720,6 +2821,11 @@ namespace sqltest
                     while (option != "e")
                     {
                         Console.Clear();
+                        Console.WriteLine("\t\t -----------------");
+                        Console.WriteLine("\t\t|                 |");
+                        Console.WriteLine("\t\t|    Home page    |");
+                        Console.WriteLine("\t\t|                 |");
+                        Console.WriteLine("\t\t -----------------" + "\n");
                         Console.WriteLine("\nPlease Select an option to continue: " + "\n");
                         Console.WriteLine("1- manage users.");
                         Console.WriteLine("2- manage departments.");
