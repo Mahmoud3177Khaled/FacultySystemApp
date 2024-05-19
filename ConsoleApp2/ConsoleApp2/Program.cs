@@ -565,7 +565,7 @@ namespace sqltest
             Console.WriteLine("            |      courses      |");
             Console.WriteLine("            |                   |");
             Console.WriteLine("             ------------------" + "\n");
-            Console.WriteLine("1-show courses\n2-create course\n3-edit course\n4-delete course\n5-enrollig student in a course\n ");
+            Console.WriteLine("1-show courses\n2-create course\n3-edit course\n4-delete course\n5-Show students enrolled in a course\n6-enrolling student into courses\n ");
             Console.Write("your choice: ");
             string ch = Console.ReadLine();
             if (ch == "1")
@@ -586,16 +586,16 @@ namespace sqltest
             }
             else if (ch == "5")
             {
-                enrollingStudentInACourse();
+                showStudentsEnrolledInACourse();
             }
-            else if (ch == "")
+            else if (ch == "6")
             {
-
+                enrollingStudentIntoCourses();
             }
 
 
         }
-        public static void showCourses()// error at option 3
+        public static void showCourses()
         {
             Console.WriteLine("         ------------------");
             Console.WriteLine("        |                  |");
@@ -649,12 +649,11 @@ namespace sqltest
             {
                 Console.Write("Enter the department id: ");
                 string departmentId = Console.ReadLine();
-                string sqlQuery = $"SELECT * FROM Course WHERE department_id = {departmentId}";
+                string sqlQuery = $"SELECT * FROM Course WHERE department_id = '{departmentId}'";
 
                 SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
                 using (SqlDataReader reader = sComm.ExecuteReader())
                 {
-                    Console.Write("111111111111111111111111111 ");
                     while (reader.Read())
                     {
 
@@ -814,16 +813,16 @@ namespace sqltest
             }
 
         }
-        public static void enrollingStudentInACourse()// un checked
+        public static void showStudentsEnrolledInACourse()
         {
-            Console.WriteLine("          ------------------------------------------");
-            Console.WriteLine("         |                                           |");
-            Console.WriteLine("         |   enrolling students in a course course   |");
-            Console.WriteLine("         |                                           |");
-            Console.WriteLine("          -------------------------------------------" + "\n\n");
+            Console.WriteLine("          ---------------------------------------");
+            Console.WriteLine("         |                                        |");
+            Console.WriteLine("         |   Show students enrolled in a course   |");
+            Console.WriteLine("         |                                        |");
+            Console.WriteLine("          ----------------------------------------" + "\n\n");
             Console.Write("Enter the course id: ");
             string courseId = Console.ReadLine();
-            string sqlQuery = $"SELECT student_id,student_first_name,student_middle_name,student_last_name,entry_year FROM enrolls OUTER LEFT JOIN Student on enrolls.student_id=Student.student_id where course_id={courseId} ";
+            string sqlQuery = $"SELECT Student.student_id,student_first_name,student_middle_name,student_last_name,entry_year FROM enrolls LEFT OUTER JOIN Student on enrolls.student_id=Student.student_id where course_id='{courseId}' ";
             SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
             using (SqlDataReader reader = sComm.ExecuteReader())
             {
@@ -840,7 +839,41 @@ namespace sqltest
                 }
             }
         }
-        public static void showEnrollingCourses()// un checked
+        public static void enrollingStudentIntoCourses()
+        {
+            Console.WriteLine("          ---------------------------------------");
+            Console.WriteLine("         |                                        |");
+            Console.WriteLine("         |    Enrolling students into courses     |");
+            Console.WriteLine("         |                                        |");
+            Console.WriteLine("          ----------------------------------------" + "\n\n");
+            Console.Write("Enter the student id: ");
+            int id = int.Parse(Console.ReadLine());
+            Console.Write("Enter the semester: ");
+            string semester = Console.ReadLine();
+            Console.Write("Enter academic year: ");
+            int year = int.Parse(Console.ReadLine());
+            string courseId;
+            while (true)
+            {
+                Console.Write("Enter course id or '0' to save: ");
+                courseId = Console.ReadLine();
+                if (courseId == "0")
+                {
+                    break;
+                }
+                string sqlQuery = " INSERT INTO enrolls (student_id,course_id,semester,year) VALUES (@id,@courseId,@semester,@year)";
+                SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
+                    sComm.Parameters.AddWithValue("@id",id);
+                    sComm.Parameters.AddWithValue("@courseId",courseId);
+                    sComm.Parameters.AddWithValue("@semester",semester);
+                    sComm.Parameters.AddWithValue("@year",year);
+                sComm.ExecuteNonQuery();
+
+            }
+            
+
+        }
+        public static void showEnrollingCourses()
         {
             Console.WriteLine("          -----------------------");
             Console.WriteLine("         |                       |");
@@ -855,10 +888,10 @@ namespace sqltest
                 if (reader.Read())
                 {
                     studentId = int.Parse("" + reader[0]);
+                    Console.WriteLine(studentId);
                 }
             }
-
-            string sqlQuery2 = $"SELECT course_id,department_id,course_name,credit_hours FROM enrolls OUTER LEFT JOIN Course on enrolls.Course=Course.Course where student_id={studentId} ";
+            string sqlQuery2 = $"SELECT Course.course_id,department_id,course_name,credit_hours FROM enrolls LEFT OUTER JOIN Course on enrolls.course_id=Course.course_id where student_id={studentId} ";
             SqlCommand sComm2 = new SqlCommand(sqlQuery2, sqlconn);
             using (SqlDataReader reader = sComm2.ExecuteReader())
             {
@@ -2612,12 +2645,15 @@ namespace sqltest
                             signin();
                             if (singedin_type == "")
                             {
-                                Console.WriteLine("0-exit\n1-try again\n");
+                                Console.WriteLine("0-back\n1-try again\ne-exit\n");
                                 Console.Write("yor choice: ");
-                                int ch = int.Parse(Console.ReadLine());
-                                if (ch == 0)
+                                string ch = Console.ReadLine();
+                                if (ch == "e")
                                 {
                                     CloseConnAndExit();
+                                }
+                                else if ( ch =="0"){
+                                    break;
                                 }
                             }
 
