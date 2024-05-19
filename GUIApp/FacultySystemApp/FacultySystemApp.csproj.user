@@ -82,9 +82,6 @@
     <Compile Update="admin\Users\students\ShowStudent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="SignupForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="student\StudentPage.cs">
       <SubType>Form</SubType>
     </Compile>
