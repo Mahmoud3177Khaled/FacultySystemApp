@@ -37,5 +37,10 @@ namespace FacultySystemApp.admin.Departments
         {
 
         }
+
+        private void EditDepartment_Load(object sender, EventArgs e)
+        {
+            DepartmentLabel.Text = "Edit Department : " + DepartmentID;
+        }
     }
 }

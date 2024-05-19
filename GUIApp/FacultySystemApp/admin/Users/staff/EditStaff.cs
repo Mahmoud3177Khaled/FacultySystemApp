@@ -38,5 +38,10 @@ namespace FacultySystemApp.admin.staff
         {
 
         }
+
+        private void EditStaff_Load(object sender, EventArgs e)
+        {
+            StaffIdLabel.Text = "Edit Staff : " + StaffID;
+        }
     }
 }

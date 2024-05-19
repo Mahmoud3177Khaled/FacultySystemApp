@@ -38,5 +38,10 @@ namespace FacultySystemApp.admin.admins
             showAdmin.Show();
             this.Hide();
         }
+
+        private void EditAdmin_Load(object sender, EventArgs e)
+        {
+            AdminIdLabel.Text = "Edit Admin : " + AdminID;
+        }
     }
 }

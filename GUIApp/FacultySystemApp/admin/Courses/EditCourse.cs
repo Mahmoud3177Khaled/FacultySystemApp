@@ -37,5 +37,10 @@ namespace FacultySystemApp.admin.Courses
         {
 
         }
+
+        private void EditCourse_Load(object sender, EventArgs e)
+        {
+            CourseIDLabel.Text = "Edit Course : " + CourseID;
+        }
     }
 }

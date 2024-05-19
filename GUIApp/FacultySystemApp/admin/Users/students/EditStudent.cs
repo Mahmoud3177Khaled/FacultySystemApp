@@ -38,5 +38,10 @@ namespace FacultySystemApp.admin.students
             showStudent.Show();
             this.Hide();
         }
+
+        private void EditStudent_Load(object sender, EventArgs e)
+        {
+            StudentIdLabel.Text = "Edit Student : " + StudentID;
+        }
     }
 }

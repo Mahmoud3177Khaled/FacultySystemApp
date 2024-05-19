@@ -34,7 +34,7 @@
             SaveDepartmentButton = new Button();
             label5 = new Label();
             username = new TextBox();
-            label1 = new Label();
+            DepartmentLabel = new Label();
             SuspendLayout();
             // 
             // textBox3
@@ -106,15 +106,15 @@
             username.TabIndex = 92;
             username.TextAlign = HorizontalAlignment.Center;
             // 
-            // label1
+            // DepartmentLabel
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 25F);
-            label1.Location = new Point(209, 28);
-            label1.Name = "label1";
-            label1.Size = new Size(311, 46);
-            label1.TabIndex = 91;
-            label1.Text = "Edit Department: id";
+            DepartmentLabel.AutoSize = true;
+            DepartmentLabel.Font = new Font("Segoe UI", 25F);
+            DepartmentLabel.Location = new Point(209, 28);
+            DepartmentLabel.Name = "DepartmentLabel";
+            DepartmentLabel.Size = new Size(311, 46);
+            DepartmentLabel.TabIndex = 91;
+            DepartmentLabel.Text = "Edit Department: id";
             // 
             // EditDepartment
             // 
@@ -128,11 +128,12 @@
             Controls.Add(SaveDepartmentButton);
             Controls.Add(label5);
             Controls.Add(username);
-            Controls.Add(label1);
+            Controls.Add(DepartmentLabel);
             ForeColor = Color.White;
             Name = "EditDepartment";
             Text = "EditDepartment";
             FormClosed += EditDepartment_FormClosed;
+            Load += EditDepartment_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -145,6 +146,6 @@
         private Button SaveDepartmentButton;
         private Label label5;
         private TextBox username;
-        private Label label1;
+        private Label DepartmentLabel;
     }
 }

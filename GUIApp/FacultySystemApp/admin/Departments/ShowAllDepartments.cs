@@ -23,5 +23,41 @@ namespace FacultySystemApp.admin.Departments
             Application.Exit();
         }
 
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            ManageDepartments manageDepartments = new ManageDepartments();
+            manageDepartments.Show();
+            this.Hide();
+        }
+
+        private void ShowAllDepartments_Load(object sender, EventArgs e)
+        {
+            List<string> strings = new List<string>
+                {
+                "gg",
+                "cc",
+                "bb",
+                "bb",
+                "bb",
+                "bb",
+                "bb",
+                "bb",
+                "bb",
+                "bb",
+                "bb",
+                "bb",
+                "mm"
+            };
+
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("StudentName", typeof(string));
+
+            foreach (string name in strings)
+            {
+                dataTable.Rows.Add(name);
+            }
+
+            Departments.DataSource = dataTable;
+        }
     }
 }

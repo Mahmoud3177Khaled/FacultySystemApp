@@ -38,7 +38,7 @@
             SaveCourseButton = new Button();
             label5 = new Label();
             username = new TextBox();
-            label1 = new Label();
+            CourseIDLabel = new Label();
             SuspendLayout();
             // 
             // textBox3
@@ -152,15 +152,15 @@
             username.TabIndex = 94;
             username.TextAlign = HorizontalAlignment.Center;
             // 
-            // label1
+            // CourseIDLabel
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 25F);
-            label1.Location = new Point(255, 21);
-            label1.Name = "label1";
-            label1.Size = new Size(243, 46);
-            label1.TabIndex = 93;
-            label1.Text = "Edit Course : id";
+            CourseIDLabel.AutoSize = true;
+            CourseIDLabel.Font = new Font("Segoe UI", 25F);
+            CourseIDLabel.Location = new Point(255, 21);
+            CourseIDLabel.Name = "CourseIDLabel";
+            CourseIDLabel.Size = new Size(243, 46);
+            CourseIDLabel.TabIndex = 93;
+            CourseIDLabel.Text = "Edit Course : id";
             // 
             // EditCourse
             // 
@@ -178,11 +178,12 @@
             Controls.Add(SaveCourseButton);
             Controls.Add(label5);
             Controls.Add(username);
-            Controls.Add(label1);
+            Controls.Add(CourseIDLabel);
             ForeColor = Color.White;
             Name = "EditCourse";
             Text = "EditCourse";
             FormClosed += EditCourse_FormClosed;
+            Load += EditCourse_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -201,6 +202,6 @@
         private Button SaveCourseButton;
         private Label label5;
         private TextBox username;
-        private Label label1;
+        private Label CourseIDLabel;
     }
 }

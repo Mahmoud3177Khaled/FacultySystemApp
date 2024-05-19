@@ -46,7 +46,7 @@
             Email = new TextBox();
             label6 = new Label();
             phone1 = new TextBox();
-            label1 = new Label();
+            AdminIdLabel = new Label();
             SaveButton = new Button();
             label11 = new Label();
             BackButton = new Button();
@@ -241,16 +241,16 @@
             phone1.TabIndex = 70;
             phone1.TextAlign = HorizontalAlignment.Center;
             // 
-            // label1
+            // AdminIdLabel
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 30F);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(324, 19);
-            label1.Name = "label1";
-            label1.Size = new Size(284, 54);
-            label1.TabIndex = 69;
-            label1.Text = "Edit Admin : id";
+            AdminIdLabel.AutoSize = true;
+            AdminIdLabel.Font = new Font("Segoe UI", 30F);
+            AdminIdLabel.ForeColor = Color.White;
+            AdminIdLabel.Location = new Point(324, 19);
+            AdminIdLabel.Name = "AdminIdLabel";
+            AdminIdLabel.Size = new Size(284, 54);
+            AdminIdLabel.TabIndex = 69;
+            AdminIdLabel.Text = "Edit Admin : id";
             // 
             // SaveButton
             // 
@@ -317,13 +317,14 @@
             Controls.Add(Email);
             Controls.Add(label6);
             Controls.Add(phone1);
-            Controls.Add(label1);
+            Controls.Add(AdminIdLabel);
             Controls.Add(SaveButton);
             Controls.Add(label11);
             ForeColor = Color.White;
             Name = "EditAdmin";
             Text = "EditAdmin";
             FormClosed += EditAdmin_close;
+            Load += EditAdmin_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -347,7 +348,7 @@
         private TextBox Email;
         private Label label6;
         private TextBox phone1;
-        private Label label1;
+        private Label AdminIdLabel;
         private Button SaveButton;
         private Label label11;
         private Button BackButton;
