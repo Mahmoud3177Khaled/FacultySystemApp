@@ -12,10 +12,13 @@ namespace FacultySystemApp.admin.students
 {
     public partial class EditStudent : Form
     {
-        public EditStudent()
+        private string StudentID;
+
+        public EditStudent(string StudentID)
         {
             InitializeComponent();
             CenterToScreen();
+            this.StudentID = StudentID;
         }
 
 
@@ -31,9 +34,14 @@ namespace FacultySystemApp.admin.students
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            ShowStudent showStudent = new ShowStudent("g");
+            ShowStudent showStudent = new ShowStudent(StudentID);
             showStudent.Show();
             this.Hide();
+        }
+
+        private void EditStudent_Load(object sender, EventArgs e)
+        {
+            StudentIdLabel.Text = "Edit Student : " + StudentID;
         }
     }
 }

@@ -12,18 +12,18 @@ namespace FacultySystemApp.admin.students
 {
     public partial class ShowStudent : Form
     {
-        private string userId;
+        private string StudentID;
 
         public ShowStudent(string userId)
         {
             InitializeComponent();
             CenterToScreen();
-            this.userId = userId;
+            this.StudentID = userId;
         }
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            EditStudent editStudent = new EditStudent();
+            EditStudent editStudent = new EditStudent(StudentID);
             editStudent.Show();
             this.Hide();
         }
@@ -47,7 +47,7 @@ namespace FacultySystemApp.admin.students
 
         private void ShowStudent_Load(object sender, EventArgs e)
         {
-            StudentIdLabel.Text = "Student : " + userId;
+            StudentIdLabel.Text = "Student : " + StudentID;
 
         }
     }

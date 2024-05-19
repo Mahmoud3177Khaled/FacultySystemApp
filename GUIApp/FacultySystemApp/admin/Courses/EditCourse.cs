@@ -12,15 +12,18 @@ namespace FacultySystemApp.admin.Courses
 {
     public partial class EditCourse : Form
     {
-        public EditCourse()
+        private string CourseID;
+
+        public EditCourse(string CourseID)
         {
             InitializeComponent();
             CenterToScreen();
+            this.CourseID = CourseID;
         }
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            ShowCourse showCourse = new ShowCourse("g");
+            ShowCourse showCourse = new ShowCourse(CourseID);
             showCourse.Show();
             this.Hide();
         }
@@ -33,6 +36,11 @@ namespace FacultySystemApp.admin.Courses
         private void SaveCourseButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void EditCourse_Load(object sender, EventArgs e)
+        {
+            CourseIDLabel.Text = "Edit Course : " + CourseID;
         }
     }
 }

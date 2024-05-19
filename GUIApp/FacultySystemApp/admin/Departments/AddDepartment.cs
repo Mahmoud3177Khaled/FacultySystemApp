@@ -15,6 +15,19 @@ namespace FacultySystemApp.admin.Departments
         public AddDepartment()
         {
             InitializeComponent();
+            CenterToScreen();
+        }
+
+        private void AddDepartment_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            ManageDepartments manageDepartments = new ManageDepartments();
+            manageDepartments.Show();
+            this.Hide();
         }
     }
 }

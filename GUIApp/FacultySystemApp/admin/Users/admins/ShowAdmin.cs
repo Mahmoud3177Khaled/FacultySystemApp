@@ -13,19 +13,19 @@ namespace FacultySystemApp.admin.admins
 {
     public partial class ShowAdmin : Form
     {
-        private string userId;
+        private string AdminID;
 
         public ShowAdmin(string userId)
         {
             InitializeComponent();
             CenterToScreen();
-            this.userId = userId;
+            this.AdminID = userId;
 
         }
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            EditAdmin editAdmin = new EditAdmin();
+            EditAdmin editAdmin = new EditAdmin(AdminID);
             editAdmin.Show();
             this.Hide();
         }
@@ -44,7 +44,7 @@ namespace FacultySystemApp.admin.admins
 
         private void ShowAdmin_Load(object sender, EventArgs e)
         {
-            AdminIdLabel.Text = "Admin: " + this.userId;
+            AdminIdLabel.Text = "Admin: " + this.AdminID;
         }
     }
 }

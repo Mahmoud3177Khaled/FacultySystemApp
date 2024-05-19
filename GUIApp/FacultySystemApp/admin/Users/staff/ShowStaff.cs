@@ -12,13 +12,13 @@ namespace FacultySystemApp.admin.staff
 {
     public partial class ShowStaff : Form
     {
-        private string userId;
+        private string StaffID;
 
         public ShowStaff(string userId)
         {
             InitializeComponent();
             CenterToScreen();
-            this.userId = userId;
+            this.StaffID = userId;
         }
 
         private void ShowStaff_FormClosing(object sender, FormClosingEventArgs e)
@@ -35,14 +35,14 @@ namespace FacultySystemApp.admin.staff
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            EditStaff editStaff = new EditStaff();
+            EditStaff editStaff = new EditStaff(StaffID);
             editStaff.Show();
             this.Hide();
         }
 
         private void ShowStaff_Load(object sender, EventArgs e)
         {
-            StaffIdLabel.Text = "Staff : " + this.userId;
+            StaffIdLabel.Text = "Staff : " + this.StaffID;
         }
     }
 }

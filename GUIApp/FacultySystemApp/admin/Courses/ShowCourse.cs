@@ -34,7 +34,7 @@ namespace FacultySystemApp.admin.Courses
 
         private void EditCourseButton_Click(object sender, EventArgs e)
         {
-            EditCourse editCourse = new EditCourse();
+            EditCourse editCourse = new EditCourse(CourseID);
             editCourse.Show();
             this.Hide();
         }

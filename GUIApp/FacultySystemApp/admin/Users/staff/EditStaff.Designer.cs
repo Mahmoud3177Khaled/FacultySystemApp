@@ -38,7 +38,7 @@
             lastName = new TextBox();
             middleName = new TextBox();
             firstName = new TextBox();
-            label1 = new Label();
+            StaffIdLabel = new Label();
             SuspendLayout();
             // 
             // label8
@@ -152,16 +152,16 @@
             firstName.TabIndex = 95;
             firstName.TextAlign = HorizontalAlignment.Center;
             // 
-            // label1
+            // StaffIdLabel
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 30F);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(338, 13);
-            label1.Name = "label1";
-            label1.Size = new Size(247, 54);
-            label1.TabIndex = 94;
-            label1.Text = "Edit Staff : id";
+            StaffIdLabel.AutoSize = true;
+            StaffIdLabel.Font = new Font("Segoe UI", 30F);
+            StaffIdLabel.ForeColor = Color.White;
+            StaffIdLabel.Location = new Point(338, 13);
+            StaffIdLabel.Name = "StaffIdLabel";
+            StaffIdLabel.Size = new Size(247, 54);
+            StaffIdLabel.TabIndex = 94;
+            StaffIdLabel.Text = "Edit Staff : id";
             // 
             // EditStaff
             // 
@@ -179,11 +179,12 @@
             Controls.Add(lastName);
             Controls.Add(middleName);
             Controls.Add(firstName);
-            Controls.Add(label1);
+            Controls.Add(StaffIdLabel);
             ForeColor = Color.White;
             Name = "EditStaff";
             Text = "EditStaff";
             FormClosed += EditStaff_FormClosed;
+            Load += EditStaff_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -200,6 +201,6 @@
         private TextBox lastName;
         private TextBox middleName;
         private TextBox firstName;
-        private Label label1;
+        private Label StaffIdLabel;
     }
 }

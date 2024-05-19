@@ -53,11 +53,9 @@ namespace FacultySystemApp
 
         private void verifyAdmin_verify(object sender, EventArgs e)
         {
-            //this.Hide();
+            ManageUsers manageUsers = new ManageUsers();
+            manageUsers.Show();
             this.Hide();
-            SignupForm signup = new SignupForm();
-            //userForm.Show();
-            signup.Show();
         }
 
         private void WelcomeFormClosed(object sender, FormClosedEventArgs e)

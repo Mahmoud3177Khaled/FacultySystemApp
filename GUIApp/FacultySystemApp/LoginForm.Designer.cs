@@ -43,7 +43,7 @@
             loginlabel.AutoSize = true;
             loginlabel.Font = new Font("Segoe UI", 30F);
             loginlabel.ForeColor = Color.White;
-            loginlabel.Location = new Point(264, 78);
+            loginlabel.Location = new Point(174, 34);
             loginlabel.Name = "loginlabel";
             loginlabel.Size = new Size(416, 54);
             loginlabel.TabIndex = 1;
@@ -54,7 +54,7 @@
             loginEmailLabel.AutoSize = true;
             loginEmailLabel.Font = new Font("Segoe UI", 30F);
             loginEmailLabel.ForeColor = Color.White;
-            loginEmailLabel.Location = new Point(166, 210);
+            loginEmailLabel.Location = new Point(141, 154);
             loginEmailLabel.Name = "loginEmailLabel";
             loginEmailLabel.Size = new Size(117, 54);
             loginEmailLabel.TabIndex = 2;
@@ -65,7 +65,7 @@
             loginPasswordLabel.AutoSize = true;
             loginPasswordLabel.Font = new Font("Segoe UI", 30F);
             loginPasswordLabel.ForeColor = Color.White;
-            loginPasswordLabel.Location = new Point(95, 342);
+            loginPasswordLabel.Location = new Point(70, 286);
             loginPasswordLabel.Name = "loginPasswordLabel";
             loginPasswordLabel.Size = new Size(188, 54);
             loginPasswordLabel.TabIndex = 3;
@@ -74,7 +74,7 @@
             // EmailInput
             // 
             EmailInput.Font = new Font("Segoe UI", 15F);
-            EmailInput.Location = new Point(347, 210);
+            EmailInput.Location = new Point(322, 154);
             EmailInput.Name = "EmailInput";
             EmailInput.Size = new Size(372, 34);
             EmailInput.TabIndex = 4;
@@ -87,7 +87,7 @@
             // PasswordInput
             // 
             PasswordInput.Font = new Font("Segoe UI", 15F);
-            PasswordInput.Location = new Point(347, 355);
+            PasswordInput.Location = new Point(322, 299);
             PasswordInput.Name = "PasswordInput";
             PasswordInput.Size = new Size(372, 34);
             PasswordInput.TabIndex = 5;
@@ -96,7 +96,7 @@
             // 
             LoginButton.FlatStyle = FlatStyle.System;
             LoginButton.Font = new Font("Segoe UI", 20F);
-            LoginButton.Location = new Point(421, 482);
+            LoginButton.Location = new Point(317, 404);
             LoginButton.Name = "LoginButton";
             LoginButton.Size = new Size(131, 52);
             LoginButton.TabIndex = 6;
@@ -109,7 +109,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            ClientSize = new Size(971, 656);
+            ClientSize = new Size(764, 507);
             Controls.Add(LoginButton);
             Controls.Add(PasswordInput);
             Controls.Add(EmailInput);

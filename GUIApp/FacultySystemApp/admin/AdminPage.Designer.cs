@@ -84,6 +84,7 @@
             ManageDepartmentsButton.TabIndex = 3;
             ManageDepartmentsButton.Text = "Manage Departments";
             ManageDepartmentsButton.UseVisualStyleBackColor = false;
+            ManageDepartmentsButton.Click += ManageDepartmentsButton_Click;
             // 
             // ManageUsersButton
             // 

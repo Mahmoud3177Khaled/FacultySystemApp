@@ -1,6 +1,6 @@
 ﻿namespace FacultySystemApp.admin.Departments
 {
-    partial class AddDepartment
+    partial class EditDepartment
     {
         /// <summary>
         /// Required designer variable.
@@ -31,19 +31,19 @@
             textBox3 = new TextBox();
             label2 = new Label();
             BackButton = new Button();
-            AddDepartmentButton = new Button();
+            SaveDepartmentButton = new Button();
             label5 = new Label();
             username = new TextBox();
-            label1 = new Label();
+            DepartmentLabel = new Label();
             SuspendLayout();
             // 
             // textBox3
             // 
             textBox3.Font = new Font("Segoe UI", 20F);
-            textBox3.Location = new Point(374, 129);
+            textBox3.Location = new Point(374, 146);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(402, 43);
-            textBox3.TabIndex = 90;
+            textBox3.TabIndex = 97;
             textBox3.TextAlign = HorizontalAlignment.Center;
             // 
             // label2
@@ -52,10 +52,10 @@
             label2.BackColor = Color.Black;
             label2.Font = new Font("Segoe UI", 30F);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(43, 119);
+            label2.Location = new Point(43, 136);
             label2.Name = "label2";
             label2.Size = new Size(286, 54);
-            label2.TabIndex = 85;
+            label2.TabIndex = 96;
             label2.Text = "Department ID";
             // 
             // BackButton
@@ -65,24 +65,25 @@
             BackButton.FlatStyle = FlatStyle.Flat;
             BackButton.Font = new Font("Segoe UI", 20F);
             BackButton.ForeColor = Color.White;
-            BackButton.Location = new Point(25, 10);
+            BackButton.Location = new Point(25, 27);
             BackButton.Name = "BackButton";
             BackButton.Size = new Size(115, 47);
-            BackButton.TabIndex = 84;
+            BackButton.TabIndex = 95;
             BackButton.Text = "⇐ back";
             BackButton.UseVisualStyleBackColor = false;
             BackButton.Click += BackButton_Click;
             // 
-            // AddDepartmentButton
+            // SaveDepartmentButton
             // 
-            AddDepartmentButton.Font = new Font("Segoe UI", 20F);
-            AddDepartmentButton.ForeColor = Color.Black;
-            AddDepartmentButton.Location = new Point(288, 360);
-            AddDepartmentButton.Name = "AddDepartmentButton";
-            AddDepartmentButton.Size = new Size(142, 46);
-            AddDepartmentButton.TabIndex = 83;
-            AddDepartmentButton.Text = "Add";
-            AddDepartmentButton.UseVisualStyleBackColor = true;
+            SaveDepartmentButton.Font = new Font("Segoe UI", 20F);
+            SaveDepartmentButton.ForeColor = Color.Black;
+            SaveDepartmentButton.Location = new Point(329, 377);
+            SaveDepartmentButton.Name = "SaveDepartmentButton";
+            SaveDepartmentButton.Size = new Size(142, 46);
+            SaveDepartmentButton.TabIndex = 94;
+            SaveDepartmentButton.Text = "Save";
+            SaveDepartmentButton.UseVisualStyleBackColor = true;
+            SaveDepartmentButton.Click += SaveDepartmentButton_Click;
             // 
             // label5
             // 
@@ -90,32 +91,32 @@
             label5.BackColor = Color.Black;
             label5.Font = new Font("Segoe UI", 30F);
             label5.ForeColor = Color.White;
-            label5.Location = new Point(67, 223);
+            label5.Location = new Point(67, 240);
             label5.Name = "label5";
             label5.Size = new Size(262, 54);
-            label5.TabIndex = 82;
+            label5.TabIndex = 93;
             label5.Text = "Course Name";
             // 
             // username
             // 
             username.Font = new Font("Segoe UI", 20F);
-            username.Location = new Point(374, 223);
+            username.Location = new Point(374, 240);
             username.Name = "username";
             username.Size = new Size(402, 43);
-            username.TabIndex = 81;
+            username.TabIndex = 92;
             username.TextAlign = HorizontalAlignment.Center;
             // 
-            // label1
+            // DepartmentLabel
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 25F);
-            label1.Location = new Point(262, 11);
-            label1.Name = "label1";
-            label1.Size = new Size(272, 46);
-            label1.TabIndex = 80;
-            label1.Text = "Add Department";
+            DepartmentLabel.AutoSize = true;
+            DepartmentLabel.Font = new Font("Segoe UI", 25F);
+            DepartmentLabel.Location = new Point(209, 28);
+            DepartmentLabel.Name = "DepartmentLabel";
+            DepartmentLabel.Size = new Size(311, 46);
+            DepartmentLabel.TabIndex = 91;
+            DepartmentLabel.Text = "Edit Department: id";
             // 
-            // AddDepartment
+            // EditDepartment
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -124,14 +125,15 @@
             Controls.Add(textBox3);
             Controls.Add(label2);
             Controls.Add(BackButton);
-            Controls.Add(AddDepartmentButton);
+            Controls.Add(SaveDepartmentButton);
             Controls.Add(label5);
             Controls.Add(username);
-            Controls.Add(label1);
+            Controls.Add(DepartmentLabel);
             ForeColor = Color.White;
-            Name = "AddDepartment";
-            Text = "AddDepartment";
-            FormClosed += AddDepartment_FormClosed;
+            Name = "EditDepartment";
+            Text = "EditDepartment";
+            FormClosed += EditDepartment_FormClosed;
+            Load += EditDepartment_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -141,9 +143,9 @@
         private TextBox textBox3;
         private Label label2;
         private Button BackButton;
-        private Button AddDepartmentButton;
+        private Button SaveDepartmentButton;
         private Label label5;
         private TextBox username;
-        private Label label1;
+        private Label DepartmentLabel;
     }
 }
