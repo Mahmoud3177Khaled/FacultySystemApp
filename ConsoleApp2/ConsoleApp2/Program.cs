@@ -1438,6 +1438,13 @@ namespace sqltest
             }
             while (option != "e") // continue while invalid option
             {
+                Console.Clear();
+                Console.WriteLine("\t\t -----------------------");
+                Console.WriteLine("\t\t|                       |");
+                Console.WriteLine("\t\t|    manage profile     |");
+                Console.WriteLine("\t\t|                       |");
+                Console.WriteLine("\t\t -----------------------" + "\n");
+                
                 Console.WriteLine("\nPlease Select an option to continue: " + "\n");
                 Console.WriteLine("0- Go Back.");
                 Console.WriteLine("1- Show profile.");
@@ -1466,7 +1473,13 @@ namespace sqltest
                         {
                             using (SqlDataReader reader = sqlCommand.ExecuteReader())
                             {
-                                Console.WriteLine("Account Info:");
+                                Console.Clear();
+                                Console.WriteLine("\t\t -----------------------");
+                                Console.WriteLine("\t\t|                       |");
+                                Console.WriteLine("\t\t|     your profile      |");
+                                Console.WriteLine("\t\t|                       |");
+                                Console.WriteLine("\t\t -----------------------" + "\n");
+                
                                 reader.Read();
                                 Console.WriteLine("user_name: " + reader[0]);
                                 Console.WriteLine("email: " + reader[1]);
@@ -1480,7 +1493,6 @@ namespace sqltest
                         {
                             using (SqlDataReader reader = sqlCommand.ExecuteReader())
                             {
-                                Console.WriteLine("Student Info:");
                                 reader.Read();
                                 Console.WriteLine("Student ID: " + reader[0]);
                                 Console.WriteLine("Student Department: " + reader[1]);
@@ -1503,40 +1515,59 @@ namespace sqltest
                                 }
                             }
                         }
+                        Console.WriteLine("press 'Enter' to continue.");
+                        Console.ReadKey();
                     }
                     catch (Exception e)
                     {
                         Console.WriteLine("error: " + e.Message);
+                        Console.WriteLine("press 'Enter' to continue.");
+                        Console.ReadKey();
                     }
                 }
-                else if (option == "2")
+                else if (option == "2")                      
                 {
                     string edit_option = "1";
+                    Console.Clear();
+                    Console.WriteLine("\t\t ------------------------");
+                    Console.WriteLine("\t\t|                        |");
+                    Console.WriteLine("\t\t|      edit profile      |");
+                    Console.WriteLine("\t\t|                        |");
+                    Console.WriteLine("\t\t ------------------------" + "\n");
+                
                     Console.WriteLine("1- Edit password");
                     Console.WriteLine("2- Edit address");
                     if (edit_option == "1")
                     {
-                        Console.WriteLine("Enter new password: ");
+                        Console.Write("Enter new password: ");
                         string new_password = Console.ReadLine();
                         query = $"UPDATE accounts SET password='{new_password}' WHERE account_id={signedin_user_id}";
                         using (SqlCommand sqlCommand = new SqlCommand(query, sqlconn))
                         {
-                            Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " password edited.\n\n");
+                            Console.WriteLine(sqlCommand.ExecuteNonQuery() + " password edited.\n\n");
+                            Console.WriteLine("press 'Enter' to continue.");
+                            Console.ReadKey();
+                            break;
                         }
                     }
                     else if (edit_option == "2")
                     {
-                        Console.WriteLine("Enter new address: ");
+                        Console.Write("Enter new address: ");
                         string new_address = Console.ReadLine();
                         query = $"UPDATE Student SET student_address='{new_address}' WHERE student_id='{student_id}'";
                         using (SqlCommand sqlCommand = new SqlCommand(query, sqlconn))
                         {
-                            Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " address edited.\n\n");
+                            Console.WriteLine(sqlCommand.ExecuteNonQuery() + " address edited.\n\n");
+                            Console.WriteLine("press 'Enter' to continue.");
+                            Console.ReadKey();
+                            break;
                         }
                     }
                     else
                     {
                         Console.WriteLine("Invalid option");
+                        Console.WriteLine("press 'Enter' to continue.");
+                        Console.ReadKey();
                     }
 
                 }
@@ -2870,6 +2901,12 @@ namespace sqltest
                     while (option != "e")
                     {
                         Console.Clear();
+                        Console.WriteLine("\t\t -----------------");
+                        Console.WriteLine("\t\t|                 |");
+                        Console.WriteLine("\t\t|    Home page    |");
+                        Console.WriteLine("\t\t|                 |");
+                        Console.WriteLine("\t\t -----------------" + "\n");
+                        Console.WriteLine("\nPlease Select an option to continue: " + "\n");
                         Console.WriteLine("\nPlease Select an option to continue: " + "\n");
                         Console.WriteLine("1- show profile.");
                         Console.WriteLine("2- show enrolling courses.");
