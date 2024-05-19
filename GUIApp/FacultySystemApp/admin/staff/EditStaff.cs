@@ -21,7 +21,7 @@ namespace FacultySystemApp.admin.staff
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            ShowStaff showStaff = new ShowStaff();
+            ShowStaff showStaff = new ShowStaff("g");
             showStaff.Show();
             this.Hide();
         }

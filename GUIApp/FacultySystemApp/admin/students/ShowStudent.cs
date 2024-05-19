@@ -12,10 +12,13 @@ namespace FacultySystemApp.admin.students
 {
     public partial class ShowStudent : Form
     {
-        public ShowStudent()
+        private string userId;
+
+        public ShowStudent(string userId)
         {
             InitializeComponent();
             CenterToScreen();
+            this.userId = userId;
         }
 
         private void EditButton_Click(object sender, EventArgs e)
@@ -40,6 +43,12 @@ namespace FacultySystemApp.admin.students
             ManageUsers manageUsers = new ManageUsers();
             manageUsers.Show();
             this.Hide();
+        }
+
+        private void ShowStudent_Load(object sender, EventArgs e)
+        {
+            StudentIdLabel.Text = "Student : " + userId;
+
         }
     }
 }

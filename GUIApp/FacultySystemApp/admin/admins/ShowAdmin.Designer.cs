@@ -48,7 +48,7 @@
             Email = new TextBox();
             label6 = new Label();
             phone1 = new TextBox();
-            label1 = new Label();
+            AdminIdLabel = new Label();
             label11 = new Label();
             BackButton = new Button();
             SuspendLayout();
@@ -275,16 +275,16 @@
             phone1.TabIndex = 94;
             phone1.TextAlign = HorizontalAlignment.Center;
             // 
-            // label1
+            // AdminIdLabel
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 30F);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(406, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(205, 54);
-            label1.TabIndex = 93;
-            label1.Text = "Admin : id";
+            AdminIdLabel.AutoSize = true;
+            AdminIdLabel.Font = new Font("Segoe UI", 30F);
+            AdminIdLabel.ForeColor = Color.White;
+            AdminIdLabel.Location = new Point(406, 9);
+            AdminIdLabel.Name = "AdminIdLabel";
+            AdminIdLabel.Size = new Size(205, 54);
+            AdminIdLabel.TabIndex = 93;
+            AdminIdLabel.Text = "Admin : id";
             // 
             // label11
             // 
@@ -341,12 +341,13 @@
             Controls.Add(Email);
             Controls.Add(label6);
             Controls.Add(phone1);
-            Controls.Add(label1);
+            Controls.Add(AdminIdLabel);
             Controls.Add(label11);
             ForeColor = Color.White;
             Name = "ShowAdmin";
             Text = "ShowAdmin";
             FormClosed += ShowAdmin_close;
+            Load += ShowAdmin_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -373,7 +374,7 @@
         private TextBox Email;
         private Label label6;
         private TextBox phone1;
-        private Label label1;
+        private Label AdminIdLabel;
         private Label label11;
         private Button BackButton;
     }

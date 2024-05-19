@@ -29,9 +29,10 @@ namespace FacultySystemApp.admin
         }
         private void ShowStudent_Click(object sender, EventArgs e)
         {
-            ShowStudent showStudent = new ShowStudent();
-            showStudent.Show();
-            this.Hide();
+            //ShowStudent showStudent = new ShowStudent();
+            //showStudent.Show();
+            //this.Hide();
+            ShowIDInputForm("Student");
         }
 
         private void ShowAllStudents_Click(object sender, EventArgs e)
@@ -50,9 +51,10 @@ namespace FacultySystemApp.admin
 
         private void ShowStaff_Click(object sender, EventArgs e)
         {
-            ShowStaff showStaff = new ShowStaff();
-            showStaff.Show();
-            this.Hide();
+            //ShowStaff showStaff = new ShowStaff();
+            //showStaff.Show();
+            //this.Hide();
+            ShowIDInputForm("Staff");
         }
 
         private void ShowAllStaff_Click(object sender, EventArgs e)
@@ -71,9 +73,11 @@ namespace FacultySystemApp.admin
 
         private void ShowAdmin_Click(object sender, EventArgs e)
         {
-            ShowAdmin showAdmin = new ShowAdmin();
-            showAdmin.Show();
-            this.Hide();
+            //ShowAdmin showAdmin = new ShowAdmin();
+            //showAdmin.Show();
+            //this.Hide();
+            ShowIDInputForm("Admin");
+
         }
 
         private void ShowAllAdmins_Click(object sender, EventArgs e)
@@ -83,16 +87,90 @@ namespace FacultySystemApp.admin
             this.Hide();
         }
 
+
+        private void ShowIDInputForm(string userType)
+        {
+            // Based on userType, navigate to the appropriate form
+            if (userType == "Student")
+            {
+                List<string> StudentIDs = new List<string>
+                {
+                "Student",
+                "Student",
+                "Student"
+                };
+                UserIDInputForm idInputForm = new UserIDInputForm(userType, StudentIDs);
+                if (idInputForm.ShowDialog() == DialogResult.OK)
+                {
+                    string userId = idInputForm.UserID;
+                    ShowStudentForm(userId);
+                }
+            }
+            else if (userType == "Admin")
+            {
+                List<string> AdminsIDs = new List<string>
+                {
+                "Admin",
+                "Admin",
+                "Admin"
+                };
+                UserIDInputForm idInputForm = new UserIDInputForm(userType, AdminsIDs);
+                if (idInputForm.ShowDialog() == DialogResult.OK)
+                {
+                   string userId = idInputForm.UserID;
+                   ShowAdminForm(userId);
+                }
+            }
+            else if (userType == "Staff")
+            {
+                List<string> StaffIDs = new List<string>
+                {
+                "Staff",
+                "Staff",
+                "Staff"
+                };
+                UserIDInputForm idInputForm = new UserIDInputForm(userType, StaffIDs);
+                if (idInputForm.ShowDialog() == DialogResult.OK)
+                {
+                string userId = idInputForm.UserID;
+                ShowStaffForm(userId);
+                }
+            }
+        }
+
+
+        private void ShowStudentForm(string userId)
+        {
+            ShowStudent showStudent = new ShowStudent(userId);
+            showStudent.Show();
+            this.Hide();
+        }
+
+        private void ShowAdminForm(string userId)
+        {
+            ShowAdmin showAdmin = new ShowAdmin(userId);
+            showAdmin.Show();
+            this.Hide();
+        }
+
+        private void ShowStaffForm(string userId)
+        {
+            ShowStaff showStaff = new ShowStaff(userId);
+            showStaff.Show();
+            this.Hide();
+        }
         private void BackButton_Click(object sender, EventArgs e)
         {
             AdminPage adminPage = new AdminPage();
             adminPage.Show();
             this.Hide();
         }
+
         private void ManageUsers_close(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
-
     }
+
+
 }

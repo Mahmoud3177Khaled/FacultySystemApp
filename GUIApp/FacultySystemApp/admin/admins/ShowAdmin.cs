@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,10 +13,13 @@ namespace FacultySystemApp.admin.admins
 {
     public partial class ShowAdmin : Form
     {
-        public ShowAdmin()
+        private string userId;
+
+        public ShowAdmin(string userId)
         {
             InitializeComponent();
             CenterToScreen();
+            this.userId = userId;
 
         }
 
@@ -36,6 +40,11 @@ namespace FacultySystemApp.admin.admins
             ManageUsers manageUsers = new ManageUsers();
             manageUsers.Show();
             this.Hide();
+        }
+
+        private void ShowAdmin_Load(object sender, EventArgs e)
+        {
+            AdminIdLabel.Text = "Admin: " + this.userId;
         }
     }
 }

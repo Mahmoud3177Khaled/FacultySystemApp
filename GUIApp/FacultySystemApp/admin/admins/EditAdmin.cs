@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,7 +31,7 @@ namespace FacultySystemApp.admin.admins
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            ShowAdmin showAdmin = new ShowAdmin();
+            ShowAdmin showAdmin = new ShowAdmin("g");
             showAdmin.Show();
             this.Hide();
         }

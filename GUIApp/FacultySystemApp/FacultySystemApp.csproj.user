@@ -16,6 +16,27 @@
     <Compile Update="admin\admins\SignupAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="admin\Courses\CourseIDInputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="admin\Courses\CreateCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="admin\Courses\EditCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="admin\Courses\ShowAllCourses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="admin\Courses\ShowCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="admin\UserIDInputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="admin\ManageCourses.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="admin\ManageUsers.cs">
       <SubType>Form</SubType>
     </Compile>

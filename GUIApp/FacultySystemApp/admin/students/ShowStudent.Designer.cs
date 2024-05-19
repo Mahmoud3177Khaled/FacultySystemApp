@@ -49,7 +49,7 @@
             Email = new TextBox();
             label6 = new Label();
             phone1 = new TextBox();
-            label1 = new Label();
+            StudentIdLabel = new Label();
             label11 = new Label();
             RemoveButton = new Button();
             BackButton = new Button();
@@ -288,16 +288,16 @@
             phone1.TabIndex = 70;
             phone1.TextAlign = HorizontalAlignment.Center;
             // 
-            // label1
+            // StudentIdLabel
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 30F);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(385, 23);
-            label1.Name = "label1";
-            label1.Size = new Size(227, 54);
-            label1.TabIndex = 69;
-            label1.Text = "Student : id";
+            StudentIdLabel.AutoSize = true;
+            StudentIdLabel.Font = new Font("Segoe UI", 30F);
+            StudentIdLabel.ForeColor = Color.White;
+            StudentIdLabel.Location = new Point(385, 23);
+            StudentIdLabel.Name = "StudentIdLabel";
+            StudentIdLabel.Size = new Size(227, 54);
+            StudentIdLabel.TabIndex = 69;
+            StudentIdLabel.Text = "Student : id";
             // 
             // label11
             // 
@@ -368,12 +368,13 @@
             Controls.Add(Email);
             Controls.Add(label6);
             Controls.Add(phone1);
-            Controls.Add(label1);
+            Controls.Add(StudentIdLabel);
             Controls.Add(label11);
             ForeColor = Color.White;
             Name = "ShowStudent";
             Text = "ShowStudent";
             FormClosed += ShowStudent_close;
+            Load += ShowStudent_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -401,7 +402,7 @@
         private TextBox Email;
         private Label label6;
         private TextBox phone1;
-        private Label label1;
+        private Label StudentIdLabel;
         private Label label11;
         private Button RemoveButton;
         private Button BackButton;

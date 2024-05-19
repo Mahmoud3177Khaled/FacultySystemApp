@@ -31,7 +31,7 @@ namespace FacultySystemApp.admin.students
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            ShowStudent showStudent = new ShowStudent();
+            ShowStudent showStudent = new ShowStudent("g");
             showStudent.Show();
             this.Hide();
         }
