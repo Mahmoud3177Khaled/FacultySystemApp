@@ -360,20 +360,38 @@ namespace sqltest
             int account_id;
             try
             {
-                Console.WriteLine("adding admin");
-                Console.WriteLine("Enter admin secret key:");
-                Console.WriteLine("(the key is 12345, this line will be removed in the real app)");
-                string key = Console.ReadLine();
-                if (key != "12345")
+                while (true)
                 {
-                    Console.WriteLine("wrong key");
-                    return;
+                    Console.Clear();
+                    Console.WriteLine("\t\t ------------------------");
+                    Console.WriteLine("\t\t|                        |");
+                    Console.WriteLine("\t\t|    check secret key    |");
+                    Console.WriteLine("\t\t|                        |");
+                    Console.WriteLine("\t\t ------------------------" + "\n");
+                    Console.WriteLine("(the key is 12345, this line will be removed in the real app)");
+                    Console.Write("Enter admin secret key:");
+                    string key = Console.ReadLine();
+                    if (key != "12345")
+                    {
+                        Console.WriteLine("wrong key ,please try again.\n");
+                        Console.ReadKey();
+                    }
+                    else
+                    {
+                        break;
+                    }
                 }
-                Console.WriteLine("user name:");
+                Console.Clear();
+                Console.WriteLine("\t\t -----------------------");
+                Console.WriteLine("\t\t|                       |");
+                Console.WriteLine("\t\t|     add new admin     |");
+                Console.WriteLine("\t\t|                       |");
+                Console.WriteLine("\t\t -----------------------" + "\n");
+                Console.Write("user name:");
                 string user_name = Console.ReadLine();
-                Console.WriteLine("email:");
+                Console.Write("email:");
                 string email = Console.ReadLine();
-                Console.WriteLine("password:");
+                Console.Write("password:");
                 string password = Console.ReadLine();
 
                 parametarizedQuery = "INSERT INTO accounts";
@@ -396,19 +414,19 @@ namespace sqltest
 
             try
             {
-                Console.WriteLine("admin_id:");
+                Console.Write("admin_id:");
                 admin_id = Console.ReadLine();
 
-                Console.WriteLine("first_name: ");
+                Console.Write("first_name: ");
                 first_name = Console.ReadLine();
 
-                Console.WriteLine("middle_name: ");
+                Console.Write("middle_name: ");
                 middle_name = Console.ReadLine();
 
-                Console.WriteLine("last_name: ");
+                Console.Write("last_name: ");
                 last_name = Console.ReadLine();
 
-                Console.WriteLine("admin_address: ");
+                Console.Write("admin_address: ");
                 admin_address = Console.ReadLine();
 
                 parametarizedQuery = "INSERT INTO Admin";
@@ -424,7 +442,9 @@ namespace sqltest
                     sqlCommand.Parameters.AddWithValue("@middle_name", middle_name);
                     sqlCommand.Parameters.AddWithValue("@last_name", last_name);
                     sqlCommand.Parameters.AddWithValue("@admin_address", admin_address);
-                    Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " admin added.\n\n");
+                    Console.WriteLine(sqlCommand.ExecuteNonQuery() + " admin added.\n\n");
+                    Console.Write("press 'Enter' to continue.");
+                    Console.ReadKey();
                 }
                 singedin_type = "admin";
                 signedin_user_id = admin_id;
@@ -438,12 +458,15 @@ namespace sqltest
                     sqlCommand.Parameters.AddWithValue("@account_id", account_id);
                     sqlCommand.ExecuteNonQuery();
                 }
+                Console.Write("press 'Enter' to continue.");
+                Console.ReadKey();
                 return;
             }
         }
 
         public static void signin()
         {
+            Console.Clear();
             Console.WriteLine("             ------------------");
             Console.WriteLine("            |                   |");
             Console.WriteLine("            |      sign in      |");
@@ -472,7 +495,7 @@ namespace sqltest
                     }
                     else
                     {
-                        Console.WriteLine("the email or the password are wrong.please,try again.\n");
+                        Console.WriteLine("\n\t\"the email or the password are wrong.please,try again.\"\n");
                     }
                 }
             }
@@ -559,44 +582,59 @@ namespace sqltest
         }
         public static void manageCourses()
         {
-
-            Console.WriteLine("             ------------------");
-            Console.WriteLine("            |                   |");
-            Console.WriteLine("            |      courses      |");
-            Console.WriteLine("            |                   |");
-            Console.WriteLine("             ------------------" + "\n");
-            Console.WriteLine("1-show courses\n2-create course\n3-edit course\n4-delete course\n5-Show students enrolled in a course\n6-enrolling student into courses\n ");
-            Console.Write("your choice: ");
-            string ch = Console.ReadLine();
-            if (ch == "1")
+            while (true)
             {
-                showCourses();
+                Console.Clear();
+                Console.WriteLine("\t\t ------------------");
+                Console.WriteLine("\t\t|                   |");
+                Console.WriteLine("\t\t|      courses      |");
+                Console.WriteLine("\t\t|                   |");
+                Console.WriteLine("\t\t ------------------" + "\n");
+                Console.WriteLine("0-Go Back\n1-show courses\n2-create course\n3-edit course\n4-delete course\n5-Show students enrolled in a course\n6-enrolling student into courses\ne-Exit.\n");
+                Console.Write("your choice: ");
+                string ch = Console.ReadLine();
+                if (ch == "1")
+                {
+                    showCourses();
+                }
+                else if (ch == "2")
+                {
+                    createCourse();
+                }
+                else if (ch == "3")
+                {
+                    editCourse();
+                }
+                else if (ch == "4")
+                {
+                    deleteCourse();
+                }
+                else if (ch == "5")
+                {
+                    showStudentsEnrolledInACourse();
+                }
+                else if (ch == "6")
+                {
+                    enrollingStudentIntoCourses();
+                }
+                else if (ch == "0")
+                {
+                    break;
+                }
+                else if (ch == "e")
+                {
+                    CloseConnAndExit();
+                }
+                else
+                {
+                    Console.WriteLine("invalid option.please,try again.");
+                }
             }
-            else if (ch == "2")
-            {
-                createCourse();
-            }
-            else if (ch == "3")
-            {
-                editCourse();
-            }
-            else if (ch == "4")
-            {
-                deleteCourse();
-            }
-            else if (ch == "5")
-            {
-                showStudentsEnrolledInACourse();
-            }
-            else if (ch == "6")
-            {
-                enrollingStudentIntoCourses();
-            }
-
 
         }
         public static void showCourses()
         {
+            Console.Clear();
             Console.WriteLine("         ------------------");
             Console.WriteLine("        |                  |");
             Console.WriteLine("        |   show courses   |");
@@ -863,14 +901,14 @@ namespace sqltest
                 }
                 string sqlQuery = " INSERT INTO enrolls (student_id,course_id,semester,year) VALUES (@id,@courseId,@semester,@year)";
                 SqlCommand sComm = new SqlCommand(sqlQuery, sqlconn);
-                    sComm.Parameters.AddWithValue("@id",id);
-                    sComm.Parameters.AddWithValue("@courseId",courseId);
-                    sComm.Parameters.AddWithValue("@semester",semester);
-                    sComm.Parameters.AddWithValue("@year",year);
+                sComm.Parameters.AddWithValue("@id", id);
+                sComm.Parameters.AddWithValue("@courseId", courseId);
+                sComm.Parameters.AddWithValue("@semester", semester);
+                sComm.Parameters.AddWithValue("@year", year);
                 sComm.ExecuteNonQuery();
 
             }
-            
+
 
         }
         public static void showEnrollingCourses()
@@ -2616,12 +2654,6 @@ namespace sqltest
             //DeleteAdmin();
 
 
-            Console.WriteLine("---------------------------------------------------");
-            Console.WriteLine("|                                                 |");
-            Console.WriteLine("| Hello and Welcome to our Faculty System App :)  |");
-            Console.WriteLine("|                                                 |");
-            Console.WriteLine("---------------------------------------------------" + "\n");
-
 
             while (true) // the program run
             {
@@ -2632,6 +2664,12 @@ namespace sqltest
                 string option = "1";
                 while (option != "e") // continue while invalid option
                 {
+                    Console.Clear();
+                    Console.WriteLine("\t\t -------------------------------------------------");
+                    Console.WriteLine("\t\t|                                                 |");
+                    Console.WriteLine("\t\t| Hello and Welcome to our Faculty System App :)  |");
+                    Console.WriteLine("\t\t|                                                 |");
+                    Console.WriteLine("\t\t -------------------------------------------------" + "\n");
                     Console.WriteLine("\nPlease Select an option to continue: " + "\n");
                     Console.WriteLine("1- sign in.");
                     Console.WriteLine("2- Sign up.");
@@ -2645,14 +2683,15 @@ namespace sqltest
                             signin();
                             if (singedin_type == "")
                             {
-                                Console.WriteLine("0-back\n1-try again\ne-exit\n");
+                                Console.WriteLine("0-Go Back\n1-try again\ne-exit");
                                 Console.Write("yor choice: ");
                                 string ch = Console.ReadLine();
                                 if (ch == "e")
                                 {
                                     CloseConnAndExit();
                                 }
-                                else if ( ch =="0"){
+                                else if (ch == "0")
+                                {
                                     break;
                                 }
                             }
@@ -2680,11 +2719,12 @@ namespace sqltest
                     option = "1";
                     while (option != "e")
                     {
+                        Console.Clear();
                         Console.WriteLine("\nPlease Select an option to continue: " + "\n");
                         Console.WriteLine("1- manage users.");
                         Console.WriteLine("2- manage departments.");
                         Console.WriteLine("3- manage courses .");
-                        Console.WriteLine("0- back .");
+                        Console.WriteLine("0- log out .");
                         Console.WriteLine("e- Exit.");
                         Console.Write("Enter your choise: ");
                         option = Console.ReadLine();
@@ -2699,12 +2739,12 @@ namespace sqltest
 
                         else if (option == "3")
                         {
-                            //manage courses // philo
                             manageCourses();
-
                         }
                         else if (option == "0")
                         {
+                            singedin_account_id = 0;
+                            singedin_type = "";
                             break;
                         }
                         else if (option == "e")
@@ -2723,10 +2763,11 @@ namespace sqltest
                     option = "1";
                     while (option != "e")
                     {
+                        Console.Clear();
                         Console.WriteLine("\nPlease Select an option to continue: " + "\n");
                         Console.WriteLine("1- show profile.");
                         Console.WriteLine("2- show enrolling courses.");
-                        Console.WriteLine("0- back");
+                        Console.WriteLine("0- log out");
                         Console.WriteLine("e- Exit.");
                         Console.Write("Enter your choise: ");
                         option = Console.ReadLine();
@@ -2740,6 +2781,8 @@ namespace sqltest
                         }
                         else if (option == "0")
                         {
+                            singedin_account_id = 0;
+                            singedin_type = "";
                             break;
                         }
                         else if (option == "e")
