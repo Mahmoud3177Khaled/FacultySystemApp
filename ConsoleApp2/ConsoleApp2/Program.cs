@@ -1000,7 +1000,7 @@ namespace sqltest
                             Console.WriteLine("\t\t|     Assign students to a department     |");
                             Console.WriteLine("\t\t|                                         |");
                             Console.WriteLine("\t\t -----------------------------------------" + "\n");
-                        
+
                             Console.Write("student id: ");
                             student_id = Console.ReadLine();
 
@@ -1051,7 +1051,8 @@ namespace sqltest
             string option = "1";
             string query = $"SELECT student_id FROM Student WHERE account_id={singedin_account_id}";
             string student_id = "";
-            try {
+            try
+            {
                 using (SqlCommand sqlCommand = new SqlCommand(query, sqlconn))
                 {
                     using (SqlDataReader reader = sqlCommand.ExecuteReader())
@@ -1078,7 +1079,7 @@ namespace sqltest
                 Console.WriteLine("\t\t|    manage profile     |");
                 Console.WriteLine("\t\t|                       |");
                 Console.WriteLine("\t\t -----------------------" + "\n");
-                
+
                 Console.WriteLine("\nPlease Select an option to continue: " + "\n");
                 Console.WriteLine("0- Go Back.");
                 Console.WriteLine("1- Show profile.");
@@ -1113,7 +1114,7 @@ namespace sqltest
                         {
                             using (SqlDataReader reader = sqlCommand.ExecuteReader())
                             {
-                
+
                                 reader.Read();
                                 Console.WriteLine("user_name: " + reader[0]);
                                 Console.WriteLine("email: " + reader[1]);
@@ -1159,7 +1160,7 @@ namespace sqltest
                         Console.ReadKey();
                     }
                 }
-                else if (option == "2")                      
+                else if (option == "2")
                 {
                     string edit_option;
                     Console.Clear();
@@ -1168,7 +1169,7 @@ namespace sqltest
                     Console.WriteLine("\t\t|      edit profile      |");
                     Console.WriteLine("\t\t|                        |");
                     Console.WriteLine("\t\t ------------------------" + "\n");
-                
+
                     Console.WriteLine("1- Edit password");
                     Console.WriteLine("2- Edit address");
                     edit_option = Console.ReadLine();
@@ -1242,73 +1243,78 @@ namespace sqltest
         public static void AddStudent()
         {
 
+            int account_id;
+            string user_name;
+            string password;
+            string email;
+            //string role;
+
+            string student_id = "";
+            string? department_id;
+            string student_first_name;
+            string student_middle_name;
+            string student_last_name;
+            string entry_year;
+            string student_address;
+
+            Console.WriteLine("adding a student with his account");
+
+
+            Console.WriteLine("user_name: ");
+            user_name = Console.ReadLine();
+
+            Console.WriteLine("password: ");
+            password = Console.ReadLine();
+
+            Console.WriteLine("email: ");
+            email = Console.ReadLine();
+
+            // Console.WriteLine("role: ");
+            // role = Console.ReadLine();
+
+
+            Console.WriteLine("student_id: ");
+            student_id = Console.ReadLine();
+
+            Console.WriteLine("department_id: ");
+            department_id = Console.ReadLine();
+
+            Console.WriteLine("student_first_name: ");
+            student_first_name = Console.ReadLine();
+
+            Console.WriteLine("student_middle_name: ");
+            student_middle_name = Console.ReadLine();
+
+            Console.WriteLine("student_last_name: ");
+            student_last_name = Console.ReadLine();
+
+            Console.WriteLine("entry_year: ");
+            entry_year = Console.ReadLine();
+
+            Console.WriteLine("student_address: ");
+            student_address = Console.ReadLine();
+
             try
             {
 
-                int account_id;
-                string user_name;
-                string password;
-                string email;
-                string role;
-
-                string student_id = "";
-                string department_id;
-                string student_first_name;
-                string student_middle_name;
-                string student_last_name;
-                string entry_year;
-                string student_address;
-
-                Console.WriteLine("adding a student with his account");
-
-
-                Console.WriteLine("user_name: ");
-                user_name = Console.ReadLine();
-
-                Console.WriteLine("password: ");
-                password = Console.ReadLine();
-
-                Console.WriteLine("email: ");
-                email = Console.ReadLine();
-
-                Console.WriteLine("role: ");
-                role = Console.ReadLine();
-
-
-                Console.WriteLine("student_id: ");
-                student_id = Console.ReadLine();
-
-                Console.WriteLine("department_id: ");
-                department_id = Console.ReadLine();
-
-                Console.WriteLine("student_first_name: ");
-                student_first_name = Console.ReadLine();
-
-                Console.WriteLine("student_middle_name: ");
-                student_middle_name = Console.ReadLine();
-
-                Console.WriteLine("student_last_name: ");
-                student_last_name = Console.ReadLine();
-
-                Console.WriteLine("entry_year: ");
-                entry_year = Console.ReadLine();
-
-                Console.WriteLine("student_address: ");
-                student_address = Console.ReadLine();
-
-
-
                 string prequery = "INSERT INTO accounts " +
-                                  " VALUES('" + user_name + "', '" + password + "', '" + email + "', '" + role + "');" +
-                                  " SELECT SCOPE_IDENTITY();";
-                //Console.WriteLine(prequery                                                                                       //Environment.Exit(0);
+                                  " VALUES('" + user_name + "', '" + password + "', '" + email + "', '" + "student" + "');";
+
                 SqlCommand precommand = new SqlCommand(prequery, sqlconn);
+                Console.WriteLine("\n     " + precommand.ExecuteNonQuery() + "  account added.\n\n");
 
-                account_id = Convert.ToInt32(precommand.ExecuteScalar());
-                Console.WriteLine("\n     1 account added.\n\n");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("error: " + e.Message);
 
+            }
 
+            SqlCommand idcommand = new SqlCommand(" SELECT SCOPE_IDENTITY();", sqlconn);
+            account_id = Convert.ToInt32(idcommand.ExecuteScalar());
 
+            try
+            {
                 string parametarizedQuery = "INSERT INTO " + "Student ";
 
                 parametarizedQuery += " VALUES(@student_id, @department_id, @account_id, @student_first_name," +
@@ -1330,15 +1336,15 @@ namespace sqltest
             }
             catch (Exception e)
             {
-                Console.WriteLine("error: " + e.Message);
+                Console.WriteLine("Error: " + e.Message);
 
-                //string deleteQuery = "DELETE FROM " + "accounts " +
-                //                            " where account_id = " + student_id + ";";
+                string deleteQuery = "DELETE FROM " + "accounts " +
+                                            " where account_id = " + account_id + ";";
 
-                //SqlCommand sqlCommand = new SqlCommand(deleteQuery, sqlconn);
-                //Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " account deleted.\n");
-
+                SqlCommand sqlCommand = new SqlCommand(deleteQuery, sqlconn);
+                Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " account deleted.\n");
             }
+
         }
 
         public static void EditStudent()
@@ -1646,13 +1652,13 @@ namespace sqltest
 
                 // if (cousre_bool)
                 // {
-                //     parametarizedQuery += " and department_id = " + department_id;
+                //     parametarizedQuery += " and course_id = " + cousre;
 
                 // }
 
                 // if (GPA_bool)
                 // {
-                //    parametarizedQuery += " and department_id = " + department_id;
+                //    parametarizedQuery += " and GPA = " + GPA;
 
                 // }
 
@@ -1909,65 +1915,71 @@ namespace sqltest
 
         public static void AddAdmin()
         {
+            int account_id;
+            string user_name;
+            string password;
+            string email;
+            //string role;
+
+            string admin_id = "";
+            string admin_first_name;
+            string admin_middle_name;
+            string admin_last_name;
+            string admin_address;
+
+            Console.WriteLine("adding an admin with his account");
+
+
+            Console.WriteLine("user_name: ");
+            user_name = Console.ReadLine();
+
+            Console.WriteLine("password: ");
+            password = Console.ReadLine();
+
+            Console.WriteLine("email: ");
+            email = Console.ReadLine();
+
+            // Console.WriteLine("role: ");
+            // role = Console.ReadLine();
+
+
+            Console.WriteLine("admin_id: ");
+            admin_id = Console.ReadLine();
+
+            Console.WriteLine("admin_first_name: ");
+            admin_first_name = Console.ReadLine();
+
+            Console.WriteLine("admin_middle_name: ");
+            admin_middle_name = Console.ReadLine();
+
+            Console.WriteLine("admin_last_name: ");
+            admin_last_name = Console.ReadLine();
+
+            Console.WriteLine("admin_address: ");
+            admin_address = Console.ReadLine();
 
             try
             {
-                int account_id;
-                string user_name;
-                string password;
-                string email;
-                string role;
-
-                string admin_id = "";
-                string admin_first_name;
-                string admin_middle_name;
-                string admin_last_name;
-                string admin_address;
-
-                Console.WriteLine("adding an admin with his account");
-
-
-                Console.WriteLine("user_name: ");
-                user_name = Console.ReadLine();
-
-                Console.WriteLine("password: ");
-                password = Console.ReadLine();
-
-                Console.WriteLine("email: ");
-                email = Console.ReadLine();
-
-                Console.WriteLine("role: ");
-                role = Console.ReadLine();
-
-
-                Console.WriteLine("admin_id: ");
-                admin_id = Console.ReadLine();
-
-                Console.WriteLine("admin_first_name: ");
-                admin_first_name = Console.ReadLine();
-
-                Console.WriteLine("admin_middle_name: ");
-                admin_middle_name = Console.ReadLine();
-
-                Console.WriteLine("admin_last_name: ");
-                admin_last_name = Console.ReadLine();
-
-                Console.WriteLine("admin_address: ");
-                admin_address = Console.ReadLine();
-
-
-
                 string prequery = "INSERT INTO accounts " +
-                                  " VALUES('" + user_name + "', '" + password + "', '" + email + "', '" + role + "');" +
-                                  " SELECT SCOPE_IDENTITY();";
+                                  " VALUES('" + user_name + "', '" + password + "', '" + email + "', '" + "admin" + "');";
 
                 SqlCommand precommand = new SqlCommand(prequery, sqlconn);
 
-                account_id = Convert.ToInt32(precommand.ExecuteScalar());
+
                 //Console.WriteLine(account_id);
-                Console.WriteLine("\n     1 account added.\n\n");
+                Console.WriteLine("\n     " + precommand.ExecuteNonQuery() + " account added.\n\n");
 
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("error: " + e.Message);
+            }
 
+            SqlCommand idcommand = new SqlCommand(" SELECT SCOPE_IDENTITY();", sqlconn);
+            account_id = Convert.ToInt32(idcommand.ExecuteScalar());
+
+            try
+            {
 
                 string parametarizedQuery = "INSERT INTO " + "Admin  ";
 
@@ -1988,7 +2000,13 @@ namespace sqltest
             }
             catch (Exception e)
             {
-                Console.WriteLine("error: " + e.Message);
+                Console.WriteLine("Error: " + e.Message);
+
+                string deleteQuery = "DELETE FROM " + "accounts " +
+                                            " where account_id = " + account_id + ";";
+
+                SqlCommand sqlCommand = new SqlCommand(deleteQuery, sqlconn);
+                Console.WriteLine("\n    " + sqlCommand.ExecuteNonQuery() + " account deleted.\n");
 
             }
         }
@@ -2137,7 +2155,7 @@ namespace sqltest
 
 
 
-                string parametarizedQuery = "SELECT * FROM " + "Admin, accounts " +
+                string parametarizedQuery = "SELECT * FROM " + "accounts, Admin " +
                                             " where accounts.account_id = Admin.account_id" +
                                             " and admin_id = " + admin_id;
 
@@ -2155,10 +2173,10 @@ namespace sqltest
                         Console.WriteLine("email: ................ " + reader[3]);
                         Console.WriteLine("role: ................. " + reader[4]);
                         Console.WriteLine("admin_id: ............. " + reader[5]);
-                        Console.WriteLine("admint_first_name: .... " + reader[6]);
-                        Console.WriteLine("admin_middle_name: .... " + reader[7]);
-                        Console.WriteLine("admin_last_name: ...... " + reader[8]);
-                        Console.WriteLine("admin_address: ........ " + reader[9]);
+                        Console.WriteLine("admint_first_name: .... " + reader[7]);
+                        Console.WriteLine("admin_middle_name: .... " + reader[8]);
+                        Console.WriteLine("admin_last_name: ...... " + reader[9]);
+                        Console.WriteLine("admin_address: ........ " + reader[10]);
                         Console.WriteLine("---------------------------------------");
                     }
                     else
