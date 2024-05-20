@@ -38,16 +38,12 @@
             firstName = new TextBox();
             label8 = new Label();
             username = new TextBox();
-            label7 = new Label();
-            phone2 = new TextBox();
             label4 = new Label();
             Password = new TextBox();
             label3 = new Label();
             Address = new TextBox();
             label2 = new Label();
             Email = new TextBox();
-            label6 = new Label();
-            phone1 = new TextBox();
             AdminIdLabel = new Label();
             label11 = new Label();
             BackButton = new Button();
@@ -57,18 +53,19 @@
             // 
             RemoveButton.Font = new Font("Segoe UI", 20F);
             RemoveButton.ForeColor = Color.Black;
-            RemoveButton.Location = new Point(575, 757);
+            RemoveButton.Location = new Point(575, 604);
             RemoveButton.Name = "RemoveButton";
             RemoveButton.Size = new Size(142, 46);
             RemoveButton.TabIndex = 116;
             RemoveButton.Text = "Remove";
             RemoveButton.UseVisualStyleBackColor = true;
+            RemoveButton.Click += RemoveButton_Click;
             // 
             // EditButton
             // 
             EditButton.Font = new Font("Segoe UI", 20F);
             EditButton.ForeColor = Color.Black;
-            EditButton.Location = new Point(310, 757);
+            EditButton.Location = new Point(310, 604);
             EditButton.Name = "EditButton";
             EditButton.Size = new Size(142, 46);
             EditButton.TabIndex = 114;
@@ -165,35 +162,13 @@
             username.TabIndex = 104;
             username.TextAlign = HorizontalAlignment.Center;
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.BackColor = Color.Black;
-            label7.Font = new Font("Segoe UI", 30F);
-            label7.ForeColor = Color.White;
-            label7.Location = new Point(58, 501);
-            label7.Name = "label7";
-            label7.Size = new Size(244, 54);
-            label7.TabIndex = 103;
-            label7.Text = "PhoneNum2";
-            // 
-            // phone2
-            // 
-            phone2.Enabled = false;
-            phone2.Font = new Font("Segoe UI", 20F);
-            phone2.Location = new Point(421, 501);
-            phone2.Name = "phone2";
-            phone2.Size = new Size(601, 43);
-            phone2.TabIndex = 102;
-            phone2.TextAlign = HorizontalAlignment.Center;
-            // 
             // label4
             // 
             label4.AutoSize = true;
             label4.BackColor = Color.Black;
             label4.Font = new Font("Segoe UI", 30F);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(108, 648);
+            label4.Location = new Point(108, 495);
             label4.Name = "label4";
             label4.Size = new Size(188, 54);
             label4.TabIndex = 101;
@@ -203,7 +178,7 @@
             // 
             Password.Enabled = false;
             Password.Font = new Font("Segoe UI", 20F);
-            Password.Location = new Point(421, 648);
+            Password.Location = new Point(421, 495);
             Password.Name = "Password";
             Password.Size = new Size(601, 43);
             Password.TabIndex = 100;
@@ -237,7 +212,7 @@
             label2.BackColor = Color.Black;
             label2.Font = new Font("Segoe UI", 30F);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(179, 575);
+            label2.Location = new Point(179, 422);
             label2.Name = "label2";
             label2.Size = new Size(117, 54);
             label2.TabIndex = 97;
@@ -247,33 +222,11 @@
             // 
             Email.Enabled = false;
             Email.Font = new Font("Segoe UI", 20F);
-            Email.Location = new Point(421, 575);
+            Email.Location = new Point(421, 422);
             Email.Name = "Email";
             Email.Size = new Size(601, 43);
             Email.TabIndex = 96;
             Email.TextAlign = HorizontalAlignment.Center;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.BackColor = Color.Black;
-            label6.Font = new Font("Segoe UI", 30F);
-            label6.ForeColor = Color.White;
-            label6.Location = new Point(58, 423);
-            label6.Name = "label6";
-            label6.Size = new Size(244, 54);
-            label6.TabIndex = 95;
-            label6.Text = "PhoneNum1";
-            // 
-            // phone1
-            // 
-            phone1.Enabled = false;
-            phone1.Font = new Font("Segoe UI", 20F);
-            phone1.Location = new Point(421, 423);
-            phone1.Name = "phone1";
-            phone1.Size = new Size(601, 43);
-            phone1.TabIndex = 94;
-            phone1.TextAlign = HorizontalAlignment.Center;
             // 
             // AdminIdLabel
             // 
@@ -292,7 +245,7 @@
             label11.BackColor = Color.Black;
             label11.Font = new Font("Segoe UI", 30F);
             label11.ForeColor = Color.White;
-            label11.Location = new Point(546, 778);
+            label11.Location = new Point(546, 625);
             label11.Name = "label11";
             label11.Size = new Size(34, 54);
             label11.TabIndex = 115;
@@ -331,16 +284,12 @@
             Controls.Add(firstName);
             Controls.Add(label8);
             Controls.Add(username);
-            Controls.Add(label7);
-            Controls.Add(phone2);
             Controls.Add(label4);
             Controls.Add(Password);
             Controls.Add(label3);
             Controls.Add(Address);
             Controls.Add(label2);
             Controls.Add(Email);
-            Controls.Add(label6);
-            Controls.Add(phone1);
             Controls.Add(AdminIdLabel);
             Controls.Add(label11);
             ForeColor = Color.White;
@@ -364,16 +313,12 @@
         private TextBox firstName;
         private Label label8;
         private TextBox username;
-        private Label label7;
-        private TextBox phone2;
         private Label label4;
         private TextBox Password;
         private Label label3;
         private TextBox Address;
         private Label label2;
         private TextBox Email;
-        private Label label6;
-        private TextBox phone1;
         private Label AdminIdLabel;
         private Label label11;
         private Button BackButton;

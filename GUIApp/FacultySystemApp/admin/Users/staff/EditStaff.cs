@@ -55,7 +55,7 @@ namespace FacultySystemApp.admin.staff
 
         private void EditStaff_Load(object sender, EventArgs e)
         {
-            StaffIdLabel.Text = "Staff : " + this.StaffID;
+            StaffIdLabel.Text = "Edit Staff : " + this.StaffID;
 
             string parametarizedQuery = "SELECT * FROM " + "Staff " +
                             //" where accounts.account_id = Student.account_id" +

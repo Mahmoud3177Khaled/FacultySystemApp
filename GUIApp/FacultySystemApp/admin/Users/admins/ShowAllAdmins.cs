@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,31 +22,18 @@ namespace FacultySystemApp.admin.admins
 
         private void ShowAllAdmins_Load(object sender, EventArgs e)
         {
-            List<string> strings = new List<string>
-                {
-                "gg",
-                "cc",
-                "bb",
-                "bb",
-                "bb",
-                "bb",
-                "bb",
-                "bb",
-                "bb",
-                "bb",
-                "bb",
-                "bb",
-                "mm"
-            };
 
+
+            string parametarizedQuery = "SELECT * FROM " + "accounts, Admin " +
+                                        " where accounts.account_id = Admin.account_id";
+
+            SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, DatabaseManager.Connection);
+
+
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlCommand);
             DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("StudentName", typeof(string));
 
-            foreach (string name in strings)
-            {
-                dataTable.Rows.Add(name);
-            }
-
+            dataAdapter.Fill(dataTable);
             Admins.DataSource = dataTable;
         }
 

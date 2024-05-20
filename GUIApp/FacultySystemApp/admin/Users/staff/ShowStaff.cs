@@ -75,6 +75,8 @@ namespace FacultySystemApp.admin.staff
 
             SqlCommand precommand = new SqlCommand(prequery, DatabaseManager.Connection);
             precommand.ExecuteNonQuery();
+
+
         }
     }
 }

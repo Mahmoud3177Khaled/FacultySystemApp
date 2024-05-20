@@ -36,16 +36,12 @@
             firstName = new TextBox();
             label8 = new Label();
             username = new TextBox();
-            label7 = new Label();
-            phone2 = new TextBox();
             label4 = new Label();
             Password = new TextBox();
             label3 = new Label();
             Address = new TextBox();
             label2 = new Label();
             Email = new TextBox();
-            label6 = new Label();
-            phone1 = new TextBox();
             AdminIdLabel = new Label();
             SaveButton = new Button();
             label11 = new Label();
@@ -136,34 +132,13 @@
             username.TabIndex = 80;
             username.TextAlign = HorizontalAlignment.Center;
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.BackColor = Color.Black;
-            label7.Font = new Font("Segoe UI", 30F);
-            label7.ForeColor = Color.White;
-            label7.Location = new Point(77, 516);
-            label7.Name = "label7";
-            label7.Size = new Size(244, 54);
-            label7.TabIndex = 79;
-            label7.Text = "PhoneNum2";
-            // 
-            // phone2
-            // 
-            phone2.Font = new Font("Segoe UI", 20F);
-            phone2.Location = new Point(440, 516);
-            phone2.Name = "phone2";
-            phone2.Size = new Size(601, 43);
-            phone2.TabIndex = 78;
-            phone2.TextAlign = HorizontalAlignment.Center;
-            // 
             // label4
             // 
             label4.AutoSize = true;
             label4.BackColor = Color.Black;
             label4.Font = new Font("Segoe UI", 30F);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(127, 663);
+            label4.Location = new Point(127, 510);
             label4.Name = "label4";
             label4.Size = new Size(188, 54);
             label4.TabIndex = 77;
@@ -172,7 +147,7 @@
             // Password
             // 
             Password.Font = new Font("Segoe UI", 20F);
-            Password.Location = new Point(440, 663);
+            Password.Location = new Point(440, 510);
             Password.Name = "Password";
             Password.Size = new Size(601, 43);
             Password.TabIndex = 76;
@@ -205,7 +180,7 @@
             label2.BackColor = Color.Black;
             label2.Font = new Font("Segoe UI", 30F);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(198, 590);
+            label2.Location = new Point(198, 437);
             label2.Name = "label2";
             label2.Size = new Size(117, 54);
             label2.TabIndex = 73;
@@ -214,32 +189,11 @@
             // Email
             // 
             Email.Font = new Font("Segoe UI", 20F);
-            Email.Location = new Point(440, 590);
+            Email.Location = new Point(440, 437);
             Email.Name = "Email";
             Email.Size = new Size(601, 43);
             Email.TabIndex = 72;
             Email.TextAlign = HorizontalAlignment.Center;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.BackColor = Color.Black;
-            label6.Font = new Font("Segoe UI", 30F);
-            label6.ForeColor = Color.White;
-            label6.Location = new Point(77, 438);
-            label6.Name = "label6";
-            label6.Size = new Size(244, 54);
-            label6.TabIndex = 71;
-            label6.Text = "PhoneNum1";
-            // 
-            // phone1
-            // 
-            phone1.Font = new Font("Segoe UI", 20F);
-            phone1.Location = new Point(440, 438);
-            phone1.Name = "phone1";
-            phone1.Size = new Size(601, 43);
-            phone1.TabIndex = 70;
-            phone1.TextAlign = HorizontalAlignment.Center;
             // 
             // AdminIdLabel
             // 
@@ -256,7 +210,7 @@
             // 
             SaveButton.Font = new Font("Segoe UI", 20F);
             SaveButton.ForeColor = Color.Black;
-            SaveButton.Location = new Point(457, 755);
+            SaveButton.Location = new Point(457, 602);
             SaveButton.Name = "SaveButton";
             SaveButton.Size = new Size(142, 46);
             SaveButton.TabIndex = 90;
@@ -270,7 +224,7 @@
             label11.BackColor = Color.Black;
             label11.Font = new Font("Segoe UI", 30F);
             label11.ForeColor = Color.White;
-            label11.Location = new Point(565, 780);
+            label11.Location = new Point(565, 627);
             label11.Name = "label11";
             label11.Size = new Size(34, 54);
             label11.TabIndex = 91;
@@ -307,16 +261,12 @@
             Controls.Add(firstName);
             Controls.Add(label8);
             Controls.Add(username);
-            Controls.Add(label7);
-            Controls.Add(phone2);
             Controls.Add(label4);
             Controls.Add(Password);
             Controls.Add(label3);
             Controls.Add(Address);
             Controls.Add(label2);
             Controls.Add(Email);
-            Controls.Add(label6);
-            Controls.Add(phone1);
             Controls.Add(AdminIdLabel);
             Controls.Add(SaveButton);
             Controls.Add(label11);
@@ -338,16 +288,12 @@
         private TextBox firstName;
         private Label label8;
         private TextBox username;
-        private Label label7;
-        private TextBox phone2;
         private Label label4;
         private TextBox Password;
         private Label label3;
         private TextBox Address;
         private Label label2;
         private TextBox Email;
-        private Label label6;
-        private TextBox phone1;
         private Label AdminIdLabel;
         private Button SaveButton;
         private Label label11;
