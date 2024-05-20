@@ -8,7 +8,6 @@ namespace FacultySystemApp
 {
     internal class UserSession
     {
-        public static string Email { get; set; }
-        public static string Password { get; set; }
+        public static string ID { get; set; }
     }
 }

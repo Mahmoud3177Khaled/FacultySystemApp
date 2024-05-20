@@ -29,36 +29,32 @@
         private void InitializeComponent()
         {
             SaveButton = new Button();
-            textBox1 = new TextBox();
+            departmentID = new TextBox();
             label10 = new Label();
-            label9 = new Label();
-            id = new TextBox();
             label5 = new Label();
             lastName = new TextBox();
             middleName = new TextBox();
             firstName = new TextBox();
             label8 = new Label();
             username = new TextBox();
-            label7 = new Label();
-            phone2 = new TextBox();
             label4 = new Label();
             Password = new TextBox();
             label3 = new Label();
             Address = new TextBox();
             label2 = new Label();
             Email = new TextBox();
-            label6 = new Label();
-            phone1 = new TextBox();
             StudentIdLabel = new Label();
             label11 = new Label();
             BackButton = new Button();
+            EntryYear = new TextBox();
+            label1 = new Label();
             SuspendLayout();
             // 
             // SaveButton
             // 
             SaveButton.Font = new Font("Segoe UI", 20F);
             SaveButton.ForeColor = Color.Black;
-            SaveButton.Location = new Point(464, 834);
+            SaveButton.Location = new Point(464, 688);
             SaveButton.Name = "SaveButton";
             SaveButton.Size = new Size(142, 46);
             SaveButton.TabIndex = 67;
@@ -66,14 +62,14 @@
             SaveButton.UseVisualStyleBackColor = true;
             SaveButton.Click += SaveButton_Click;
             // 
-            // textBox1
+            // departmentID
             // 
-            textBox1.Font = new Font("Segoe UI", 20F);
-            textBox1.Location = new Point(447, 746);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(601, 43);
-            textBox1.TabIndex = 66;
-            textBox1.TextAlign = HorizontalAlignment.Center;
+            departmentID.Font = new Font("Segoe UI", 20F);
+            departmentID.Location = new Point(447, 523);
+            departmentID.Name = "departmentID";
+            departmentID.Size = new Size(601, 43);
+            departmentID.TabIndex = 66;
+            departmentID.TextAlign = HorizontalAlignment.Center;
             // 
             // label10
             // 
@@ -81,32 +77,11 @@
             label10.BackColor = Color.Black;
             label10.Font = new Font("Segoe UI", 30F);
             label10.ForeColor = Color.White;
-            label10.Location = new Point(41, 736);
+            label10.Location = new Point(41, 513);
             label10.Name = "label10";
             label10.Size = new Size(286, 54);
             label10.TabIndex = 65;
             label10.Text = "Department ID";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.BackColor = Color.Black;
-            label9.Font = new Font("Segoe UI", 30F);
-            label9.ForeColor = Color.White;
-            label9.Location = new Point(118, 289);
-            label9.Name = "label9";
-            label9.Size = new Size(209, 54);
-            label9.TabIndex = 64;
-            label9.Text = "student ID";
-            // 
-            // id
-            // 
-            id.Font = new Font("Segoe UI", 20F);
-            id.Location = new Point(447, 289);
-            id.Name = "id";
-            id.Size = new Size(601, 43);
-            id.TabIndex = 63;
-            id.TextAlign = HorizontalAlignment.Center;
             // 
             // label5
             // 
@@ -171,34 +146,13 @@
             username.TabIndex = 57;
             username.TextAlign = HorizontalAlignment.Center;
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.BackColor = Color.Black;
-            label7.Font = new Font("Segoe UI", 30F);
-            label7.ForeColor = Color.White;
-            label7.Location = new Point(84, 521);
-            label7.Name = "label7";
-            label7.Size = new Size(244, 54);
-            label7.TabIndex = 56;
-            label7.Text = "PhoneNum2";
-            // 
-            // phone2
-            // 
-            phone2.Font = new Font("Segoe UI", 20F);
-            phone2.Location = new Point(447, 521);
-            phone2.Name = "phone2";
-            phone2.Size = new Size(601, 43);
-            phone2.TabIndex = 55;
-            phone2.TextAlign = HorizontalAlignment.Center;
-            // 
             // label4
             // 
             label4.AutoSize = true;
             label4.BackColor = Color.Black;
             label4.Font = new Font("Segoe UI", 30F);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(134, 668);
+            label4.Location = new Point(134, 441);
             label4.Name = "label4";
             label4.Size = new Size(188, 54);
             label4.TabIndex = 54;
@@ -207,7 +161,7 @@
             // Password
             // 
             Password.Font = new Font("Segoe UI", 20F);
-            Password.Location = new Point(447, 668);
+            Password.Location = new Point(447, 441);
             Password.Name = "Password";
             Password.Size = new Size(601, 43);
             Password.TabIndex = 53;
@@ -219,7 +173,7 @@
             label3.BackColor = Color.Black;
             label3.Font = new Font("Segoe UI", 30F);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(156, 364);
+            label3.Location = new Point(156, 291);
             label3.Name = "label3";
             label3.Size = new Size(166, 54);
             label3.TabIndex = 52;
@@ -228,7 +182,7 @@
             // Address
             // 
             Address.Font = new Font("Segoe UI", 20F);
-            Address.Location = new Point(447, 364);
+            Address.Location = new Point(447, 291);
             Address.Name = "Address";
             Address.Size = new Size(601, 43);
             Address.TabIndex = 51;
@@ -240,7 +194,7 @@
             label2.BackColor = Color.Black;
             label2.Font = new Font("Segoe UI", 30F);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(205, 595);
+            label2.Location = new Point(205, 368);
             label2.Name = "label2";
             label2.Size = new Size(117, 54);
             label2.TabIndex = 50;
@@ -249,32 +203,11 @@
             // Email
             // 
             Email.Font = new Font("Segoe UI", 20F);
-            Email.Location = new Point(447, 595);
+            Email.Location = new Point(447, 368);
             Email.Name = "Email";
             Email.Size = new Size(601, 43);
             Email.TabIndex = 49;
             Email.TextAlign = HorizontalAlignment.Center;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.BackColor = Color.Black;
-            label6.Font = new Font("Segoe UI", 30F);
-            label6.ForeColor = Color.White;
-            label6.Location = new Point(84, 443);
-            label6.Name = "label6";
-            label6.Size = new Size(244, 54);
-            label6.TabIndex = 48;
-            label6.Text = "PhoneNum1";
-            // 
-            // phone1
-            // 
-            phone1.Font = new Font("Segoe UI", 20F);
-            phone1.Location = new Point(447, 443);
-            phone1.Name = "phone1";
-            phone1.Size = new Size(601, 43);
-            phone1.TabIndex = 47;
-            phone1.TextAlign = HorizontalAlignment.Center;
             // 
             // StudentIdLabel
             // 
@@ -293,7 +226,7 @@
             label11.BackColor = Color.Black;
             label11.Font = new Font("Segoe UI", 30F);
             label11.ForeColor = Color.White;
-            label11.Location = new Point(572, 859);
+            label11.Location = new Point(572, 704);
             label11.Name = "label11";
             label11.Size = new Size(34, 54);
             label11.TabIndex = 68;
@@ -314,6 +247,27 @@
             BackButton.UseVisualStyleBackColor = false;
             BackButton.Click += BackButton_Click;
             // 
+            // EntryYear
+            // 
+            EntryYear.Font = new Font("Segoe UI", 20F);
+            EntryYear.Location = new Point(447, 606);
+            EntryYear.Name = "EntryYear";
+            EntryYear.Size = new Size(601, 43);
+            EntryYear.TabIndex = 73;
+            EntryYear.TextAlign = HorizontalAlignment.Center;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Black;
+            label1.Font = new Font("Segoe UI", 30F);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(100, 595);
+            label1.Name = "label1";
+            label1.Size = new Size(197, 54);
+            label1.TabIndex = 72;
+            label1.Text = "Entry Year";
+            // 
             // EditStudent
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -321,27 +275,23 @@
             AutoScroll = true;
             BackColor = Color.Black;
             ClientSize = new Size(1121, 660);
+            Controls.Add(EntryYear);
+            Controls.Add(label1);
             Controls.Add(BackButton);
-            Controls.Add(textBox1);
+            Controls.Add(departmentID);
             Controls.Add(label10);
-            Controls.Add(label9);
-            Controls.Add(id);
             Controls.Add(label5);
             Controls.Add(lastName);
             Controls.Add(middleName);
             Controls.Add(firstName);
             Controls.Add(label8);
             Controls.Add(username);
-            Controls.Add(label7);
-            Controls.Add(phone2);
             Controls.Add(label4);
             Controls.Add(Password);
             Controls.Add(label3);
             Controls.Add(Address);
             Controls.Add(label2);
             Controls.Add(Email);
-            Controls.Add(label6);
-            Controls.Add(phone1);
             Controls.Add(StudentIdLabel);
             Controls.Add(SaveButton);
             Controls.Add(label11);
@@ -357,28 +307,24 @@
         #endregion
 
         private Button SaveButton;
-        private TextBox textBox1;
+        private TextBox departmentID;
         private Label label10;
-        private Label label9;
-        private TextBox id;
         private Label label5;
         private TextBox lastName;
         private TextBox middleName;
         private TextBox firstName;
         private Label label8;
         private TextBox username;
-        private Label label7;
-        private TextBox phone2;
         private Label label4;
         private TextBox Password;
         private Label label3;
         private TextBox Address;
         private Label label2;
         private TextBox Email;
-        private Label label6;
-        private TextBox phone1;
         private Label StudentIdLabel;
         private Label label11;
         private Button BackButton;
+        private TextBox EntryYear;
+        private Label label1;
     }
 }

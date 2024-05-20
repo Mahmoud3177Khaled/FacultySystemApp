@@ -16,10 +16,10 @@ namespace FacultySystemApp.student
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
-            LoadProfile(UserSession.Email, UserSession.Password);
+            LoadProfile(UserSession.ID);
         }
 
-        private void LoadProfile(string email, string password)
+        private void LoadProfile(string ID)
         {
             // Load user profile using email and password
 
@@ -40,7 +40,9 @@ namespace FacultySystemApp.student
 
         private void ShowEnrollingCourses_Click(object sender, EventArgs e)
         {
-
+            ShowEnrollingCourses showEnrollingCourses = new ShowEnrollingCourses();
+            showEnrollingCourses.Show();
+            this.Hide();
         }
 
         private void StudentPage_Load(object sender, EventArgs e)

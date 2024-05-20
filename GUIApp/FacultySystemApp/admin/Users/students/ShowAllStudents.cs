@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,13 +21,46 @@ namespace FacultySystemApp.admin.students
 
         private void ShowAllStudents_Load(object sender, EventArgs e)
         {
-            GraduationYear.Items.Add(2020);
-            GraduationYear.Items.Add(2021);
-            GraduationYear.Items.Add(2022);
-            GraduationYear.Items.Add(2023);
+            EntryYear.Items.Add("All");
+            Major.Items.Add("All");
+            Course.Items.Add("All");
 
-            Major.Items.Add("CS");
-            Course.Items.Add("OOP");
+            string parametarizedQuery = "SELECT entry_year FROM " + "Student ";
+
+            SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, DatabaseManager.Connection);
+
+            using (SqlDataReader reader = sqlCommand.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    EntryYear.Items.Add(reader.GetInt32(0));
+                }
+            }
+
+
+            parametarizedQuery = "SELECT department_id FROM " + "Department ";
+
+            sqlCommand = new SqlCommand(parametarizedQuery, DatabaseManager.Connection);
+
+            using (SqlDataReader reader = sqlCommand.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    Major.Items.Add(reader[0]);
+                }
+            }
+
+            parametarizedQuery = "SELECT course_id FROM " + "Course ";
+
+            sqlCommand = new SqlCommand(parametarizedQuery, DatabaseManager.Connection);
+
+            using (SqlDataReader reader = sqlCommand.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    Course.Items.Add(reader[0]);
+                }
+            }
 
 
         }
@@ -34,32 +68,39 @@ namespace FacultySystemApp.admin.students
 
         private void ShowButton_Click(object sender, EventArgs e)
         {
-            List<string> strings = new List<string>
+                bool department_id_bool = false;
+                bool year_bool = false;
+                
+                if (Major.Text != "" && Major.Text != "All")
                 {
-                "gg",
-                "cc",
-                "bb",
-                "bb",
-                "bb",
-                "bb",
-                "bb",
-                "bb",
-                "bb",
-                "bb",
-                "bb",
-                "bb",
-                "mm"
-            };
+                    department_id_bool = true;
+                }
+                if (EntryYear.Text != "" && EntryYear.Text != "All")
+                {
+                    year_bool = true;
+                }
 
-            DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("StudentName", typeof(string));
+                string parametarizedQuery = "SELECT * FROM " + "accounts, Student " +
+                                            " where accounts.account_id = Student.account_id";
 
-            foreach (string name in strings)
-            {
-                dataTable.Rows.Add(name);
-            }
+                if (department_id_bool)
+                {
+                    parametarizedQuery += " and department_id = " + Major.Text;
 
-            Students.DataSource = dataTable;
+                }
+
+                if (year_bool)
+                {
+                    parametarizedQuery += " and entry_year = " + EntryYear.Text;
+
+                }
+
+                SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, DatabaseManager.Connection);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+
+                dataAdapter.Fill(dataTable);
+                Students.DataSource = dataTable;
         }
 
         private void ShowAllStudents_close(object sender, FormClosedEventArgs e)

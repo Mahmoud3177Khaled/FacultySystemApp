@@ -28,8 +28,7 @@ namespace FacultySystemApp
         {
             //this.Hide();
             this.Hide();
-            UserSession.Email = e.Email;
-            UserSession.Password = e.Password;
+            UserSession.ID = e.ID;
             if (e.UserType == "admin")
             {
                 page = new AdminPage();
@@ -54,8 +53,9 @@ namespace FacultySystemApp
             }
         }
 
-        private void verifyAdmin_verify(object sender, EventArgs e)
+        private void verifyAdmin_verify(object sender, UserTypeEventArgs e)
         {
+            UserSession.ID = e.ID;
             ManageUsers manageUsers = new ManageUsers();
             manageUsers.Show();
             this.Hide();

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -93,12 +94,19 @@ namespace FacultySystemApp.admin
             // Based on userType, navigate to the appropriate form
             if (userType == "Student")
             {
-                List<string> StudentIDs = new List<string>
+                List<string> StudentIDs = new List<string> { };
+                string parametarizedQuery = "SELECT student_id FROM " + "Student ";
+
+                SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, DatabaseManager.Connection);
+
+                using (SqlDataReader reader = sqlCommand.ExecuteReader())
                 {
-                "Student",
-                "Student",
-                "Student"
-                };
+                    while (reader.Read())
+                    {
+                        StudentIDs.Add(reader.GetInt32(0).ToString());
+                    }
+                }
+
                 UserIDInputForm idInputForm = new UserIDInputForm(userType, StudentIDs);
                 if (idInputForm.ShowDialog() == DialogResult.OK)
                 {
@@ -108,12 +116,20 @@ namespace FacultySystemApp.admin
             }
             else if (userType == "Admin")
             {
-                List<string> AdminsIDs = new List<string>
+                List<string> AdminsIDs = new List<string>{};
+
+                string parametarizedQuery = "SELECT admin_id FROM " + "Admin ";
+
+                SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, DatabaseManager.Connection);
+
+                using (SqlDataReader reader = sqlCommand.ExecuteReader())
                 {
-                "Admin",
-                "Admin",
-                "Admin"
-                };
+                    while (reader.Read())
+                    {
+                        AdminsIDs.Add(reader.GetInt32(0).ToString());
+                    }
+                }
+
                 UserIDInputForm idInputForm = new UserIDInputForm(userType, AdminsIDs);
                 if (idInputForm.ShowDialog() == DialogResult.OK)
                 {
@@ -123,12 +139,20 @@ namespace FacultySystemApp.admin
             }
             else if (userType == "Staff")
             {
-                List<string> StaffIDs = new List<string>
+                List<string> StaffIDs = new List<string>{};
+
+                string parametarizedQuery = "SELECT staff_id FROM " + "Staff ";
+
+                SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, DatabaseManager.Connection);
+
+                using (SqlDataReader reader = sqlCommand.ExecuteReader())
                 {
-                "Staff",
-                "Staff",
-                "Staff"
-                };
+                    while (reader.Read())
+                    {
+                        StaffIDs.Add(reader.GetInt32(0).ToString());
+                    }
+                }
+
                 UserIDInputForm idInputForm = new UserIDInputForm(userType, StaffIDs);
                 if (idInputForm.ShowDialog() == DialogResult.OK)
                 {

@@ -30,11 +30,11 @@
         {
             label1 = new Label();
             label4 = new Label();
-            Password = new TextBox();
+            password = new TextBox();
             label3 = new Label();
-            Address = new TextBox();
+            address = new TextBox();
             label2 = new Label();
-            Email = new TextBox();
+            email = new TextBox();
             label6 = new Label();
             phone1 = new TextBox();
             label7 = new Label();
@@ -48,7 +48,7 @@
             label9 = new Label();
             id = new TextBox();
             label10 = new Label();
-            textBox1 = new TextBox();
+            departmentID = new TextBox();
             signupButton = new Button();
             label11 = new Label();
             BackButton = new Button();
@@ -77,14 +77,14 @@
             label4.TabIndex = 30;
             label4.Text = "Password";
             // 
-            // Password
+            // password
             // 
-            Password.Font = new Font("Segoe UI", 20F);
-            Password.Location = new Point(426, 663);
-            Password.Name = "Password";
-            Password.Size = new Size(601, 43);
-            Password.TabIndex = 29;
-            Password.TextAlign = HorizontalAlignment.Center;
+            password.Font = new Font("Segoe UI", 20F);
+            password.Location = new Point(426, 663);
+            password.Name = "password";
+            password.Size = new Size(601, 43);
+            password.TabIndex = 29;
+            password.TextAlign = HorizontalAlignment.Center;
             // 
             // label3
             // 
@@ -98,14 +98,14 @@
             label3.TabIndex = 28;
             label3.Text = "Address";
             // 
-            // Address
+            // address
             // 
-            Address.Font = new Font("Segoe UI", 20F);
-            Address.Location = new Point(426, 359);
-            Address.Name = "Address";
-            Address.Size = new Size(601, 43);
-            Address.TabIndex = 27;
-            Address.TextAlign = HorizontalAlignment.Center;
+            address.Font = new Font("Segoe UI", 20F);
+            address.Location = new Point(426, 359);
+            address.Name = "address";
+            address.Size = new Size(601, 43);
+            address.TabIndex = 27;
+            address.TextAlign = HorizontalAlignment.Center;
             // 
             // label2
             // 
@@ -119,14 +119,14 @@
             label2.TabIndex = 26;
             label2.Text = "Email";
             // 
-            // Email
+            // email
             // 
-            Email.Font = new Font("Segoe UI", 20F);
-            Email.Location = new Point(426, 590);
-            Email.Name = "Email";
-            Email.Size = new Size(601, 43);
-            Email.TabIndex = 25;
-            Email.TextAlign = HorizontalAlignment.Center;
+            email.Font = new Font("Segoe UI", 20F);
+            email.Location = new Point(426, 590);
+            email.Name = "email";
+            email.Size = new Size(601, 43);
+            email.TabIndex = 25;
+            email.TextAlign = HorizontalAlignment.Center;
             // 
             // label6
             // 
@@ -266,14 +266,14 @@
             label10.TabIndex = 42;
             label10.Text = "Department ID";
             // 
-            // textBox1
+            // departmentID
             // 
-            textBox1.Font = new Font("Segoe UI", 20F);
-            textBox1.Location = new Point(426, 741);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(601, 43);
-            textBox1.TabIndex = 43;
-            textBox1.TextAlign = HorizontalAlignment.Center;
+            departmentID.Font = new Font("Segoe UI", 20F);
+            departmentID.Location = new Point(426, 741);
+            departmentID.Name = "departmentID";
+            departmentID.Size = new Size(601, 43);
+            departmentID.TabIndex = 43;
+            departmentID.TextAlign = HorizontalAlignment.Center;
             // 
             // signupButton
             // 
@@ -284,6 +284,7 @@
             signupButton.TabIndex = 44;
             signupButton.Text = "Signup";
             signupButton.UseVisualStyleBackColor = true;
+            signupButton.Click += signupButton_Click;
             // 
             // label11
             // 
@@ -321,7 +322,7 @@
             ClientSize = new Size(1113, 723);
             Controls.Add(BackButton);
             Controls.Add(signupButton);
-            Controls.Add(textBox1);
+            Controls.Add(departmentID);
             Controls.Add(label10);
             Controls.Add(label9);
             Controls.Add(id);
@@ -334,11 +335,11 @@
             Controls.Add(label7);
             Controls.Add(phone2);
             Controls.Add(label4);
-            Controls.Add(Password);
+            Controls.Add(password);
             Controls.Add(label3);
-            Controls.Add(Address);
+            Controls.Add(address);
             Controls.Add(label2);
-            Controls.Add(Email);
+            Controls.Add(email);
             Controls.Add(label6);
             Controls.Add(phone1);
             Controls.Add(label1);
@@ -354,11 +355,11 @@
 
         private Label label1;
         private Label label4;
-        private TextBox Password;
+        private TextBox password;
         private Label label3;
-        private TextBox Address;
+        private TextBox address;
         private Label label2;
-        private TextBox Email;
+        private TextBox email;
         private Label label6;
         private TextBox phone1;
         private Label label7;
@@ -372,7 +373,7 @@
         private Label label9;
         private TextBox id;
         private Label label10;
-        private TextBox textBox1;
+        private TextBox departmentID;
         private Button signupButton;
         private Label label11;
         private Button BackButton;
