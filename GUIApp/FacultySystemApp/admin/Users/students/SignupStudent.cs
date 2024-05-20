@@ -58,5 +58,10 @@ namespace FacultySystemApp.admin.students
             sqlCommand.Parameters.AddWithValue("@student_address", address.Text);
             sqlCommand.ExecuteNonQuery();
         }
+
+        private void SignupStudent_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

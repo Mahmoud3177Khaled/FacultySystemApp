@@ -64,6 +64,7 @@
             // 
             Courses.AllowUserToAddRows = false;
             Courses.AllowUserToDeleteRows = false;
+            Courses.BackgroundColor = Color.Black;
             Courses.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             Courses.Location = new Point(12, 91);
             Courses.Name = "Courses";

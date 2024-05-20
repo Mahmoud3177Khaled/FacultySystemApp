@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -31,6 +32,25 @@ namespace FacultySystemApp.admin.staff
         }
 
         private void signupButton_Click(object sender, EventArgs e)
+        {
+
+            string parametarizedQuery = "INSERT INTO " + "Staff ";
+
+            parametarizedQuery += " VALUES(@staff_id, @department_id, @staff_first_name," +
+                                  " @staff_middle_name, @staff_last_name);";
+
+            SqlCommand sqlCommand = new SqlCommand(parametarizedQuery, DatabaseManager.Connection);
+
+            sqlCommand.Parameters.AddWithValue("@staff_id", id.Text);
+            sqlCommand.Parameters.AddWithValue("@department_id", DepartmentID.Text);
+            sqlCommand.Parameters.AddWithValue("@staff_first_name", firstName.Text);
+            sqlCommand.Parameters.AddWithValue("@staff_middle_name", middleName.Text);
+            sqlCommand.Parameters.AddWithValue("@staff_last_name", lastName.Text);
+            sqlCommand.ExecuteNonQuery();
+
+        }
+
+        private void AddStuff_Load(object sender, EventArgs e)
         {
 
         }

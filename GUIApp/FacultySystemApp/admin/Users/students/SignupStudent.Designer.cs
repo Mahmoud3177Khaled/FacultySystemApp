@@ -347,6 +347,7 @@
             Name = "SignupStudent";
             Text = "SignupStudent";
             FormClosed += AddStudent_close;
+            Load += SignupStudent_Load;
             ResumeLayout(false);
             PerformLayout();
         }

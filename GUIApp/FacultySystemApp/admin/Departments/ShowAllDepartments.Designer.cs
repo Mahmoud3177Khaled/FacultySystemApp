@@ -64,6 +64,7 @@
             // 
             Departments.AllowUserToAddRows = false;
             Departments.AllowUserToDeleteRows = false;
+            Departments.BackgroundColor = Color.Black;
             Departments.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             Departments.Location = new Point(12, 92);
             Departments.Name = "Departments";

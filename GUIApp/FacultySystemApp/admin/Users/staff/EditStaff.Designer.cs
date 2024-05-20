@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             label8 = new Label();
-            textBox1 = new TextBox();
+            id = new TextBox();
             BackButton = new Button();
             SaveButton = new Button();
             label9 = new Label();
-            id = new TextBox();
+            departmentID = new TextBox();
             label5 = new Label();
             lastName = new TextBox();
             middleName = new TextBox();
@@ -53,14 +53,15 @@
             label8.TabIndex = 104;
             label8.Text = "Staff ID";
             // 
-            // textBox1
+            // id
             // 
-            textBox1.Font = new Font("Segoe UI", 20F);
-            textBox1.Location = new Point(432, 193);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(601, 43);
-            textBox1.TabIndex = 103;
-            textBox1.TextAlign = HorizontalAlignment.Center;
+            id.Enabled = false;
+            id.Font = new Font("Segoe UI", 20F);
+            id.Location = new Point(432, 193);
+            id.Name = "id";
+            id.Size = new Size(601, 43);
+            id.TabIndex = 103;
+            id.TextAlign = HorizontalAlignment.Center;
             // 
             // BackButton
             // 
@@ -81,7 +82,7 @@
             // 
             SaveButton.Font = new Font("Segoe UI", 20F);
             SaveButton.ForeColor = Color.Black;
-            SaveButton.Location = new Point(432, 420);
+            SaveButton.Location = new Point(432, 382);
             SaveButton.Name = "SaveButton";
             SaveButton.Size = new Size(142, 46);
             SaveButton.TabIndex = 101;
@@ -101,14 +102,15 @@
             label9.TabIndex = 100;
             label9.Text = "Department ID";
             // 
-            // id
+            // departmentID
             // 
-            id.Font = new Font("Segoe UI", 20F);
-            id.Location = new Point(432, 272);
-            id.Name = "id";
-            id.Size = new Size(601, 43);
-            id.TabIndex = 99;
-            id.TextAlign = HorizontalAlignment.Center;
+            departmentID.Enabled = false;
+            departmentID.Font = new Font("Segoe UI", 20F);
+            departmentID.Location = new Point(432, 272);
+            departmentID.Name = "departmentID";
+            departmentID.Size = new Size(601, 43);
+            departmentID.TabIndex = 99;
+            departmentID.TextAlign = HorizontalAlignment.Center;
             // 
             // label5
             // 
@@ -168,13 +170,13 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            ClientSize = new Size(1058, 527);
+            ClientSize = new Size(1058, 480);
             Controls.Add(label8);
-            Controls.Add(textBox1);
+            Controls.Add(id);
             Controls.Add(BackButton);
             Controls.Add(SaveButton);
             Controls.Add(label9);
-            Controls.Add(id);
+            Controls.Add(departmentID);
             Controls.Add(label5);
             Controls.Add(lastName);
             Controls.Add(middleName);
@@ -192,11 +194,11 @@
         #endregion
 
         private Label label8;
-        private TextBox textBox1;
+        private TextBox id;
         private Button BackButton;
         private Button SaveButton;
         private Label label9;
-        private TextBox id;
+        private TextBox departmentID;
         private Label label5;
         private TextBox lastName;
         private TextBox middleName;

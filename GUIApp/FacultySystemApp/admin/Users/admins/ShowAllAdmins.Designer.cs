@@ -38,6 +38,7 @@
             // 
             Admins.AllowUserToAddRows = false;
             Admins.AllowUserToDeleteRows = false;
+            Admins.BackgroundColor = Color.Black;
             Admins.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             Admins.Location = new Point(12, 98);
             Admins.Name = "Admins";

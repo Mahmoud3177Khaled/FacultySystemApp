@@ -30,14 +30,14 @@
         {
             BackButton = new Button();
             label9 = new Label();
-            id = new TextBox();
+            DepartmentID = new TextBox();
             label5 = new Label();
             lastName = new TextBox();
             middleName = new TextBox();
             firstName = new TextBox();
             label1 = new Label();
             label8 = new Label();
-            textBox1 = new TextBox();
+            id = new TextBox();
             signupButton = new Button();
             SuspendLayout();
             // 
@@ -68,14 +68,14 @@
             label9.TabIndex = 88;
             label9.Text = "Department ID";
             // 
-            // id
+            // DepartmentID
             // 
-            id.Font = new Font("Segoe UI", 20F);
-            id.Location = new Point(434, 270);
-            id.Name = "id";
-            id.Size = new Size(601, 43);
-            id.TabIndex = 87;
-            id.TextAlign = HorizontalAlignment.Center;
+            DepartmentID.Font = new Font("Segoe UI", 20F);
+            DepartmentID.Location = new Point(434, 270);
+            DepartmentID.Name = "DepartmentID";
+            DepartmentID.Size = new Size(601, 43);
+            DepartmentID.TabIndex = 87;
+            DepartmentID.TextAlign = HorizontalAlignment.Center;
             // 
             // label5
             // 
@@ -142,14 +142,14 @@
             label8.TabIndex = 93;
             label8.Text = "Staff ID";
             // 
-            // textBox1
+            // id
             // 
-            textBox1.Font = new Font("Segoe UI", 20F);
-            textBox1.Location = new Point(434, 191);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(601, 43);
-            textBox1.TabIndex = 92;
-            textBox1.TextAlign = HorizontalAlignment.Center;
+            id.Font = new Font("Segoe UI", 20F);
+            id.Location = new Point(434, 191);
+            id.Name = "id";
+            id.Size = new Size(601, 43);
+            id.TabIndex = 92;
+            id.TextAlign = HorizontalAlignment.Center;
             // 
             // signupButton
             // 
@@ -171,11 +171,11 @@
             BackColor = Color.Black;
             ClientSize = new Size(1062, 484);
             Controls.Add(label8);
-            Controls.Add(textBox1);
+            Controls.Add(id);
             Controls.Add(BackButton);
             Controls.Add(signupButton);
             Controls.Add(label9);
-            Controls.Add(id);
+            Controls.Add(DepartmentID);
             Controls.Add(label5);
             Controls.Add(lastName);
             Controls.Add(middleName);
@@ -185,6 +185,7 @@
             Name = "AddStuff";
             Text = "AddStuff";
             FormClosed += AddStuff_FormClosed;
+            Load += AddStuff_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -193,14 +194,14 @@
 
         private Button BackButton;
         private Label label9;
-        private TextBox id;
+        private TextBox DepartmentID;
         private Label label5;
         private TextBox lastName;
         private TextBox middleName;
         private TextBox firstName;
         private Label label1;
         private Label label8;
-        private TextBox textBox1;
+        private TextBox id;
         private Button signupButton;
     }
 }

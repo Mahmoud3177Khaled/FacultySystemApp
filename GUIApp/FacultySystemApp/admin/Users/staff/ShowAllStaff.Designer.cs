@@ -63,16 +63,18 @@
             // 
             Staff.AllowUserToAddRows = false;
             Staff.AllowUserToDeleteRows = false;
+            Staff.BackgroundColor = Color.Black;
             Staff.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             Staff.Location = new Point(13, 84);
             Staff.Name = "Staff";
             Staff.ReadOnly = true;
             Staff.RowTemplate.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Staff.RowTemplate.DefaultCellStyle.ForeColor = Color.Black;
-            Staff.RowTemplate.DefaultCellStyle.Format = "N3";
+            Staff.RowTemplate.DefaultCellStyle.Format = "N2";
             Staff.RowTemplate.DefaultCellStyle.NullValue = null;
             Staff.Size = new Size(983, 509);
             Staff.TabIndex = 71;
+            Staff.CellContentClick += Staff_CellContentClick;
             // 
             // ShowAllStaff
             // 
